@@ -6,14 +6,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-public class StartTask4 {
-	private static final Logger LOG = Logger.getLogger(StartTask4.class);
+public class StartTask4Nom4 {
+	private static final Logger LOG = Logger.getLogger(StartTask4Nom4.class);
 	private static final int kIteration = 1000;
 
 	public static void main(String[] args) {
 		LOG.info("Start task 4");
-		StartTask4 startTask4 = new StartTask4();
-		startTask4.comparePerformance();
+		StartTask4Nom4 startTask4Nom4 = new StartTask4Nom4();
+		startTask4Nom4.comparePerformance();
 		LOG.info("End task 4");
 	}
 
