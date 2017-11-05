@@ -3,8 +3,9 @@ package com.epam.lab.task4.enumtask.models;
 import com.epam.lab.task4.enumtask.constants.DriodConstants;
 
 public class SimpleChargeEnergyDroid extends SimpleDroid implements ChargeEnergyDroid {
-	public SimpleChargeEnergyDroid() {
-		super(DriodConstants.MAX_BEGIN_CHARGE_DROID_ENERGY, DriodConstants.MAX_BEGIN_CHARGE_DROID_HEALTH);
+	public SimpleChargeEnergyDroid(Integer maxEnergy, Integer maxHealth) {
+		super(maxEnergy, maxHealth);
+		// TODO Auto-generated constructor stub
 	}
 
 	public void charge(SimpleDroid injuredDroid) {

@@ -1,19 +1,17 @@
 package com.epam.lab.task4.enumtask.menu;
 
 import org.apache.log4j.Logger;
+import com.epam.lab.task4.enumtask.models.*;
 
-import com.epam.lab.task2.droids.SimpleDroid;
-
-public class DriodInfoDisplayer { 
+public class DriodInfoDisplayer {
 	private static final Logger LOG = Logger.getLogger(DriodInfoDisplayer.class);
 
 	public DriodInfoDisplayer() {
 	}
 
 	public void printAllInformation(SimpleDroid droid) {
-		
-		LOG.info(String.format("%s (health= %s; energy= %s)", droid.toString(), droid.getHealth(),
-				droid.getEnergy()));
+
+		LOG.info(String.format("%s (health= %s; energy= %s)", droid.toString(), droid.getHealth(), droid.getEnergy()));
 	}
 
 	public void printEnergyInformation(SimpleDroid droid) {

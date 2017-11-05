@@ -4,8 +4,9 @@ import com.epam.lab.task4.enumtask.constants.DriodConstants;
 
 public class SimpleBattleDroid extends SimpleDroid implements BattleDroid {
 
-	public SimpleBattleDroid() {
-		super(DriodConstants.MAX_BEGIN_BATTLE_DROID_ENERGY, DriodConstants.MAX_BEGIN_BATTLE_DROID_HEALTH);
+	public SimpleBattleDroid(Integer maxEnergy, Integer maxHealth) {
+		super(maxEnergy, maxHealth);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

@@ -6,9 +6,10 @@ public class Droideka extends DefenderBattleDroid implements DefenderDroid{
 
 
 	
-	public Droideka() {
-		setBasicParameters();
-		}
+	public Droideka(Integer maxEnergy, Integer maxHealth) {
+		super(maxEnergy, maxHealth);
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public void defenceItself(SimpleDroid droidAttacker) {
 		absorbEnergy(droidAttacker);
@@ -18,12 +19,5 @@ public class Droideka extends DefenderBattleDroid implements DefenderDroid{
 	private void absorbEnergy(SimpleDroid droidAttacker) {
 		setEnergy(getEnergy()+droidAttacker.getEnergy());
 	}
-	private void setBasicParameters() {
-		setMaxEnergy(DriodConstants.MAX_BEGIN_DROIDEKA_DROID_ENERGY);
-		setMaxHealth(DriodConstants.MAX_BEGIN_DROIDEKA_DROID_HEALTH);
-		setEnergy(DriodConstants.MAX_BEGIN_DROIDEKA_DROID_ENERGY);
-		setHealth(DriodConstants.MAX_BEGIN_DROIDEKA_DROID_HEALTH);
-	}
-		
 	}
 

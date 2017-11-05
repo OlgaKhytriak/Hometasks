@@ -1,12 +1,8 @@
 package com.epam.lab.task4.enumtask.menu;
 
 import java.util.ArrayList;
+import com.epam.lab.task4.enumtask.models.*;
 
-import com.epam.lab.task2.droids.BattleDroid;
-import com.epam.lab.task2.droids.ChargeEnergyDroid;
-import com.epam.lab.task2.droids.SimpleChargeEnergyDroid;
-import com.epam.lab.task2.droids.SimpleDroid;
-import com.epam.lab.task2.io.Keyboard;
 
 public class Team {
 	private Integer beginNumberOfTeamMembers;
@@ -21,6 +17,7 @@ public class Team {
 	 * @param numberOfTeamMembers
 	 */
 	public Team(Integer numberOfTeamMembers) {
+		beginNumberOfTeamMembers=numberOfTeamMembers;
 		setNumberOfTeamMembers(numberOfTeamMembers);
 		setTeamList(new ArrayList<SimpleDroid>(numberOfTeamMembers));
 		readerFromKeyboard = new Keyboard();
@@ -31,8 +28,7 @@ public class Team {
 
 	}
 
-	/**
-	 * Find the first injured (current health points < max potential heals points)
+	/**Find the first injured (current health points < max potential heals points)
 	 * droin in the team.
 	 * 
 	 * @return {@link SimpleDroid} the first injured droid in the team ; Return

@@ -1,21 +1,20 @@
 package com.epam.lab.task4.enumtask;
+import org.apache.log4j.Logger;
 
-import com.epam.lab.task4.enumtask.enums.DroidType;
-import com.epam.lab.task4.enumtask.menu.EnumeInfoDisplayer;
+import com.epam.lab.task4.enumtask.menu.DroidTypeInfoDisplayer;
+import com.epam.lab.task4.enumtask.menu.Team;
+import com.epam.lab.task4.enumtask.menu.TeamListFiller;
 
 public class StartTask4Nom3 {
+	private static final Logger LOG = Logger.getLogger(StartTask4Nom3.class);
 
 	public static void main(String[] args) {
 
-		EnumeInfoDisplayer enumeInfoDisplayer=new EnumeInfoDisplayer();
-		//if (args.length != 1) {
-		//	System.err.println("Usage: java Planet &lt;earth_weight&gt;");
-		//	System.exit(-1);
-		//}
-		//double earthWeight = Double.parseDouble(args[0]);
-		//double mass = earthWeight / EARTH.surfaceGravity();
-		for (DroidType dt : DroidType.values())
-			System.out.print(String.format("Your droid is %s with max energy=%s", dt,dt.calcMaxEnergy()));
-
+		DroidTypeInfoDisplayer droidTypeInfoDisplayer=new DroidTypeInfoDisplayer();
+		droidTypeInfoDisplayer.displayAllTypes();
+		int teamMembers=2;
+		Team teamMars=new Team(teamMembers);
+		LOG.info("------ End of StartTask4Nom3-----");
+		
 	}
 }

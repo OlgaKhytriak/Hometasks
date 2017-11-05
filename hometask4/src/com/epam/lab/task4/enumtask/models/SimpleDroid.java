@@ -14,13 +14,12 @@ public abstract class SimpleDroid implements Droid{
 	private Integer maxHealth;
 	private Integer maxEnergy;
 	private Integer maxPower;
-	private Team myTeam;
-	
-	protected SimpleDroid(Integer maxEnergy,Integer maxHealth) {
-		setMaxHealth(maxEnergy);
-		setMaxEnergy(maxHealth);
-		setEnergy(maxEnergy);
-		setHealth(maxHealth);
+		
+	public SimpleDroid(Integer maxEnergy,Integer maxHealth) {
+		this.maxEnergy=maxEnergy;
+		this.maxHealth=maxHealth;
+		this.energy=maxEnergy;
+		this.health=maxHealth;
 	}
 	public String toString() {
 		return this.getClass().getSimpleName();
@@ -70,16 +69,5 @@ public abstract class SimpleDroid implements Droid{
 		this.maxPower = maxPower;
 	}
 
-		public Team getMyTeam() {
-		return myTeam;
-	}
-
-	public void setMyTeam(Team myTeam) {
-		this.myTeam = myTeam;
-	}
-
-	
-	
-	
 	
 }

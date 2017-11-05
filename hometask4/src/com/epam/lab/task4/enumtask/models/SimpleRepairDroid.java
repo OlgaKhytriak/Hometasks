@@ -8,9 +8,10 @@ import com.epam.lab.task4.enumtask.constants.DriodConstants;
  */
 public class SimpleRepairDroid extends SimpleDroid implements RepairDroid {
 
-	public SimpleRepairDroid() {
-		super(DriodConstants.MAX_BEGIN_REPAIR_DROID_ENERGY, DriodConstants.MAX_BEGIN_REPAIR_DROID_HEALTH);
-		}
+	public SimpleRepairDroid(Integer maxEnergy, Integer maxHealth) {
+		super(maxEnergy, maxHealth);
+		// TODO Auto-generated constructor stub
+	}
 
 	public void repair(SimpleDroid injuredDroid) {
 		Integer injuredDroidHealth = injuredDroid.getHealth();

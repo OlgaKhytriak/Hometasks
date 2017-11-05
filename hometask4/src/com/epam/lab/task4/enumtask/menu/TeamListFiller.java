@@ -2,63 +2,74 @@ package com.epam.lab.task4.enumtask.menu;
 
 import org.apache.log4j.Logger;
 
-import com.epam.lab.task4.enumtask.models.Droid;
+import com.epam.lab.task4.enumtask.enums.DroidType;
+import com.epam.lab.task4.enumtask.models.*;
 
 public class TeamListFiller {
 	private final Keyboard readerFromKeyboard;
-	private TeamInfoDisplayer teamInfoDisplayer;
+	private final DroidTypeInfoDisplayer droidTypeInfoDisplayer;
+	// private TeamInfoDisplayer teamInfoDisplayer;
 	private static final Logger LOG = Logger.getLogger(TeamListFiller.class);
-	TeamListFiller() {
+
+	public TeamListFiller() {
 		readerFromKeyboard = new Keyboard();
-		teamInfoDisplayer = new TeamInfoDisplayer();
+		// teamInfoDisplayer = new TeamInfoDisplayer();
+		droidTypeInfoDisplayer = new DroidTypeInfoDisplayer();
 	}
 
 	public void fill(Team team) {
-		teamInfoDisplayer.printInfoForTeamFill(team);
-		Droid currentDroid = null;
+		SimpleDroid currentDroid = null;
+		int health = 0;
+		int energy = 0;
 		int i = 0;
-		while (i < team.getBeginNumberOfTeamMembers()) {
+		int teamAmount=team.getBeginNumberOfTeamMembers();
+		while (i < teamAmount) {
 			Integer typeTeamMember = readerFromKeyboard
-					.readIntegerFromKeyboard(String.format("Input the type of team member ¹ [%s]", i+1));
+					.readIntegerFromKeyboard(String.format("Input the type droid ¹ [%s]", i + 1));
 			switch (typeTeamMember) {
 			case 1:
-				currentDroid = new SimpleRepairDroid();
+				health = DroidType.SIMPLEBATTLEDROID.calcMaxHealth();
+				energy = DroidType.SIMPLEBATTLEDROID.calcMaxHealth();
+				currentDroid = new SimpleBattleDroid(health, energy);
+				LOG.info(DroidType.SIMPLEBATTLEDROID.getDescription());
 				break;
 			case 2:
-				currentDroid = new SimpleBattleDroid();
+				health = DroidType.SIMPLEREPAIRDROID.calcMaxHealth();
+				energy = DroidType.SIMPLEREPAIRDROID.calcMaxHealth();
+				currentDroid = new SimpleRepairDroid(health, energy);
+				LOG.info(DroidType.SIMPLEREPAIRDROID.getDescription());
 				break;
 			case 3:
-				currentDroid = new SuperDroid();
+				health = DroidType.SIMPLECHARGEENERGYDROID.calcMaxHealth();
+				energy = DroidType.SIMPLECHARGEENERGYDROID.calcMaxHealth();
+				currentDroid = new SimpleChargeEnergyDroid(health, energy);
+				LOG.info(DroidType.SIMPLECHARGEENERGYDROID.getDescription());
 				break;
 			case 4:
-				currentDroid = new SimpleChargeEnergyDroid();
+				health = DroidType.DEFENDERBATTLEDROID.calcMaxHealth();
+				energy = DroidType.DEFENDERBATTLEDROID.calcMaxHealth();
+				currentDroid = new DefenderBattleDroid(health, energy);
+				LOG.info(DroidType.DEFENDERBATTLEDROID.getDescription());
 				break;
 			case 5:
-				currentDroid = new DefenderBattleDroid();
+				health = DroidType.DROIDEKA.calcMaxHealth();
+				energy = DroidType.DROIDEKA.calcMaxHealth();
+				currentDroid = new Droideka(health, energy);
+				LOG.info(DroidType.DROIDEKA.getDescription());
 				break;
 			case 6:
-				currentDroid = new Droideka();
-				break;
-			case 7:
-				currentDroid = new SuperDoctor();
-				break;
-			case 8:
-				currentDroid = new DefenderRepairDroid();
-				break;
-			case 9:
-				currentDroid = new SuperPowerfullDroid();
-				break;
-			case 10:
-				currentDroid = new BattleLazerDroid();
+				health = DroidType.DEFENDERREPAIRDROID.calcMaxHealth();
+				energy = DroidType.DEFENDERREPAIRDROID.calcMaxHealth();
+				currentDroid = new DefenderRepairDroid(health, energy);
+				LOG.info(DroidType.DEFENDERREPAIRDROID.getDescription());
 				break;
 			default:
-				LOG.info((String.format("You enter wrong type of droid ¹ [%s].  !! Try again: ",i)));
+				LOG.info((String.format("You enter wrong type of droid!! Try again: ", i)));
 				break;
 			}
-			if ((0<typeTeamMember)&&(typeTeamMember<11)) {
+			if ((0 < typeTeamMember) && (typeTeamMember < 7)) {
 				i++;
 				team.getTeamList().add(currentDroid);
-				currentDroid.setMyTeam(team);
 			}
 
 		}
