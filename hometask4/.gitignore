@@ -1,4 +1,6 @@
 /bin/
+resources/
+src/libs/
 .classpath
 .project
 .settings/
