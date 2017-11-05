@@ -2,19 +2,7 @@ package com.epam.lab.task4.enumtask.menu;
 
 import org.apache.log4j.Logger;
 
-import com.epam.lab.task2.droids.BattleLazerDroid;
-import com.epam.lab.task2.droids.DefenderBattleDroid;
-import com.epam.lab.task2.droids.DefenderRepairDroid;
-import com.epam.lab.task2.droids.Droideka;
-import com.epam.lab.task2.droids.SimpleBattleDroid;
-import com.epam.lab.task2.droids.SimpleChargeEnergyDroid;
-import com.epam.lab.task2.droids.SimpleDroid;
-import com.epam.lab.task2.droids.SimpleRepairDroid;
-import com.epam.lab.task2.droids.SuperDoctor;
-import com.epam.lab.task2.droids.SuperDroid;
-import com.epam.lab.task2.droids.SuperPowerfullDroid;
-import com.epam.lab.task2.io.Keyboard;
-import com.epam.lab.task2.io.TeamInfoDisplayer;
+import com.epam.lab.task4.enumtask.models.Droid;
 
 public class TeamListFiller {
 	private final Keyboard readerFromKeyboard;
@@ -27,7 +15,7 @@ public class TeamListFiller {
 
 	public void fill(Team team) {
 		teamInfoDisplayer.printInfoForTeamFill(team);
-		SimpleDroid currentDroid = null;
+		Droid currentDroid = null;
 		int i = 0;
 		while (i < team.getBeginNumberOfTeamMembers()) {
 			Integer typeTeamMember = readerFromKeyboard
