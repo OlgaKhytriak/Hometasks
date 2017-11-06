@@ -7,15 +7,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Generator {
 
-	public CountryCapitalClass[] generateArray(int n) throws ArrayIndexOutOfBoundsException {
-		CountryCapitalClass[] rezArray = null;
+	public CountryCapitalBasic[] generateArray(int n) throws ArrayIndexOutOfBoundsException {
+		CountryCapitalBasic[] rezArray = null;
 		if (n > InfoContainer.CAPITALS_COUNTRIES.size()) {
 			throw new ArrayIndexOutOfBoundsException();
 		} else {
-			rezArray = new CountryCapitalClass[n];
+			rezArray = new CountryCapitalBasic[n];
 			for (int i = 0; i < n; i++) {
 				String[] pair = chooseRandomPair(InfoContainer.CAPITALS_COUNTRIES);
-				CountryCapitalClass element = new CountryCapitalClass();
+				CountryCapitalBasic element = new CountryCapitalBasic();
 				element.setCountry(pair[0]);
 				element.setCapital(pair[1]);
 				rezArray[i] = element;
@@ -25,15 +25,15 @@ public class Generator {
 
 	}
 
-	public ArrayList<CountryCapitalClass> generateArrayList(int n) throws ArrayIndexOutOfBoundsException {
-		ArrayList<CountryCapitalClass> rezArrayList = null;
+	public ArrayList<CountryCapitalBasic> generateArrayList(int n) throws ArrayIndexOutOfBoundsException {
+		ArrayList<CountryCapitalBasic> rezArrayList = null;
 		if (n > InfoContainer.CAPITALS_COUNTRIES.size()) {
 			throw new ArrayIndexOutOfBoundsException();
 		} else {
-			rezArrayList = new ArrayList<CountryCapitalClass>(n);
-			for (int i = 0; i < n; i++) {			
+			rezArrayList = new ArrayList<CountryCapitalBasic>(n);
+			for (int i = 0; i < n; i++) {
 				String[] pair = chooseRandomPair(InfoContainer.CAPITALS_COUNTRIES);
-				CountryCapitalClass element = new CountryCapitalClass();
+				CountryCapitalBasic element = new CountryCapitalBasic();
 				element.setCountry(pair[0]);
 				element.setCapital(pair[1]);
 				rezArrayList.add(element);

@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InfoContainer {
-	public static final  Map<String, String> CAPITALS_COUNTRIES=createContainer();
+	public static final Map<String, String> CAPITALS_COUNTRIES = createContainer();
 
 	private InfoContainer() {
-		//countriesCapitalsContainer=createContainer();
 	}
+
 	private static Map<String, String> createContainer() {
-	//	private static void createContainer() {
+
 		Map<String, String> container = new HashMap<String, String>();
 		container.put("England", "London");
 		container.put("Albania", "Tirana");

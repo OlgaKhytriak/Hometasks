@@ -1,20 +1,15 @@
 package com.epam.lab.task4.comparetask;
 
-public class CountryCapitalClass implements Comparable<CountryCapitalClass>{
+public class CountryCapitalBasic implements Comparable<CountryCapitalBasic> {
 	private String capital;
-	private String country;
+	protected String country;
 
-	public CountryCapitalClass() {
+	public CountryCapitalBasic() {
 	}
 
-	public CountryCapitalClass(String capital, String country) {
+	public CountryCapitalBasic(String capital, String country) {
 		this.capital = capital;
 		this.country = country;
-	}
-	
-	@Override
-	public int compareTo(CountryCapitalClass o) {
-		return country.compareTo(o.country);		
 	}
 
 	public String getCapital() {
@@ -33,5 +28,9 @@ public class CountryCapitalClass implements Comparable<CountryCapitalClass>{
 		this.country = country;
 	}
 
-	
+	@Override
+	public int compareTo(CountryCapitalBasic o) {
+		return country.compareTo(o.country);
+	}
+
 }
