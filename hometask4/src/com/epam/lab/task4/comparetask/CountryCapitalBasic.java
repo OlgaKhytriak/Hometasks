@@ -7,7 +7,7 @@ public class CountryCapitalBasic implements Comparable<CountryCapitalBasic> {
 	public CountryCapitalBasic() {
 	}
 
-	public CountryCapitalBasic(String capital, String country) {
+	public CountryCapitalBasic(String country, String capital) {
 		this.capital = capital;
 		this.country = country;
 	}
@@ -32,5 +32,4 @@ public class CountryCapitalBasic implements Comparable<CountryCapitalBasic> {
 	public int compareTo(CountryCapitalBasic o) {
 		return country.compareTo(o.country);
 	}
-
 }
