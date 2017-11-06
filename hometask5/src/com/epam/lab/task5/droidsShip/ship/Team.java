@@ -20,6 +20,7 @@ public class Team {
 	public Team(Integer numberOfTeamMembers) {
 		beginNumberOfTeamMembers=numberOfTeamMembers;
 		setNumberOfTeamMembers(numberOfTeamMembers);
+		
 		teamList=new ArrayList<SimpleDroid>(numberOfTeamMembers);
 		readerFromKeyboard = new Keyboard();
 		String s = readerFromKeyboard.readStringFromKeyboard("Enter the name of team");

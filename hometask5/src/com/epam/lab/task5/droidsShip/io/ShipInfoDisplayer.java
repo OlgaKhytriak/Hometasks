@@ -1,24 +1,26 @@
 package com.epam.lab.task5.droidsShip.io;
 
+
 import org.apache.log4j.Logger;
 
 import com.epam.lab.task5.droidsShip.models.*;
+import com.epam.lab.task5.droidsShip.ship.ShipDroidsWithGenerics;
 import com.epam.lab.task5.droidsShip.ship.Team;
 
-public class TeamInfoDisplayer { 
+public class ShipInfoDisplayer { 
 	private DriodInfoDisplayer driodInfoDisplayer;
 	private static final Logger LOG = Logger.getLogger(TeamInfoDisplayer.class);
-	public TeamInfoDisplayer() {
+	public ShipInfoDisplayer() {
 		driodInfoDisplayer = new DriodInfoDisplayer();
 	}
 
-	public void printTeamList(Team team) {
-		if (team.getTeamList().isEmpty()) {
-			LOG.info(String.format("The team [ %s ] is empty", team.getTeamName()));
+	public void printShipList(ShipDroidsWithGenerics team) {
+		if (team.getShipList().isEmpty()) {
+			LOG.info(String.format("The ship [ %s ] is empty"));
 		}
-		LOG.info(String.format("[ %s ]",team.getTeamName()) );
+		//LOG.info(String.format("[ %s ]",team.getTeamName()) );
 		int i = 0;
-		for (SimpleDroid currentDroid : team.getTeamList()) {
+		for (Droid currentDroid :team.getShipList()) {
 			i++;
 			driodInfoDisplayer.printAllInformation(currentDroid);
 		}

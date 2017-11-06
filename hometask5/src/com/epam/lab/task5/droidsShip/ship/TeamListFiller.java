@@ -20,6 +20,8 @@ public class TeamListFiller {
 		// teamInfoDisplayer = new TeamInfoDisplayer();
 		droidTypeInfoDisplayer = new DroidTypeInfoDisplayer();
 	}
+	
+	
 
 	public void fill(Team team) {
 		SimpleDroid currentDroid = null;

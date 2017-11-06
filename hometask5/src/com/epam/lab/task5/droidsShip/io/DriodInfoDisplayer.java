@@ -3,6 +3,8 @@ package com.epam.lab.task5.droidsShip.io;
 import org.apache.log4j.Logger;
 
 import com.epam.lab.task5.droidsShip.io.*;
+import com.epam.lab.task5.droidsShip.models.Droid;
+import com.epam.lab.task5.droidsShip.models.SimpleDroid;
 import com.epam.lab.task5.droidsShip.enums.*;
 import com.epam.lab.task5.droidsShip.ship.*;
 
@@ -28,7 +30,7 @@ public class DriodInfoDisplayer {
 		}
 	}
 
-	public void printHealthInformation(SimpleDroid droid) {
+	public void printHealthInformation(Droid droid) {
 		Integer health = droid.getHealth();
 		Integer maxhealth = droid.getMaxHealth();
 		if (health == maxhealth) {
