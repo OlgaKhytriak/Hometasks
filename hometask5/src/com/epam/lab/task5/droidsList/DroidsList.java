@@ -1,23 +1,116 @@
 package com.epam.lab.task5.droidsList;
 
 import java.util.Collection;
-import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
 import com.epam.lab.task5.droidsShip.models.*;
 
-public class DroidsList implements List<Droid>, Deque<Droid> {
+public class DroidsList<E extends Droid> implements List<E> {
+	private int size = 0;
+	private Node<E> first;
+	private Node<E> last;
+
+	public DroidsList() {
+	}
+
+	private static class Node<E> {
+		E item;
+		Node<E> next;
+		Node<E> prev;
+
+		Node() {
+		}
+
+		Node(Node<E> prev, E element, Node<E> next) {
+			this.item = element;
+			this.next = next;
+			this.prev = prev;
+		}
+	}
 
 	@Override
+	public boolean add(E e) {
+		Node<E> newNode = new Node<E>();
+		newNode.item = e;
+		if (size() == 0) {
+			newNode.next = newNode;
+			newNode.prev = newNode;
+			first = newNode;
+			last = first;
+		} else {
+			newNode.prev = last;
+			newNode.next = first;
+			first.prev = newNode;
+			last.next = newNode;
+			last = newNode;
+		}
+		size++;
+		return true;
+	}
+
+	@Override
+	public void add(int index, E element) {
+		checkPositionIndex(index);
+		if (0 == index) {
+			addFirst(element);
+		} else if (size ==index) {
+			addLast(element);
+		} else {
+			Node<E> newNode = new Node<E>();
+			newNode.item = element;
+			Node<E> afterNode = first;
+			for (int i = 0; i < index; i++) {
+				afterNode = afterNode.next;
+			}
+			Node<E> beforeNode = afterNode.prev;
+			beforeNode.next = newNode;
+			afterNode.prev = newNode;
+			newNode.next = afterNode;
+			newNode.prev = beforeNode;
+			size++;
+		}		
+	}
+private void addLast(E element) {
+	Node<E> newNode = new Node<E>();
+	newNode.item = element;
+	newNode.next=last;
+	newNode.prev=last;
+	first.prev=newNode;
+	last.next=newNode;
+	last=newNode;
+	size++;
+}
+	
+	private void addFirst(E element) {
+		Node<E> newNode = new Node<E>();
+		newNode.item = element;
+		newNode.next = first;
+		newNode.prev = last;
+		last.next = newNode;
+		first.prev = newNode;
+		first = newNode;
+		size++;
+	}
+	private boolean isPositionIndex(int index) {
+        return index >= 0 && index <= size;
+    }
+	private void checkPositionIndex(int index) {
+        if (!isPositionIndex(index))
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+	private String outOfBoundsMsg(int index) {
+        return "Index: "+index+", Size: "+size;
+    }
+	@Override
 	public int size() {
-		throw new UnsupportedOperationException();
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		throw new UnsupportedOperationException();
+		return size == 0;
 	}
 
 	@Override
@@ -26,7 +119,7 @@ public class DroidsList implements List<Droid>, Deque<Droid> {
 	}
 
 	@Override
-	public Iterator<Droid> iterator() {
+	public Iterator<E> iterator() {
 		throw new UnsupportedOperationException();
 	}
 
@@ -41,11 +134,6 @@ public class DroidsList implements List<Droid>, Deque<Droid> {
 	}
 
 	@Override
-	public boolean add(Droid e) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public boolean remove(Object o) {
 		throw new UnsupportedOperationException();
 	}
@@ -56,12 +144,12 @@ public class DroidsList implements List<Droid>, Deque<Droid> {
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends Droid> c) {
+	public boolean addAll(Collection<? extends E> c) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean addAll(int index, Collection<? extends Droid> c) {
+	public boolean addAll(int index, Collection<? extends E> c) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -77,27 +165,26 @@ public class DroidsList implements List<Droid>, Deque<Droid> {
 
 	@Override
 	public void clear() {
-		throw new UnsupportedOperationException();
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
-	public Droid get(int index) {
-		throw new UnsupportedOperationException();
+	public E get(int index) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public Droid set(int index, Droid element) {
-		throw new UnsupportedOperationException();
+	public E set(int index, E element) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public void add(int index, Droid element) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid remove(int index) {
-		throw new UnsupportedOperationException();
+	public E remove(int index) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -111,131 +198,17 @@ public class DroidsList implements List<Droid>, Deque<Droid> {
 	}
 
 	@Override
-	public ListIterator<Droid> listIterator() {
+	public ListIterator<E> listIterator() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public ListIterator<Droid> listIterator(int index) {
+	public ListIterator<E> listIterator(int index) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public List<Droid> subList(int fromIndex, int toIndex) {
+	public List<E> subList(int fromIndex, int toIndex) {
 		throw new UnsupportedOperationException();
 	}
-
-	@Override
-	public void addFirst(Droid e) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public void addLast(Droid e) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public boolean offerFirst(Droid e) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public boolean offerLast(Droid e) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public Droid removeFirst() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid removeLast() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid pollFirst() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid pollLast() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid getFirst() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid getLast() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid peekFirst() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid peekLast() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public boolean removeFirstOccurrence(Object o) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public boolean removeLastOccurrence(Object o) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public boolean offer(Droid e) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid remove() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid poll() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid element() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid peek() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public void push(Droid e) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Droid pop() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Iterator<Droid> descendingIterator() {
-		throw new UnsupportedOperationException();
-	}
-
 }
