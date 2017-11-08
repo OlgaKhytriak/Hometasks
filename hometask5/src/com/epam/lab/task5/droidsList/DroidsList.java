@@ -29,7 +29,27 @@ public class DroidsList<E extends Droid> implements List<E> {
 			this.prev = prev;
 		}
 	}
+	
+	@Override
+	public E get(int index) {
+        checkElementIndex(index);
+        return node(index).item;
+	}
+	Node<E> node(int index) {
+        // assert isElementIndex(index);
 
+        if (index < (size >> 1)) {
+            Node<E> x = first;
+            for (int i = 0; i < index; i++)
+                x = x.next;
+            return x;
+        } else {
+            Node<E> x = last;
+            for (int i = size - 1; i > index; i--)
+                x = x.prev;
+            return x;
+        }
+    }
 	@Override
 	public boolean add(E e) {
 		Node<E> newNode = new Node<E>();
@@ -55,7 +75,7 @@ public class DroidsList<E extends Droid> implements List<E> {
 		checkPositionIndex(index);
 		if (0 == index) {
 			addFirst(element);
-		} else if (size ==index) {
+		} else if (size == index) {
 			addLast(element);
 		} else {
 			Node<E> newNode = new Node<E>();
@@ -70,19 +90,20 @@ public class DroidsList<E extends Droid> implements List<E> {
 			newNode.next = afterNode;
 			newNode.prev = beforeNode;
 			size++;
-		}		
+		}
 	}
-private void addLast(E element) {
-	Node<E> newNode = new Node<E>();
-	newNode.item = element;
-	newNode.next=last;
-	newNode.prev=last;
-	first.prev=newNode;
-	last.next=newNode;
-	last=newNode;
-	size++;
-}
-	
+
+	private void addLast(E element) {
+		Node<E> newNode = new Node<E>();
+		newNode.item = element;
+		newNode.next = last;
+		newNode.prev = last;
+		first.prev = newNode;
+		last.next = newNode;
+		last = newNode;
+		size++;
+	}
+
 	private void addFirst(E element) {
 		Node<E> newNode = new Node<E>();
 		newNode.item = element;
@@ -93,16 +114,27 @@ private void addLast(E element) {
 		first = newNode;
 		size++;
 	}
+
 	private boolean isPositionIndex(int index) {
-        return index >= 0 && index <= size;
+		return index >= 0 && index <= size;
+	}
+	private boolean isElementIndex(int index) {
+        return index >= 0 && index < size;
     }
-	private void checkPositionIndex(int index) {
-        if (!isPositionIndex(index))
+
+	private void checkElementIndex(int index) {
+        if (!isElementIndex(index))
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
+	private void checkPositionIndex(int index) {
+		if (!isPositionIndex(index))
+			throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+	}
+
 	private String outOfBoundsMsg(int index) {
-        return "Index: "+index+", Size: "+size;
-    }
+		return "Index: " + index + ", Size: " + size;
+	}
+
 	@Override
 	public int size() {
 		return size;
@@ -169,12 +201,7 @@ private void addLast(E element) {
 
 	}
 
-	@Override
-	public E get(int index) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public E set(int index, E element) {
 		// TODO Auto-generated method stub
