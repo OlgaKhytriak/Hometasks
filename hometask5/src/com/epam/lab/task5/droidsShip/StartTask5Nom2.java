@@ -2,11 +2,12 @@ package com.epam.lab.task5.droidsShip;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.log4j.Logger;
+
 import com.epam.lab.task5.droidsShip.io.DroidTypeInfoDisplayer;
-import com.epam.lab.task5.droidsShip.models.*;
+import com.epam.lab.task5.droidsShip.models.Droid;
 import com.epam.lab.task5.droidsShip.models.SimpleBattleDroid;
-import com.epam.lab.task5.droidsShip.models.SimpleDroid;
 import com.epam.lab.task5.droidsShip.ship.ShipDroidsWithGenerics;
 import com.epam.lab.task5.droidsShip.ship.ShipDroidsWithWildCard;
 
