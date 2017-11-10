@@ -25,5 +25,8 @@ public interface Droid {
 	public Integer getMaxPower();
 
 	public void setMaxPower(Integer maxPower);
+	public String getDroidDesription();
+	public void setDroidDesription(String droidDesription);
+	
 
 }
