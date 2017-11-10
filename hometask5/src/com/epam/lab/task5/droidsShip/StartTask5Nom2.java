@@ -18,7 +18,7 @@ public class StartTask5Nom2 {
 		DroidTypeInfoDisplayer droidTypeInfoDisplayer = new DroidTypeInfoDisplayer();
 		droidTypeInfoDisplayer.displayAllTypes();
 		
-		ShipDroidsWithGenerics shipDroidsWithGenerics=new ShipDroidsWithGenerics();
+		ShipDroidsWithGenerics<Droid> shipDroidsWithGenerics=new ShipDroidsWithGenerics<Droid>();
 		Droid droid1=new SimpleBattleDroid(10, 30);
 		shipDroidsWithGenerics.put(droid1);
 		Droid droid2=new SimpleBattleDroid(20, 30);
