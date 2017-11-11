@@ -1,4 +1,4 @@
-package com.epam.lab.task6.number1;
+package com.epam.lab.task6.number2;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,9 +8,9 @@ import java.io.ObjectOutputStream;
 
 import org.apache.log4j.Logger;
 
-import com.epam.lab.task6.number1.models.droids.*;
-import com.epam.lab.task6.number1.models.interfaces.Droid;
-import com.epam.lab.task6.number1.ship.DroidsShip;
+import com.epam.lab.task6.number2.models.droids.*;
+import com.epam.lab.task6.number2.models.interfaces.Droid;
+import com.epam.lab.task6.number2.ship.DroidsShip;
 
 public class StartTask6Nom1 {
 	private static final Logger LOG = Logger.getLogger(StartTask6Nom1.class);

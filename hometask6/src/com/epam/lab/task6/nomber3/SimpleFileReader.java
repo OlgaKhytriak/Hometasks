@@ -1,4 +1,4 @@
-package com.epam.lab.task6.nomber2;
+package com.epam.lab.task6.nomber3;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

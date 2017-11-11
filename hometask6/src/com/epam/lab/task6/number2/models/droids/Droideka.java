@@ -1,10 +1,9 @@
-package com.epam.lab.task6.number1.models.droids;
-
-import com.epam.lab.task6.number1.models.interfaces.*;
+package com.epam.lab.task6.number2.models.droids;
 
 import java.io.Serializable;
 
-import com.epam.lab.task6.number1.models.enums.*;
+import com.epam.lab.task6.number2.models.enums.*;
+import com.epam.lab.task6.number2.models.interfaces.*;
 public class Droideka extends DefenderBattleDroid implements DefenderDroid, Serializable{
 	private transient static final DroidType DROIDTYPE=DroidType.DROIDEKA;	
 	

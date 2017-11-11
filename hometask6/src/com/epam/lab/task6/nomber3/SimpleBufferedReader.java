@@ -1,4 +1,4 @@
-package com.epam.lab.task6.nomber2;
+package com.epam.lab.task6.nomber3;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,8 +1,8 @@
-package com.epam.lab.task6.number1.models.droids;
+package com.epam.lab.task6.number2.models.droids;
 
 import java.io.Serializable;
 
-import com.epam.lab.task6.number1.models.interfaces.Droid;
+import com.epam.lab.task6.number2.models.interfaces.Droid;
 
 public abstract class SimpleDroid implements Droid, Serializable {
 	private Integer health;

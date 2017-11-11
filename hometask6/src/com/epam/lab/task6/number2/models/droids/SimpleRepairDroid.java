@@ -1,9 +1,9 @@
-package com.epam.lab.task6.number1.models.droids;
+package com.epam.lab.task6.number2.models.droids;
 
 import java.io.Serializable;
 
-import com.epam.lab.task6.number1.models.enums.DroidType;
-import com.epam.lab.task6.number1.models.interfaces.RepairDroid;
+import com.epam.lab.task6.number2.models.enums.DroidType;
+import com.epam.lab.task6.number2.models.interfaces.RepairDroid;
 
 public class SimpleRepairDroid extends SimpleDroid implements RepairDroid, Serializable {
 	private transient static final DroidType DROIDTYPE=DroidType.SIMPLEREPAIRDROID;	

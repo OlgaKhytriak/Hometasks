@@ -1,10 +1,10 @@
-package com.epam.lab.task6.number1.ship;
+package com.epam.lab.task6.number2.ship;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.epam.lab.task6.number1.models.interfaces.Droid;
+import com.epam.lab.task6.number2.models.interfaces.Droid;
 
 public class DroidsShip<T extends Droid> implements Serializable{
 	private List<T> shipList;

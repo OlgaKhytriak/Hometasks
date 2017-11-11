@@ -1,10 +1,10 @@
-package com.epam.lab.task6.number1.models.droids;
+package com.epam.lab.task6.number2.models.droids;
 
 import java.io.Serializable;
 
-import com.epam.lab.task6.number1.models.enums.DroidType;
-import com.epam.lab.task6.number1.models.interfaces.BattleDroid;
-import com.epam.lab.task6.number1.models.interfaces.DefenderDroid;
+import com.epam.lab.task6.number2.models.enums.DroidType;
+import com.epam.lab.task6.number2.models.interfaces.BattleDroid;
+import com.epam.lab.task6.number2.models.interfaces.DefenderDroid;
 
 public class SimpleBattleDroid extends SimpleDroid implements BattleDroid, Serializable {
 	private transient static final DroidType DROIDTYPE=DroidType.SIMPLEBATTLEDROID;	

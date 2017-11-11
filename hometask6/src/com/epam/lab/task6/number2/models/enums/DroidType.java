@@ -1,4 +1,4 @@
-package com.epam.lab.task6.number1.models.enums;
+package com.epam.lab.task6.number2.models.enums;
 
 public enum DroidType {
 	SIMPLEBATTLEDROID(1, new int[] { 2, 4 }, "Battle droid"), 

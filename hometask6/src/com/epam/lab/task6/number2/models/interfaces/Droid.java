@@ -1,4 +1,4 @@
-package com.epam.lab.task6.number1.models.interfaces;
+package com.epam.lab.task6.number2.models.interfaces;
 
 public interface Droid {
 
