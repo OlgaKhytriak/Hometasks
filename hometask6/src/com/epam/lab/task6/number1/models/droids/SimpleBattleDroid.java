@@ -7,7 +7,7 @@ import com.epam.lab.task6.number1.models.interfaces.BattleDroid;
 import com.epam.lab.task6.number1.models.interfaces.DefenderDroid;
 
 public class SimpleBattleDroid extends SimpleDroid implements BattleDroid, Serializable {
-	private static final DroidType DROIDTYPE=DroidType.SIMPLEBATTLEDROID;	
+	private transient static final DroidType DROIDTYPE=DroidType.SIMPLEBATTLEDROID;	
 	
 	public SimpleBattleDroid(int maxHealth, int maxEnergy) {
 		super(maxHealth,maxEnergy);

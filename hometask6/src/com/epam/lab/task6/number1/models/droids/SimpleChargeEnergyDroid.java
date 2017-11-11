@@ -6,7 +6,7 @@ import com.epam.lab.task6.number1.models.enums.*;
 import com.epam.lab.task6.number1.models.interfaces.*;
 
 public class SimpleChargeEnergyDroid extends SimpleDroid implements ChargeEnergyDroid, Serializable {
-	private static final DroidType DROIDTYPE=DroidType.SIMPLECHARGEENERGYDROID;	
+	private transient static final DroidType DROIDTYPE=DroidType.SIMPLECHARGEENERGYDROID;	
 	
 	public SimpleChargeEnergyDroid(int maxHealth, int maxEnergy) {
 		super(maxHealth,maxEnergy);

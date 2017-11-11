@@ -6,7 +6,7 @@ import com.epam.lab.task6.number1.models.enums.*;
 import com.epam.lab.task6.number1.models.interfaces.*;
 
 public class DefenderRepairDroid extends SimpleRepairDroid implements DefenderDroid, Serializable{
-	private static final DroidType DROIDTYPE=DroidType.DEFENDERREPAIRDROID;	
+	private transient static final DroidType DROIDTYPE=DroidType.DEFENDERREPAIRDROID;	
 	
 	public DefenderRepairDroid(int maxHealth, int maxEnergy) {
 		super(maxHealth,maxEnergy);

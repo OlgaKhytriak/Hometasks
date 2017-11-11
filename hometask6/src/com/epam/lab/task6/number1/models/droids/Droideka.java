@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 import com.epam.lab.task6.number1.models.enums.*;
 public class Droideka extends DefenderBattleDroid implements DefenderDroid, Serializable{
-	private static final DroidType DROIDTYPE=DroidType.DROIDEKA;	
+	private transient static final DroidType DROIDTYPE=DroidType.DROIDEKA;	
 	
 	public Droideka(int maxHealth, int maxEnergy) {
 		super(maxHealth,maxEnergy);
