@@ -1,4 +1,4 @@
-package com.epam.lab.task6.nomber3;
+package com.epam.lab.task6.number3;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,12 +8,12 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 
-public class StartTask6Nom2 {
-	private static final Logger LOG = Logger.getLogger(StartTask6Nom2.class);
+public class StartTask6Nom3 {
+	private static final Logger LOG = Logger.getLogger(StartTask6Nom3.class);
 
 	public static void main(String[] args) {
-		StartTask6Nom2 startTask6Nom2=new StartTask6Nom2();
-		startTask6Nom2.comparePerformance();
+		StartTask6Nom3 startTask6Nom3=new StartTask6Nom3();
+		startTask6Nom3.comparePerformance();
 		
 		
 	}

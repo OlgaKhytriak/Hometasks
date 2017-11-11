@@ -12,15 +12,15 @@ import com.epam.lab.task6.number2.models.droids.*;
 import com.epam.lab.task6.number2.models.interfaces.Droid;
 import com.epam.lab.task6.number2.ship.DroidsShip;
 
-public class StartTask6Nom1 {
-	private static final Logger LOG = Logger.getLogger(StartTask6Nom1.class);
+public class StartTask6Nom2 {
+	private static final Logger LOG = Logger.getLogger(StartTask6Nom2.class);
 
 	public static void main(String[] args) {
-		StartTask6Nom1 startTask6Nom1 = new StartTask6Nom1();
+		StartTask6Nom2 startTask6Nom2 = new StartTask6Nom2();
 		LOG.info("------ One droid-----");
-		startTask6Nom1.serializeOneDroidExample();
+		startTask6Nom2.serializeOneDroidExample();
 		LOG.info("------ Droid ship-----");
-		startTask6Nom1.serializationShipExample();
+		startTask6Nom2.serializationShipExample();
 		LOG.info("------ End of StartTask6Nom1-----");
 
 	}
