@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class SimpleBufferedReader {
-	public void read(String path) {		
-		try (BufferedReader reader = new BufferedReader((new FileReader(path)),500))
+	public void read(String path,int buferSize) {		
+		try (BufferedReader reader = new BufferedReader((new FileReader(path)),buferSize))
 		{
 			String s;
 			while ((s = reader.readLine()) != null) {

@@ -12,6 +12,7 @@ public class SimpleFileReader {
 		{
 			int i = 1;
 			while (scan.hasNextLine()) {
+				scan.nextLine();
 				//System.out.println(i + " : " + scan.nextLine());
 				i++;}
 		} catch (IOException e) {

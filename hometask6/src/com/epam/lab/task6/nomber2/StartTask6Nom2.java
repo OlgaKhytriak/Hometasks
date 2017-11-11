@@ -18,8 +18,16 @@ public class StartTask6Nom2 {
 		
 	}
 	public void comparePerformance() {
-		LOG.info(String.format("Method \"read\" in FileReader  performed %s msec", testFileReader()));
-		LOG.info(String.format("Method \"readLine\" in BufferedReader  performed %s msec", testBufferedReader()));
+		LOG.info(String.format("Method \"read\" from FileReader  performed %s msec", testFileReader()));
+		LOG.info(String.format("Method \"readLine\" from BufferedReader"));
+		LOG.info(String.format("buferSize = 1 performed %s msec", testBufferedReader(1)));
+		LOG.info(String.format("buferSize = 10 performed %s msec", testBufferedReader(10)));
+		LOG.info(String.format("buferSize = 100 performed %s msec", testBufferedReader(100)));
+		LOG.info(String.format("buferSize = 1000 performed %s msec", testBufferedReader(1000)));
+		LOG.info(String.format("buferSize = 5000 performed %s msec", testBufferedReader(5000)));
+		LOG.info(String.format("buferSize = 5000 performed %s msec", testBufferedReader(10000)));
+		LOG.info(String.format("buferSize = 5000 performed %s msec", testBufferedReader(15000)));
+	
 	}
 
 	private long testFileReader() {
@@ -29,10 +37,10 @@ public class StartTask6Nom2 {
 		Date finishLinked = new Date();
 		return finishLinked.getTime() - startLinked.getTime();
 	}
-	private long testBufferedReader() {
+	private long testBufferedReader(int buferSize) {
 		Date startLinked = new Date();
 		SimpleBufferedReader simpleBufferedReader = new SimpleBufferedReader();
-		simpleBufferedReader.read("war.txt");
+		simpleBufferedReader.read("war.txt",buferSize);
 		Date finishLinked = new Date();
 		return finishLinked.getTime() - startLinked.getTime();
 	}
