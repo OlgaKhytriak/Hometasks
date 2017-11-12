@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 public class SimpleFileReader {
 	private static final Logger LOG = Logger.getLogger(SimpleFileReader.class);
+
 	public String readAllFile(String filePath) {
 		String allText = "";
 		String newLine = "\r";

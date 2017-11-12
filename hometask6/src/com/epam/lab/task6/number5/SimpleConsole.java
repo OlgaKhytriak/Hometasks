@@ -6,9 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.List;
 import java.util.Scanner;
-import java.util.jar.Attributes;
 
 public class SimpleConsole {
 	private final Scanner scan;
@@ -28,11 +26,13 @@ public class SimpleConsole {
 		while (!userMessage.equals("exit")) {
 			userMessage = scan.next();
 			doUserAction(userMessage);
-			}
+		}
 		scan.close();
 	}
+
 	private void printInformation() {
-		System.out.println("Print:: \n exit - to finish;  \n ls - folder content;  \n la - full information folder content; \n cd - one level up");
+		System.out.println(
+				"Print:: \n exit - to finish;  \n ls - folder content;  \n la - full information folder content; \n cd - one level up");
 	}
 
 	private void doUserAction(String userMessage) {
@@ -56,10 +56,10 @@ public class SimpleConsole {
 	private boolean changePath(String message) {
 		Path newPath = Paths.get(message);
 		File f = new File(message);
-		if (Files.exists(newPath)){
+		if (Files.exists(newPath)) {
 			if (newPath.isAbsolute()) {
 				currentPath = newPath;
-				System.out.println("WorkingDirectory:: "+ currentPath);
+				System.out.println("WorkingDirectory:: " + currentPath);
 				System.out.println(newPath.toAbsolutePath());
 			}
 			return true;
@@ -100,7 +100,6 @@ public class SimpleConsole {
 			System.out.println("creationTime: " + attr.creationTime());
 			System.out.println("lastAccessTime: " + attr.lastAccessTime());
 			System.out.println("lastModifiedTime: " + attr.lastModifiedTime());
-
 			System.out.println("isDirectory: " + attr.isDirectory());
 			System.out.println("isOther: " + attr.isOther());
 			System.out.println("isRegularFile: " + attr.isRegularFile());
@@ -112,4 +111,3 @@ public class SimpleConsole {
 		}
 	}
 }
-

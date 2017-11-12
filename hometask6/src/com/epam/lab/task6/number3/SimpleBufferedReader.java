@@ -9,7 +9,6 @@ public class SimpleBufferedReader {
 		try (BufferedReader reader = new BufferedReader((new FileReader(path)), buferSize)) {
 			String s;
 			while ((s = reader.readLine()) != null) {
-				// System.out.println(s);
 			}
 		} catch (IOException e) {
 			System.out.println("Error in read with FileReader");
