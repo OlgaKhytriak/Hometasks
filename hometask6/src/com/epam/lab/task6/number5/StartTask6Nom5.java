@@ -1,7 +1,6 @@
 package com.epam.lab.task6.number5;
 
-import java.io.File;
-import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -14,22 +13,17 @@ public class StartTask6Nom5 {
 		LOG.info("---- Start task 6 Number 5 -------");
 		SimpleConsole simpleConsole = new SimpleConsole();
 		simpleConsole.run();
-		
-		// поточна директорія
-		Path startPath = Paths.get(".").toAbsolutePath();
-		System.out.println("WorkingDirectory:: " + startPath);
 
-		String dirName = startPath.toString();
-		Files.list(new File(dirName).toPath()).limit(100).forEach(path -> {
-			System.out.println(path);
-		});
-		System.out.println(startPath.getParent());
+		// поточна директорія
+
+		// System.out.println(startPath.getParent());
 		// String filePath = "TestForMistakes.txt";
 		// String filePath="//D:/Olga/Hometasks/hometask6/TestForMistakes.txt"; //! Не
 		// працюэ
 		String filePath = "D:/Olga/Hometasks/hometask6/TestForMistakes.txt"; // !!!Отак працює
+		
+		Path testFilePath = Paths.get(filePath);
 		/*
-		 * Path testFilePath = Paths.get(filePath);
 		 * System.out.println("Printing file information: ");
 		 * System.out.println("\t file name: " + testFilePath.getFileName());
 		 * System.out.println("\t root of the path: " + testFilePath.getRoot());
@@ -62,14 +56,14 @@ public class StartTask6Nom5 {
 		 * System.out.println("It's absolute path is: " +
 		 * testFilePath.toAbsolutePath());
 		 * System.out.println("It's normalized path is: " + testFilePath.normalize());
-		 * 
-		 * //Получение другого объекта строки по нормализованному относительному пути
-		 * Path testPathNormalized = Paths .get(testFilePath.normalize().toString());
-		 * System.out.println("It's normalized absolute path is: " +
-		 * testPathNormalized.toAbsolutePath());
-		 * System.out.println("It's normalized real path is: " +
-		 * testFilePath.toRealPath(LinkOption.NOFOLLOW_LINKS));
 		 */
+		//Получение другого объекта строки по нормализованному относительному пути
+		Path testPathNormalized = Paths .get(testFilePath.normalize().toString());
+		System.out.println("It's normalized absolute path is: " +
+		testPathNormalized.toAbsolutePath());
+		System.out.println("It's normalized real path is: " +
+		testFilePath.toRealPath(LinkOption.NOFOLLOW_LINKS));
+	
 		LOG.info("---- End task 6 Number 5 -------");
 
 	}
