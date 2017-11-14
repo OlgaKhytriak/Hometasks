@@ -1,27 +1,32 @@
 package com.epam.lab.task8;
-
-import com.epam.lab.task8.models.interfaces.DefenderDroid;
-
-public class SimpleDroid implements Droid {
-	@HealthField (basicValue=20,description="Current health")
-	private Integer health;
-	private Integer energy;
-	@HealthField (basicValue=100,description="As much as possible health")
-	private Integer maxHealth;
-	private Integer maxEnergy;
-	private Integer maxPower;
+public class SimpleDroid{
+	private final int basicPoints;
+	@HealthField(basicValue = 20, description = "Current health")
+	private int health;
+	private int energy;
+	@HealthField(basicValue = 100, description = "As much as possible health")
+	private int maxHealth;
+	private int maxEnergy;
+	private int maxPower;
 	private String droidDesription;
-	
+	private int level;
 
+	
 	public SimpleDroid() {
+		basicPoints=10;
 	}
-	public SimpleDroid(Integer maxHealth, Integer maxEnergy) {
+
+	public SimpleDroid(int maxHealth, int maxEnergy) {
+		this();
 		this.maxEnergy = maxEnergy;
 		this.maxHealth = maxHealth;
 		this.energy = maxEnergy;
 		this.health = maxHealth;
+		this.setLevel(1);
 	}
-
+	
+	
+	
 	public String toString() {
 		return this.getClass().getSimpleName();
 	}
@@ -30,15 +35,13 @@ public class SimpleDroid implements Droid {
 		return !(0 == health);
 	}
 
-	public Integer getHealth() {
+	public int getHealth() {
 		return health;
 	}
+
 	public void shoot(SimpleDroid enemyDroid) {
-		Integer enemyDroidHealth = enemyDroid.getHealth();
-		if ((enemyDroid instanceof DefenderDroid)) {
-			((DefenderDroid) enemyDroid).defenceItself(this);
-		}
-		Integer energy = getEnergy();
+		int enemyDroidHealth = enemyDroid.getHealth();
+		int energy = getEnergy();
 		while ((enemyDroidHealth > 0) && (energy > 0)) {
 			enemyDroidHealth--;
 			energy--;
@@ -46,10 +49,11 @@ public class SimpleDroid implements Droid {
 		enemyDroid.setHealth(enemyDroidHealth);
 		setEnergy(energy);
 	}
+
 	public void repair(SimpleDroid injuredDroid) {
-		Integer injuredDroidHealth = injuredDroid.getHealth();
-		Integer maxHelth = injuredDroid.getMaxHealth();
-		Integer energy = getEnergy();
+		int injuredDroidHealth = injuredDroid.getHealth();
+		int maxHelth = injuredDroid.getMaxHealth();
+		int energy = getEnergy();
 		while ((injuredDroidHealth < maxHelth) && (energy > 0)) {
 			injuredDroidHealth++;
 			energy--;
@@ -57,10 +61,11 @@ public class SimpleDroid implements Droid {
 		setEnergy(energy);
 		injuredDroid.setHealth(injuredDroidHealth);
 	}
+
 	public void charge(SimpleDroid injuredDroid) {
-		Integer injuredDroidEnergy = injuredDroid.getEnergy();
-		Integer maxEnergy = injuredDroid.getMaxEnergy();
-		Integer energy = getEnergy();
+		int injuredDroidEnergy = injuredDroid.getEnergy();
+		int maxEnergy = injuredDroid.getMaxEnergy();
+		int energy = getEnergy();
 		while ((injuredDroidEnergy < maxEnergy) && (energy > 0)) {
 			injuredDroidEnergy++;
 			energy--;
@@ -68,39 +73,40 @@ public class SimpleDroid implements Droid {
 		setEnergy(energy);
 		injuredDroid.setEnergy(injuredDroidEnergy);
 	}
-	public void setHealth(Integer health) {
+
+	public void setHealth(int health) {
 		this.health = health;
 	}
 
-	public Integer getEnergy() {
+	public int getEnergy() {
 		return energy;
 	}
 
-	public void setEnergy(Integer energy) {
+	public void setEnergy(int energy) {
 		this.energy = energy;
 	}
 
-	public Integer getMaxHealth() {
+	public int getMaxHealth() {
 		return maxHealth;
 	}
 
-	public void setMaxHealth(Integer maxHealth) {
+	public void setMaxHealth(int maxHealth) {
 		this.maxHealth = maxHealth;
 	}
 
-	public Integer getMaxEnergy() {
+	public int getMaxEnergy() {
 		return maxEnergy;
 	}
 
-	public void setMaxEnergy(Integer maxEnergy) {
+	public void setMaxEnergy(int maxEnergy) {
 		this.maxEnergy = maxEnergy;
 	}
 
-	public Integer getMaxPower() {
+	public int getMaxPower() {
 		return maxPower;
 	}
 
-	public void setMaxPower(Integer maxPower) {
+	public void setMaxPower(int maxPower) {
 		this.maxPower = maxPower;
 	}
 
@@ -112,4 +118,19 @@ public class SimpleDroid implements Droid {
 		this.droidDesription = droidDesription;
 	}
 
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public int calcLevel(int additionalEnergy, double koef) {		
+		return (int) ((maxEnergy+additionalEnergy+energy*koef)/basicPoints);
+	}
+
+	public int getBasicPoints() {
+		return basicPoints;
+	}
 }
