@@ -18,24 +18,17 @@ public class CalculatorResultWriter {
 	public void writeAddArrays(int[] aArray, int[] bArray, String filePath) {
 		int[] sumArray = calculator.add(aArray, bArray);
 		createFile(filePath);
-		writeToFile("First array: ", filePath, false);
-		writeArrayToFile(aArray,filePath);
-		writeToFile("Second array: ", filePath, true);
-		writeArrayToFile(bArray,filePath);
-		writeToFile("Sum array: ", filePath, true);
-		writeArrayToFile(sumArray,filePath);
+		writeToFile("", filePath, false);
+		writeArrayToFile(sumArray, filePath);
 	}
 
 	private void writeArrayToFile(int[] aArray, String filePath) {
-		writeToFile("(", filePath,true);
 		for (int i = 0; i < aArray.length; i++) {
-			writeToFile(String.valueOf(aArray[i]), filePath,true);
-			writeToFile(";", filePath,true);
+			writeToFile(new Integer(aArray[i]).toString(), filePath, true);
+			writeToFile(";", filePath, true);
 		}
-		writeToFile(") ", filePath,true);
 	}
 
-	// If file already exists return false
 	private boolean createFile(String filePath) {
 		File file = new File(filePath);
 		if (file.exists()) {
@@ -48,18 +41,13 @@ public class CalculatorResultWriter {
 			}
 			return true;
 		}
-
-	}
-
-	public Calculator getCalculator() {
-		return calculator;
 	}
 
 	private void writeToFile(String message, String path, boolean ifAppend) {
-		try (FileWriter fileWriter = new FileWriter(path,ifAppend)) {
+		try (FileWriter fileWriter = new FileWriter(path, ifAppend)) {
 			fileWriter.write(message);
 		} catch (IOException e) {
-			System.out.println("Error in read with FileReader");
+			System.out.println("Error in read with writeToFile");
 		}
 	}
 }
