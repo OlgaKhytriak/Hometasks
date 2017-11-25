@@ -3,7 +3,8 @@ package com.epam.dbframework.model.elements;
 import java.util.Date;
 
 import com.epam.dbframework.model.anotations.FieldAnn;
-
+import com.epam.dbframework.model.anotations.Entity;
+@Entity("department")
 public class Department {
 	@FieldAnn("id")
 	private Integer id;

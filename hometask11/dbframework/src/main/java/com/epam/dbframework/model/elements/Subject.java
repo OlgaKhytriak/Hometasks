@@ -1,7 +1,8 @@
 package com.epam.dbframework.model.elements;
 
 import com.epam.dbframework.model.anotations.FieldAnn;
-
+import com.epam.dbframework.model.anotations.Entity;
+@Entity("subject")
 public class Subject {
 	@FieldAnn("id")
 	private Integer id;

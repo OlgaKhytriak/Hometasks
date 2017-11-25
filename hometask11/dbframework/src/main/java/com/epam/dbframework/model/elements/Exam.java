@@ -3,8 +3,9 @@ package com.epam.dbframework.model.elements;
 import java.util.Date;
 
 import com.epam.dbframework.model.anotations.FieldAnn;
-
-public class Exams {
+import com.epam.dbframework.model.anotations.Entity;
+@Entity("exams")
+public class Exam {
 	@FieldAnn("id")
 	private Integer id;
 	@FieldAnn("student_id")
@@ -16,17 +17,19 @@ public class Exams {
 	@FieldAnn("mark")
 	private Integer mark;
 
-	public Exams() {
+	public Exam() {
 	}
 
-	public Exams(int id, Integer studentID, Integer subjectID, Date date, Integer mark) {
+	public Exam(int id, Integer studentID, Integer subjectID, Date date, Integer mark) {
 		this.id = id;
 		this.studentID = studentID;
 		this.subjectID = subjectID;
 		this.date = date;
 		this.mark = mark;
 	}
-	
+	public String toString() {
+		return String.format("Exam:: id= %s | studentID= %s | subjectID = %s |date = %s |mark = %s |", id, studentID, subjectID,date,mark);
+	}
 	//------------------------getters and setters------------------------------	
 	public Integer getId() {
 		return id;

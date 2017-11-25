@@ -3,7 +3,8 @@ package com.epam.dbframework.model.elements;
 import java.util.Date;
 
 import com.epam.dbframework.model.anotations.FieldAnn;
-
+import com.epam.dbframework.model.anotations.Entity;
+@Entity("student_book")
 public class StudentBook {
 	@FieldAnn("id")
 	private Integer id;
@@ -24,7 +25,7 @@ public class StudentBook {
 		this.course = course;
 	}
 	public String toString() {
-		return String.format("StudentBook:: id= %s | entryDate= %s | group = %s | course = %s |", id, entryDate, group,course);
+		return String.format("student_book:: id= %s | entryDate= %s | group = %s | course = %s |", id, entryDate, group,course);
 	}
 
 	// ------------------------getters and setters------------------------------
