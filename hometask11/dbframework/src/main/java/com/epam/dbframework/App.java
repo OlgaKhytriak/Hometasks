@@ -1,26 +1,19 @@
 package com.epam.dbframework;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.epam.dbframework.dao.*;
-import com.epam.dbframework.handler.ConnectorToDB;
-import com.epam.dbframework.model.elements.*;
+import com.epam.dbframework.dao.TableDAO;
+import com.epam.dbframework.model.elements.Student;
 
 public class App 
 {
 	 private static final Logger LOG = Logger.getLogger(App.class);
-    public static void main( String[] args ) throws SQLException, InstantiationException, IllegalAccessException
+    public static void main( String[] args ) throws Exception
     {
-    	StudentDAO studentDAO=new StudentDAO();    	
-		List<Student> studentsList=studentDAO.getAllStudents();
+    	TableDAO tableDAO=new TableDAO();    	
+		List<Student> studentsList=tableDAO.getTable(Student.class);
 		for (Student st: studentsList) {
 			System.out.println(st.toString());
 		}
