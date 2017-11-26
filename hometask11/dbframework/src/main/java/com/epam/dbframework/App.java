@@ -12,19 +12,33 @@ public class App {
 	private static final Logger LOG = Logger.getLogger(App.class);
 
 	public static void main(String[] args) throws Exception {
-		studentProcessor();
+		//studentProcessor();
 		studentBookProcessor();
-		departmentProcessor();
-		subjectProcessor();
-		examProcessor();
+		//departmentProcessor();
+		//subjectProcessor();
+		//examProcessor();
+	}
+	
+	public static void studentProcessor() throws Exception {
+		StudentService studentService = new StudentService();
+		List<Student> studentsList = studentService.getStudentsList();
+		printList(studentsList);
+		
+		System.out.println("Student by ID");
+		List<Student> studentsListID = studentService.getStudentByID(7);
+		printList(studentsListID);
 	}
 
 	public static void studentBookProcessor() throws Exception {
 		StudentBookService studentBookService = new StudentBookService();
 		List<StudentBook> studentsBookList = studentBookService.getStudentBookList();
-		for (StudentBook st : studentsBookList) {
-			System.out.println(st.toString());
-		}
+		printList(studentsBookList);
+		System.out.println("studentBook by ID");
+		List<StudentBook> bookListID = studentBookService.getStudentBookByID(20326);
+		printList(bookListID);
+		
+		
+		
 	}
 
 	public static void subjectProcessor() throws Exception {
@@ -51,15 +65,11 @@ public class App {
 		}
 
 	}
-
-	public static void studentProcessor() throws Exception {
-		StudentService studentService = new StudentService();
-		List<Student> studentsList = studentService.getStudentsList();
-		for (Student st : studentsList) {
-			System.out.println(st.toString());
+	public static <T> void printList(List<T> list) {
+		for (T element : list) {
+			System.out.println(element.toString());
 		}
-		System.out.println("Student by ID");
-		//Student student = studentService.getStudentByID(new Integer(1));
-		//System.out.println(student.toString());
 	}
+
+	
 }

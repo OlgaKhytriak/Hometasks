@@ -16,6 +16,12 @@ import com.epam.dbframework.model.anotations.Entity;
 public class Transformer {
 	private static final Logger LOG = Logger.getLogger(Transformer.class);
 
+	public <T> List<T> getDataListByID(Class<T> clazz,Integer id) throws Exception{
+		Entity classAnnotation = (Entity) clazz.getAnnotation(Entity.class);
+		String anotName = classAnnotation.value();
+		String sqlRequest =String.format("SELECT * FROM  %s WHERE id=%s",anotName,id);		
+		return convertToList(clazz, sqlRequest);
+	}
 	public <T> List<T> getAllDataList(Class<T> clazz) throws Exception{
 		Entity classAnnotation = (Entity) clazz.getAnnotation(Entity.class);
 		String anotName = classAnnotation.value();
@@ -29,9 +35,14 @@ public class Transformer {
 		Connection connection = connectorToDB.connect();
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sqlRequest);
+		//if (resultSet.next()){
 		while (resultSet.next()) {
 			instancesList.add((T) convertToInstance(clazz, resultSet));
 		}
+		//}
+		//else {
+		//	LOG.info("No results in result set");
+		//}
 		statement.close();
 		connectorToDB.close();
 		return instancesList;

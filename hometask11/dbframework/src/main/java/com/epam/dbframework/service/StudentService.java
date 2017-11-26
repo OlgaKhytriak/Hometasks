@@ -3,10 +3,14 @@ package com.epam.dbframework.service;
 import java.sql.ResultSet;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.epam.dbframework.App;
 import com.epam.dbframework.dao.*;
 import com.epam.dbframework.model.elements.Student;
 
 public class StudentService {
+	private static final Logger LOG = Logger.getLogger(StudentService.class);
 	private final Transformer transformer;
 	private final BasicDAO basicDAO;
 	public StudentService(){
@@ -17,9 +21,13 @@ public class StudentService {
 		return transformer.getAllDataList(Student.class);
 	}
 	
-	public Student getStudentByID(Integer id) throws Exception
+	public List<Student> getStudentByID(Integer id) throws Exception
 	{
-		return null;//transformer.getByID(Student.class, id);
+		List<Student> rezList=transformer.getDataListByID(Student.class, id);
+		if (rezList.isEmpty()) {
+			LOG.info(String.format("No students with id = %s", id));
+		}
+		return rezList;
 	}
 	
 	
