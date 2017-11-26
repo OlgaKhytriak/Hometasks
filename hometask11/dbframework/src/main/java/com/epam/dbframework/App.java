@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 
 import com.epam.dbframework.dao.Transformer;
 import com.epam.dbframework.handler.MetadataViewer;
+import com.epam.dbframework.handler.TransactionExample;
 import com.epam.dbframework.model.elements.*;
 import com.epam.dbframework.service.*;
 
@@ -14,18 +15,23 @@ public class App {
 	private static final Logger LOG = Logger.getLogger(App.class);
 
 	public static void main(String[] args) throws Exception {
-		//studentProcessor();
-		//studentBookProcessor();
-		//departmentProcessor();
-		//subjectProcessor();
-		//examProcessor();
+		studentProcessor();
+		studentBookProcessor();
+		departmentProcessor();
+		subjectProcessor();
+		examProcessor();
 		methadataProcessor();
+		new TransactionExample().perform();
 	}
+	
+	
 	
 	public static void methadataProcessor() throws Exception {
 		MetadataViewer metadataViewer=new MetadataViewer();
 		metadataViewer.getGeneralInfo();
-		metadataViewer.getTablesInfo();
+		metadataViewer.getAllTablesInfo();
+		metadataViewer.getTablesNames();
+		
 	}
 	
 	public static void studentProcessor() throws Exception {
