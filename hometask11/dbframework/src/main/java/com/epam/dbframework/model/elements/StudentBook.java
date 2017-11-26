@@ -4,18 +4,23 @@ import java.util.Date;
 
 import com.epam.dbframework.model.anotations.FieldAnn;
 import com.epam.dbframework.model.anotations.Entity;
+
 @Entity("student_book")
-public class StudentBook {
-	@FieldAnn("id")
+public class StudentBook extends ModelElement {
+	@FieldAnn(value = "id", type = "INT(11)")
 	private Integer id;
-	@FieldAnn("entry_date")
+	@FieldAnn(value = "entry_date", type = "DATE")
 	private Date entryDate;
 	@FieldAnn("group")
 	private String group;
-	@FieldAnn("course")
+	@FieldAnn(value = "course", type = "INT(11)")
 	private Integer course;
 
 	public StudentBook() {
+	}
+
+	public String toValuesString() {
+		return String.format("(%s,\'%s\',\'%s\',%s)", id, entryDate, group, course);
 	}
 
 	public StudentBook(int id, Date entryDate, String group, Integer course) {
@@ -24,8 +29,10 @@ public class StudentBook {
 		this.group = group;
 		this.course = course;
 	}
+
 	public String toString() {
-		return String.format("student_book:: id= %s | entryDate= %s | group = %s | course = %s |", id, entryDate, group,course);
+		return String.format("student_book:: id= %s | entryDate= %s | group = %s | course = %s |", id, entryDate, group,
+				course);
 	}
 
 	// ------------------------getters and setters------------------------------

@@ -4,15 +4,23 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.epam.dbframework.dao.BasicDao;
 import com.epam.dbframework.dao.Transformer;
+import com.epam.dbframework.model.elements.ModelElement;
+import com.epam.dbframework.model.elements.Student;
+import com.epam.dbframework.model.elements.StudentBook;
 import com.epam.dbframework.model.elements.Subject;
 
-public class SubjectService {
+public class SubjectService extends BasicService{
 	private static final Logger LOG = Logger.getLogger(SubjectService.class);
-	private final Transformer transformer;
+	
+	public void deleteSubjectByID(Integer id) throws Exception {
+		transformer.deleteRowsByID(Subject.class, id);
+	}
 
-	public SubjectService() {
-		transformer = new Transformer();
+	
+	public void createTableInDB(String tableName) throws Exception {
+		transformer.createTableForInstance(Subject.class, tableName);
 	}
 
 	public List<Subject> getSubjectList() throws Exception {

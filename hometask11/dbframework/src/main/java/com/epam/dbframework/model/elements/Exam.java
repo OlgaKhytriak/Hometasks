@@ -5,16 +5,16 @@ import java.util.Date;
 import com.epam.dbframework.model.anotations.FieldAnn;
 import com.epam.dbframework.model.anotations.Entity;
 @Entity("exams")
-public class Exam {
-	@FieldAnn("id")
+public class Exam extends ModelElement{
+	@FieldAnn(value="id",type="INT(11)")
 	private Integer id;
-	@FieldAnn("student_id")
+	@FieldAnn(value="student_id",type="INT(11)")
 	private Integer studentID;
-	@FieldAnn("subject_id")
+	@FieldAnn(value="subject_id",type="INT(11)")
 	private Integer subjectID;
-	@FieldAnn("date")
+	@FieldAnn(value="date",type="DATE")
 	private Date date;
-	@FieldAnn("mark")
+	@FieldAnn(value="mark",type="INT(11)")
 	private Integer mark;
 
 	public Exam() {
@@ -26,6 +26,10 @@ public class Exam {
 		this.subjectID = subjectID;
 		this.date = date;
 		this.mark = mark;
+	}
+	@Override
+	public String toValuesString() {
+		return String.format("(%s,%s,%s,\'%s\',%s)", id,studentID,subjectID, date,mark );
 	}
 	public String toString() {
 		return String.format("Exam:: id= %s | studentID= %s | subjectID = %s |date = %s |mark = %s |", id, studentID, subjectID,date,mark);
@@ -70,6 +74,8 @@ public class Exam {
 	public void setMark(Integer mark) {
 		this.mark = mark;
 	}
+
+	
 	
 	
 }

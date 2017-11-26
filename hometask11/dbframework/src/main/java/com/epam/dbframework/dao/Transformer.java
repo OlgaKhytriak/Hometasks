@@ -16,6 +16,60 @@ import com.epam.dbframework.model.anotations.Entity;
 public class Transformer {
 	private static final Logger LOG = Logger.getLogger(Transformer.class);
 
+	public <T> int deleteRowsByID(Class<T> clazz,Integer id) throws Exception{
+		Entity classAnnotation = (Entity) clazz.getAnnotation(Entity.class);
+		String anotName = classAnnotation.value();
+		String sqlRequest =String.format("DELETE FROM  %s WHERE id=%s",anotName,id);			
+		ConnectorToDB connectorToDB = new ConnectorToDB();
+		Connection connection = connectorToDB.connect();
+		Statement statement = connection.createStatement();
+		statement.executeUpdate(sqlRequest);	
+		statement.close();
+		connectorToDB.close();
+		return 1;
+	}
+	public <T> void createTableForInstance(Class<T> clazz,String tableName) throws InstantiationException, IllegalAccessException, Exception{
+		 String sqlRequest=makeSqlRequestForTableCraetion(clazz,tableName);
+		 System.out.println(sqlRequest);
+		 ConnectorToDB connectorToDB = new ConnectorToDB();
+			Connection connection = connectorToDB.connect();
+			Statement statement = connection.createStatement();
+			try {
+				statement.executeUpdate(sqlRequest);
+				LOG.info("Table" + tableName+"was created");
+			} catch (SQLException e) {
+				LOG.info("Cannot create table"+ tableName);
+			}			
+			statement.close();
+			connectorToDB.close();	 
+	}
+	
+	private <T> String makeSqlRequestForTableCraetion(Class<T> clazz,String tableName) throws InstantiationException, IllegalAccessException {
+
+		Entity classAnnotation = (Entity) clazz.getAnnotation(Entity.class);
+		String anotClassName = classAnnotation.value();//назва існуючої табл може здасться
+		String primaryKeyName="";
+		String sql = "CREATE TABLE " + tableName+"( ";             
+		T currentInstance = (T) clazz.newInstance();
+		Field[] fields = currentInstance.getClass().getDeclaredFields();
+		for (int i = 0; i < fields.length; i++) {
+			if (fields[i].isAnnotationPresent(FieldAnn.class)) {
+				FieldAnn fieldAnnotations = fields[i].getDeclaredAnnotation(FieldAnn.class);
+				String anotFieldName = fieldAnnotations.value();
+				String anotFieldType = fieldAnnotations.type();
+				if (0==i) {
+					 primaryKeyName=anotFieldName;
+					sql=sql+" "+anotFieldName+ " "+anotFieldType+" NOT NULL,";
+				}else {
+				sql=sql+" "+anotFieldName+ " "+anotFieldType+", ";
+				}
+				
+			}
+		}
+		sql=sql+"PRIMARY KEY ("+primaryKeyName+"));" ;
+		return sql;	
+	}
+	
 	public <T> List<T> getDataListByID(Class<T> clazz,Integer id) throws Exception{
 		Entity classAnnotation = (Entity) clazz.getAnnotation(Entity.class);
 		String anotName = classAnnotation.value();

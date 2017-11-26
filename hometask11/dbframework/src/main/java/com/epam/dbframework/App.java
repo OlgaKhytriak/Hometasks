@@ -1,10 +1,12 @@
 package com.epam.dbframework;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.epam.dbframework.dao.Transformer;
+import com.epam.dbframework.handler.MetadataViewer;
 import com.epam.dbframework.model.elements.*;
 import com.epam.dbframework.service.*;
 
@@ -13,10 +15,17 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 		//studentProcessor();
-		studentBookProcessor();
+		//studentBookProcessor();
 		//departmentProcessor();
 		//subjectProcessor();
 		//examProcessor();
+		methadataProcessor();
+	}
+	
+	public static void methadataProcessor() throws Exception {
+		MetadataViewer metadataViewer=new MetadataViewer();
+		metadataViewer.getGeneralInfo();
+		metadataViewer.getTablesInfo();
 	}
 	
 	public static void studentProcessor() throws Exception {
@@ -27,6 +36,12 @@ public class App {
 		System.out.println("Student by ID");
 		List<Student> studentsListID = studentService.getStudentByID(7);
 		printList(studentsListID);
+		for (Student st : studentsListID) {
+			System.out.println(st.toValuesString());
+		}
+		studentService.deleteStudentByID(7);
+		//studentService.createTableInDB("studentNew333");
+		//studentService.deleteTableFronDB("studentNew333");
 	}
 
 	public static void studentBookProcessor() throws Exception {
@@ -36,7 +51,9 @@ public class App {
 		System.out.println("studentBook by ID");
 		List<StudentBook> bookListID = studentBookService.getStudentBookByID(20326);
 		printList(bookListID);
-		
+		Date date = new Date();
+		StudentBook studentBook=new StudentBook(645474, date, "Pmp311",3);
+		studentBookService.addRecord(studentBook, "student_book");
 		
 		
 	}
@@ -46,7 +63,10 @@ public class App {
 		List<Subject> subjectList = subjectService.getSubjectList();
 		for (Subject st : subjectList) {
 			System.out.println(st.toString());
+			System.out.println(st.toValuesString());
 		}
+		Subject sb=new Subject(55555, "history", "Ukraine history");
+		subjectService.addRecord(sb, "subject");
 	}
 
 	public static void departmentProcessor() throws Exception {
@@ -54,14 +74,22 @@ public class App {
 		List<Department> departmentList = departmentService.getDepatrmentList();
 		for (Department st : departmentList) {
 			System.out.println(st.toString());
+			System.out.println(st.toValuesString());
 		}
+		Transformer transformer =new Transformer();
+		transformer.createTableForInstance(Department.class, "department22");
+		
+		departmentService.deleteDepartmentTransferStudent(4, 1);
 	}
+
 
 	public static void examProcessor() throws Exception {
 		ExamService examService = new ExamService();
 		List<Exam> examList = examService.getExamList();
 		for (Exam st : examList) {
 			System.out.println(st.toString());
+			System.out.println(st.toValuesString());
+			
 		}
 
 	}

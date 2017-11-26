@@ -4,22 +4,22 @@ import java.util.Date;
 
 import com.epam.dbframework.model.anotations.*;
 @Entity("student")
-public class Student {
-	@FieldAnn("id")
+public class Student extends ModelElement{
+	@FieldAnn(value="id",type="INT(11)")
 	private Integer id;
 	@FieldAnn("first_name")
 	private String firstName;
 	@FieldAnn("last_name")
 	private String lastName;
-	@FieldAnn("birthday")
+	@FieldAnn(value="birthday",type="DATE")
 	private Date birthday;
 	@FieldAnn("adress")
 	private String adress;
 	@FieldAnn("phone")
 	private String phone;
-	@FieldAnn("student_book_id")
+	@FieldAnn(value="student_book_id",type="INT(11)")
 	private Integer studentBookId;
-	@FieldAnn("department_id")
+	@FieldAnn(value="department_id",type="INT(11)")
 	private Integer departmentId;
 	
 	public Student() {
@@ -35,7 +35,10 @@ public class Student {
 		this.studentBookId=studentBookId;
 		this.departmentId=departmentId;
 	}
-
+	@Override
+	public String toValuesString() {
+		return String.format("(%s,\'%s\',\'%s\',\'%s\',\'%s\',\'%s\',%s,%s)", id, firstName, lastName, birthday,adress,phone,studentBookId,departmentId);
+	}
 	 public String toString() {
 		 return String.format("Student:: id= %s | first_name= %s | last_name= %s | birthday= %s | adress= %s | phone=%s | student_book_id= %s | department_id= %s | ", id, firstName,lastName,birthday,adress,phone,studentBookId,departmentId);
 		     }
@@ -89,4 +92,6 @@ public class Student {
 		this.departmentId = departmentId;
 	}
 //----------------------------------------------------------------	
+
+	
 }

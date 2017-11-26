@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 public class ConnectorToDB {
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+	public static final String DB_NAME ="univer";
 	static final String DB_URL = "jdbc:mysql://localhost:3306/univer";
 	static final String USER = "root";
 	static final String PASS = "123qaz";
@@ -15,6 +16,7 @@ public class ConnectorToDB {
 
 	private Connection connection;
 
+	
 	public Connection connect() {
 		try {
 			Class.forName(JDBC_DRIVER);

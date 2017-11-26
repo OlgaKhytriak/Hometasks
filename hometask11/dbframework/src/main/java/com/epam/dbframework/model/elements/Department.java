@@ -5,8 +5,8 @@ import java.util.Date;
 import com.epam.dbframework.model.anotations.FieldAnn;
 import com.epam.dbframework.model.anotations.Entity;
 @Entity("department")
-public class Department {
-	@FieldAnn("id")
+public class Department extends ModelElement{
+	@FieldAnn(value="id",type="INT(11)")
 	private Integer id;
 	@FieldAnn("name")
 	private String name;
@@ -21,7 +21,11 @@ public class Department {
 		this.name = name;
 		this.location = location;
 	}
-
+	
+	@Override
+	public String toValuesString() {
+		return String.format("(%s,\'%s\',\'%s\')", id,name,location);
+	}
 	public String toString() {
 		return String.format("Department:: id= %s | name= %s | location = %s |", id, name, location);
 	}
@@ -50,5 +54,7 @@ public class Department {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
+	
 
 }

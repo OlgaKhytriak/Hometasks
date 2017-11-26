@@ -4,17 +4,26 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.epam.dbframework.dao.ExamDao;
+import com.epam.dbframework.dao.StudentDao;
 import com.epam.dbframework.dao.Transformer;
 import com.epam.dbframework.model.elements.Exam;
+import com.epam.dbframework.model.elements.Student;
 
-public class ExamService {
+public class ExamService extends BasicService{
 	private static final Logger LOG = Logger.getLogger(ExamService.class);
-	private final Transformer transformer;
-
+	private final ExamDao examDao;
 	public ExamService() {
-		transformer = new Transformer();
+		examDao = new ExamDao();
 	}
-
+	public void deleteExamByID(Integer id) throws Exception {
+		transformer.deleteRowsByID(Exam.class, id);
+	}
+	public void createTableInDB(String tableName) throws Exception {
+		transformer.createTableForInstance(Exam.class, tableName);
+		examDao.setExamForeignKeys(tableName);
+	}
+	
 	public List<Exam> getExamList() throws Exception {
 		return transformer.getAllDataList(Exam.class);
 

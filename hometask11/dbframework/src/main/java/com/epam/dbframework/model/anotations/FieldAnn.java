@@ -9,4 +9,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FieldAnn {
 	String value() default "null";
+	String type() default "VARCHAR(45)";
 }
