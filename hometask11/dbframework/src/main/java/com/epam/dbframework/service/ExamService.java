@@ -11,6 +11,7 @@ public class ExamService {
 		transformer = new Transformer();
 	}
 	public List<Exam> getExamList() throws Exception {
-		return transformer.convertToList(Exam.class);
+		return transformer.getAllDataList(Exam.class);
+
 	}
 }

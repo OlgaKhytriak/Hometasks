@@ -11,6 +11,6 @@ public class SubjectService {
 		transformer = new Transformer();
 	}
 	public List<Subject> getSubjectList() throws Exception {
-		return transformer.convertToList(Subject.class);
+		return transformer.getAllDataList(Subject.class);
 	}
 }

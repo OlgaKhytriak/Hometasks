@@ -13,10 +13,10 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 		studentProcessor();
-		//studentBookProcessor();
-		//departmentProcessor();
-		//subjectProcessor();
-		//examProcessor();
+		studentBookProcessor();
+		departmentProcessor();
+		subjectProcessor();
+		examProcessor();
 	}
 
 	public static void studentBookProcessor() throws Exception {

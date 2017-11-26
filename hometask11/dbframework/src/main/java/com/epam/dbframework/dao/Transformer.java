@@ -16,16 +16,19 @@ import com.epam.dbframework.model.anotations.Entity;
 public class Transformer {
 	private static final Logger LOG = Logger.getLogger(Transformer.class);
 
-	public <T> List<T> convertToList(Class<T> clazz) throws Exception {
+	public <T> List<T> getAllDataList(Class<T> clazz) throws Exception{
+		Entity classAnnotation = (Entity) clazz.getAnnotation(Entity.class);
+		String anotName = classAnnotation.value();
+		String sqlRequest =String.format("SELECT * FROM  %s",anotName);		
+		return convertToList(clazz, sqlRequest);
+	}
+	
+	private <T> List<T> convertToList(Class<T> clazz, String sqlRequest) throws Exception {
 		List<T> instancesList = new ArrayList<T>();
 		ConnectorToDB connectorToDB = new ConnectorToDB();
 		Connection connection = connectorToDB.connect();
-		Entity classAnnotation = (Entity) clazz.getAnnotation(Entity.class);
-		String anotName = classAnnotation.value();
-		String sql = "SELECT * FROM " + anotName;
-		//String sql = "SELECT * FROM " + anotName+" id=1";
 		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery(sql);
+		ResultSet resultSet = statement.executeQuery(sqlRequest);
 		while (resultSet.next()) {
 			instancesList.add((T) convertToInstance(clazz, resultSet));
 		}
@@ -34,7 +37,7 @@ public class Transformer {
 		return instancesList;
 	}
 
-	public <T> T convertToInstance(Class<T> clazz, ResultSet resultSet)
+	private <T> T convertToInstance(Class<T> clazz, ResultSet resultSet)
 			throws SQLException, InstantiationException, IllegalAccessException {
 		T currentInstance = (T) clazz.newInstance();
 		Field[] fields = currentInstance.getClass().getDeclaredFields();

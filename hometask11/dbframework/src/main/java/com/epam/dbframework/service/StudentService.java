@@ -14,12 +14,12 @@ public class StudentService {
 		basicDAO = new BasicDAO();
 	}
 	public List<Student> getStudentsList() throws Exception {
-		return transformer.convertToList(Student.class);
+		return transformer.getAllDataList(Student.class);
 	}
 	
 	public Student getStudentByID(Integer id) throws Exception
 	{
-		return transformer.getByID(Student.class, id);
+		return null;//transformer.getByID(Student.class, id);
 	}
 	
 	
