@@ -1,4 +1,4 @@
-package com.epam.patterns.units.naval;
+package com.epam.patterns.units.navalunits;
 
 import com.epam.patterns.units.SampleUnit;
 import com.epam.patterns.units.interfaces.NavalUnit;

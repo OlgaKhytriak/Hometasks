@@ -1,4 +1,4 @@
-package com.epam.patterns.units.land;
+package com.epam.patterns.units.landunits;
 
 import com.epam.patterns.units.SampleUnit;
 import com.epam.patterns.units.interfaces.LandUnit;

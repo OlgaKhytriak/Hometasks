@@ -1,4 +1,4 @@
-package com.epam.patterns.units.air;
+package com.epam.patterns.units.airunits;
 
 import com.epam.patterns.units.interfaces.Unit;
 
