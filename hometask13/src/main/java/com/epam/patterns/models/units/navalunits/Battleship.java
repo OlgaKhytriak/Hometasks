@@ -1,6 +1,6 @@
-package com.epam.patterns.units.navalunits;
+package com.epam.patterns.models.units.navalunits;
 
-import com.epam.patterns.units.interfaces.Unit;
+import com.epam.patterns.models.units.interfaces.Unit;
 
 public class Battleship extends SampleNavalUnit {
 

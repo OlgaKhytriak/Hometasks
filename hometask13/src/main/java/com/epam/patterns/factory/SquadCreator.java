@@ -3,7 +3,7 @@ package com.epam.patterns.factory;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.epam.patterns.units.interfaces.*;
+import com.epam.patterns.models.units.interfaces.*;
 
 public class SquadCreator {
 

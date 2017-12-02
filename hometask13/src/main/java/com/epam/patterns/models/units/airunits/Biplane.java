@@ -1,8 +1,8 @@
-package com.epam.patterns.units.airunits;
+package com.epam.patterns.models.units.airunits;
 
-import com.epam.patterns.units.SampleUnit;
-import com.epam.patterns.units.interfaces.AirUnit;
-import com.epam.patterns.units.interfaces.Unit;
+import com.epam.patterns.models.units.SampleUnit;
+import com.epam.patterns.models.units.interfaces.AirUnit;
+import com.epam.patterns.models.units.interfaces.Unit;
 
 public class Biplane extends SampleAirUnit{
 	public void fight(Unit victim) {

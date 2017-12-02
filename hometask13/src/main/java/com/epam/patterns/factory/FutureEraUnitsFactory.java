@@ -1,11 +1,11 @@
 package com.epam.patterns.factory;
 
-import com.epam.patterns.units.airunits.Ñosmoplan;
-import com.epam.patterns.units.interfaces.AirUnit;
-import com.epam.patterns.units.interfaces.LandUnit;
-import com.epam.patterns.units.interfaces.NavalUnit;
-import com.epam.patterns.units.landunits.Robot;
-import com.epam.patterns.units.navalunits.NuclearCruiser;
+import com.epam.patterns.models.units.airunits.Ñosmoplan;
+import com.epam.patterns.models.units.interfaces.AirUnit;
+import com.epam.patterns.models.units.interfaces.LandUnit;
+import com.epam.patterns.models.units.interfaces.NavalUnit;
+import com.epam.patterns.models.units.landunits.Robot;
+import com.epam.patterns.models.units.navalunits.NuclearCruiser;
 
 public class FutureEraUnitsFactory extends UnitsFactory{
 

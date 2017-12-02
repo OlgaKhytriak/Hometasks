@@ -1,6 +1,6 @@
-package com.epam.patterns.units.airunits;
+package com.epam.patterns.models.units.airunits;
 
-import com.epam.patterns.units.interfaces.Unit;
+import com.epam.patterns.models.units.interfaces.Unit;
 
 public class Stealth extends SampleAirUnit {
 	public void fight(Unit victim) {

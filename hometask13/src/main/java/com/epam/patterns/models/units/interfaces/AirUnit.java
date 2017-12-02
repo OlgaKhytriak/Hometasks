@@ -1,4 +1,4 @@
-package com.epam.patterns.units.interfaces;
+package com.epam.patterns.models.units.interfaces;
 
 public interface AirUnit extends Unit{
 public void fly(int numberOfSteps);

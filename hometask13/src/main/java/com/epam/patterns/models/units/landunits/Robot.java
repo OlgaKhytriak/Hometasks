@@ -1,6 +1,6 @@
-package com.epam.patterns.units.landunits;
+package com.epam.patterns.models.units.landunits;
 
-import com.epam.patterns.units.interfaces.Unit;
+import com.epam.patterns.models.units.interfaces.Unit;
 
 public class Robot extends SampleLandUnit {
 

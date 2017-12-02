@@ -1,11 +1,11 @@
 package com.epam.patterns.factory;
 
-import com.epam.patterns.units.airunits.Stealth;
-import com.epam.patterns.units.interfaces.AirUnit;
-import com.epam.patterns.units.interfaces.LandUnit;
-import com.epam.patterns.units.interfaces.NavalUnit;
-import com.epam.patterns.units.landunits.Tank;
-import com.epam.patterns.units.navalunits.Battleship;
+import com.epam.patterns.models.units.airunits.Stealth;
+import com.epam.patterns.models.units.interfaces.AirUnit;
+import com.epam.patterns.models.units.interfaces.LandUnit;
+import com.epam.patterns.models.units.interfaces.NavalUnit;
+import com.epam.patterns.models.units.landunits.Tank;
+import com.epam.patterns.models.units.navalunits.Battleship;
 
 public class ModernEraUnitsFactory extends UnitsFactory {
 
