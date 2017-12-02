@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.epam.patterns.factory.AirUnitsFactory;
 import com.epam.patterns.factory.UnitsFactory;
 import com.epam.patterns.units.enums.UnitType;
 import com.epam.patterns.units.interfaces.Unit;
@@ -14,7 +15,7 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 		LOG.info("Hello");
-		Unit unit=new UnitsFactory().createUnit(UnitType.AIRCRAFTCARRIER);
+		Unit unit=new AirUnitsFactory().createUnit(UnitType.AIRCRAFTCARRIER);
 	}
 
 	
