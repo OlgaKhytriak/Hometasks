@@ -10,7 +10,6 @@ import com.epam.patterns.factory.IndustrialEraUnitsFactory;
 import com.epam.patterns.factory.ModernEraUnitsFactory;
 import com.epam.patterns.factory.SquadCreator;
 import com.epam.patterns.factorymethod.WeaponCreator;
-import com.epam.patterns.models.units.copy.SampleUnit;
 import com.epam.patterns.models.units.interfaces.Unit;
 import com.epam.patterns.models.units.landunits.Infantryman;
 import com.epam.patterns.models.units.landunits.Robot;
