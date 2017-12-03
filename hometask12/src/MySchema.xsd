@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/MySchema" xmlns:tns="http://www.example.org/MySchema" elementFormDefault="qualified">
+
+
+
+    <element name="rate" type="tns:rate"></element>
+    
+    <complexType name="rate">
+    	<sequence>
+    		<element name="name" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="providerName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="subscriptionFee" type="double" maxOccurs="1" minOccurs="1"></element>
+    		<element name="gigabytePrices" type="tns:elementPriceType"
+    			maxOccurs="unbounded" minOccurs="1">
+    		</element>
+    		<element name="videotecaFilmPrice" type="double" maxOccurs="1" minOccurs="1"></element>
+    		<element name="parameters" type="tns:elementParameterType"
+    			maxOccurs="unbounded" minOccurs="1">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="elementPriceType">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="price" type="double"></element>
+    	</sequence>
+    	<attribute name="id" type="int"></attribute>
+    </complexType>
+
+    <complexType name="elementParameterType">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="price" type="double"></element>
+    	</sequence>
+    	<attribute name="name" type="string"></attribute>
+    </complexType>
+</schema>
