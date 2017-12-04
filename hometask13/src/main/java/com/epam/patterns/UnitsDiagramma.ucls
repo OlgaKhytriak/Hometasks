@@ -2,9 +2,9 @@
 <class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.epam.patterns.factory.FutureEraUnitsFactory" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/factory/FutureEraUnitsFactory.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/factory/FutureEraUnitsFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="80" y="180"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -13,8 +13,8 @@
     </display>  
   </class>  
   <class id="2" language="java" name="com.epam.patterns.factory.IndustrialEraUnitsFactory" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/factory/IndustrialEraUnitsFactory.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/factory/IndustrialEraUnitsFactory.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="300" y="240"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -24,9 +24,9 @@
     </display>  
   </class>  
   <class id="3" language="java" name="com.epam.patterns.factory.ModernEraUnitsFactory" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/factory/ModernEraUnitsFactory.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/factory/ModernEraUnitsFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="514" y="147"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -44,9 +44,10 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.epam.patterns.models.units.landunits.Tank" project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/Tank.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="com.epam.patterns.models.units.landunits.Tank" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/Tank.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="269" y="500"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +56,8 @@
     </display>  
   </class>  
   <class id="6" language="java" name="com.epam.patterns.models.units.landunits.Infantryman" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/Infantryman.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/Infantryman.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="454" y="499"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -66,9 +67,9 @@
     </display>  
   </class>  
   <class id="7" language="java" name="com.epam.patterns.models.units.landunits.Robot" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/Robot.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/Robot.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="632" y="499"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -77,8 +78,8 @@
     </display>  
   </class>  
   <interface id="8" language="java" name="com.epam.patterns.models.units.interfaces.LandUnit" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/LandUnit.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/LandUnit.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="762" y="177"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -88,9 +89,9 @@
     </display>  
   </interface>  
   <interface id="9" language="java" name="com.epam.patterns.models.units.interfaces.Unit" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/Unit.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/Unit.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="961" y="56"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -99,8 +100,8 @@
     </display>  
   </interface>  
   <interface id="10" language="java" name="com.epam.patterns.models.units.interfaces.AirUnit" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/AirUnit.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/AirUnit.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="961" y="177"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -110,8 +111,8 @@
     </display>  
   </interface>  
   <interface id="11" language="java" name="com.epam.patterns.models.units.interfaces.NavalUnit" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/NavalUnit.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/interfaces/NavalUnit.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1160" y="177"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -121,8 +122,8 @@
     </display>  
   </interface>  
   <class id="12" language="java" name="com.epam.patterns.models.units.airunits.SampleAirUnit" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/SampleAirUnit.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/SampleAirUnit.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="977" y="312"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -132,9 +133,9 @@
     </display>  
   </class>  
   <class id="13" language="java" name="com.epam.patterns.models.units.airunits.Biplane" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/Biplane.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/Biplane.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="821" y="501"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -143,9 +144,9 @@
     </display>  
   </class>  
   <class id="14" language="java" name="com.epam.patterns.models.units.airunits.Stealth" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/Stealth.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/Stealth.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="985" y="502"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -154,8 +155,8 @@
     </display>  
   </class>  
   <class id="15" language="java" name="com.epam.patterns.models.units.airunits.Сosmoplan" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/Сosmoplan.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/airunits/Сosmoplan.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1158" y="503"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -165,8 +166,8 @@
     </display>  
   </class>  
   <class id="16" language="java" name="com.epam.patterns.models.units.landunits.SampleLandUnit" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/SampleLandUnit.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/landunits/SampleLandUnit.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="512" y="332"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -176,8 +177,8 @@
     </display>  
   </class>  
   <class id="17" language="java" name="com.epam.patterns.models.units.navalunits.Battleship" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/Battleship.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/Battleship.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1341" y="501"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -187,8 +188,8 @@
     </display>  
   </class>  
   <class id="18" language="java" name="com.epam.patterns.models.units.navalunits.SampleNavalUnit" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/SampleNavalUnit.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/SampleNavalUnit.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1498" y="314"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -198,8 +199,8 @@
     </display>  
   </class>  
   <class id="19" language="java" name="com.epam.patterns.models.units.navalunits.NuclearCruiser" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/NuclearCruiser.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/NuclearCruiser.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1527" y="500"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -209,8 +210,8 @@
     </display>  
   </class>  
   <class id="20" language="java" name="com.epam.patterns.models.units.navalunits.Frigate" 
-    project="patterns-fabric-singelton" 
-    file="/patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/Frigate.java" 
+    project="com.epam.lab.task13.patterns-fabric-singelton" 
+    file="/com.epam.lab.task13.patterns-fabric-singelton/src/main/java/com/epam/patterns/models/units/navalunits/Frigate.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1725" y="499"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -224,70 +225,58 @@
     <end type="TARGET" refId="18"/>  
   </generalization>  
   <generalization id="22">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="23">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="24">    
+  <generalization id="23">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="25">    
+  <generalization id="24">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="26">    
+  <generalization id="25">    
     <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <generalization id="27">    
+  <generalization id="26">    
     <end type="SOURCE" refId="19"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <generalization id="28">    
+  <generalization id="27">    
     <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="29">    
+  <generalization id="28">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="30">    
+  <generalization id="29">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="16"/>  
   </generalization>  
-  <generalization id="31">    
+  <generalization id="30">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="32">    
+  <generalization id="31">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="16"/>  
   </generalization>  
-  <generalization id="33">    
+  <generalization id="32">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="16"/>  
   </generalization>  
-  <realization id="34">    
+  <realization id="33">    
     <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="8"/>  
   </realization>  
-  <realization id="35">    
+  <realization id="34">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="37">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <realization id="38">    
+  <realization id="35">    
     <end type="SOURCE" refId="18"/>    
     <end type="TARGET" refId="11"/>  
   </realization>  
