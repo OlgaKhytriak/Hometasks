@@ -1,7 +1,7 @@
 package com.epam.lab.xmlxsd.models;
 
 public class InternetRate {
-	private static Integer idCounter=0;
+	private static Integer idCounter = 0;
 	private Integer id;
 	private String name;
 	private String providerName;
