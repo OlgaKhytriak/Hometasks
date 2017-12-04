@@ -1,5 +1,5 @@
 package com.epam.patterns.models.weapons;
 
-public class Ñannon extends LandUnitsWeapon{
+public class Cannon extends LandUnitsWeapon{
 
 }

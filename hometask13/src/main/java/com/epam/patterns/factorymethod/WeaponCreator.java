@@ -13,7 +13,7 @@ public class WeaponCreator {
         if (unit instanceof Infantryman) {
         	weapon = new MachineGun();
         } else if (unit instanceof Tank) {
-        	weapon = new Ñannon();
+        	weapon = new Cannon();
         }else if (unit instanceof Robot) {
         	weapon=new Laser();
         }
