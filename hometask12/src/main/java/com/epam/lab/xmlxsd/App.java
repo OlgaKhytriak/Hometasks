@@ -34,7 +34,7 @@ public class App {
 		LOG.info("--- parseExample ------------------------------------");
 		parseExample();
 		LOG.info("--- JAXBExample ------------------------------------");
-		JAXBExample();
+		exampleJAXB();
 	}
 
 	public static void validateExample() {
@@ -52,70 +52,64 @@ public class App {
 		Date startLinked;
 		Date finishLinked;
 		startLinked = new Date();
-		List<InternetRate> internetRatesSAX=performParse(xmlFilePath, ParserType.SAX);
+		List<InternetRate> internetRatesSAX = performParse(xmlFilePath, ParserType.SAX);
 		printList(internetRatesSAX);
 		finishLinked = new Date();
-		LOG.info(String.format("Time result for SAX: %s", finishLinked.getTime() - startLinked.getTime()));	
+		LOG.info(String.format("Time result for SAX: %s", finishLinked.getTime() - startLinked.getTime()));
 		startLinked = new Date();
-		List<InternetRate> internetRatesStAX=performParse(xmlFilePath, ParserType.StAX);
+		List<InternetRate> internetRatesStAX = performParse(xmlFilePath, ParserType.StAX);
 		printList(internetRatesStAX);
 		finishLinked = new Date();
-		LOG.info(String.format("Time result for StAX: %s", finishLinked.getTime() - startLinked.getTime()));	
+		LOG.info(String.format("Time result for StAX: %s", finishLinked.getTime() - startLinked.getTime()));
 		startLinked = new Date();
-		List<InternetRate> internetRatesDOM=performParse(xmlFilePath, ParserType.DOM);
+		List<InternetRate> internetRatesDOM = performParse(xmlFilePath, ParserType.DOM);
 		printList(internetRatesDOM);
 		finishLinked = new Date();
-		LOG.info(String.format("Time result for DOM: %s", finishLinked.getTime() - startLinked.getTime()));	
+		LOG.info(String.format("Time result for DOM: %s", finishLinked.getTime() - startLinked.getTime()));
 	}
-	
-	public static void  JAXBExample() throws JAXBException {
-		//JAXBContextProcessor jaxbContextProcessor=new JAXBContextProcessor();
+
+	public static void exampleJAXB() throws JAXBException {
+		JAXBContextProcessor jaxbContextProcessor = new JAXBContextProcessor();
 		Rate rate = createRateForJAXB();
-		System.out.println("+-+-+-+-"+rate.toString());
-		String packagePath = rate.getClass().getPackage().getName();
-		JAXBContext jaxbContext = JAXBContext.newInstance(packagePath);
-		
-		Marshaller marshaller=jaxbContext.createMarshaller();
-		Unmarshaller unmarshaller=jaxbContext.createUnmarshaller();
-		File file=new File(xmlJAXBFilePath);
-		marshaller.marshal(rate, file);
-		//jaxbContextProcessor.convertObjectToXML(rate, xmlJAXBFilePath);
+		jaxbContextProcessor.convertObjectToXML(rate, xmlJAXBFilePath);
+		Object objectFromXML2 = jaxbContextProcessor.convertXMLToObject(Rate.class, xmlJAXBFilePath);
+		Rate reteFromXML2 = (Rate) objectFromXML2;
+		System.out.println(reteFromXML2.toString());		
 	}
-	
+
 	private static Rate createRateForJAXB() {
-		Rate internateRateForJAXB=new Rate();
+		Rate internateRateForJAXB = new Rate();
 		internateRateForJAXB.setName("Simple rate");
 		internateRateForJAXB.setProviderName("Kyivstar provider");
 		internateRateForJAXB.setSpeed(100.23);
-		internateRateForJAXB.setGigaBytePrices(createRateGigaBytePrices());
-		internateRateForJAXB.setRateParameters(createRateParameters());
+		// internateRateForJAXB.setGigaBytePrices(createRateGigaBytePrices());
+		// internateRateForJAXB.setRateParameters(createRateParameters());
 		return internateRateForJAXB;
 	}
 
-	private static List<GigaBytePrice> createRateGigaBytePrices(){
-		List<GigaBytePrice> prices=new ArrayList<GigaBytePrice>();
-		GigaBytePrice price1 =new GigaBytePrice("less 100GB", 222);
+	private static List<GigaBytePrice> createRateGigaBytePrices() {
+		List<GigaBytePrice> prices = new ArrayList<GigaBytePrice>();
+		GigaBytePrice price1 = new GigaBytePrice("less 100GB", 222);
 		prices.add(price1);
-		GigaBytePrice price2 =new GigaBytePrice("more 100GB", 333);
+		GigaBytePrice price2 = new GigaBytePrice("more 100GB", 333);
 		prices.add(price2);
-		GigaBytePrice price3 =new GigaBytePrice("more 1000GB", 333);
-		prices.add(price3);	
+		GigaBytePrice price3 = new GigaBytePrice("more 1000GB", 444);
+		prices.add(price3);
 		return prices;
 	}
-	
-	private static List<Parameter> createRateParameters(){
-		List<Parameter> parameters=new ArrayList<Parameter>();
-		Parameter param1 =new Parameter("subscriptionFee", 1212);
+
+	private static List<Parameter> createRateParameters() {
+		List<Parameter> parameters = new ArrayList<Parameter>();
+		Parameter param1 = new Parameter("subscriptionFee", 1212);
 		parameters.add(param1);
-		Parameter param2 =new Parameter("additionalSpeed", 2323);
+		Parameter param2 = new Parameter("additionalSpeed", 2323);
 		parameters.add(param2);
-		Parameter param3 =new Parameter("smartTV", 3434);
-		parameters.add(param3);	
-		Parameter param4 =new Parameter("cableTV", 4545);
-		parameters.add(param4);	
+		Parameter param3 = new Parameter("smartTV", 3434);
+		parameters.add(param3);
+		Parameter param4 = new Parameter("cableTV", 4545);
+		parameters.add(param4);
 		return parameters;
 	}
-
 
 	private static List<InternetRate> performParse(String xmlFilePath, ParserType parserType) {
 		ParserCreator parserCreator = new ParserCreator();

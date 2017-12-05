@@ -12,6 +12,10 @@ public class JAXBContextProcessor {
 	private Marshaller marshaller;
 	private Unmarshaller unmarshaller;
 	
+	public Unmarshaller getUnmarshaller() {
+		return unmarshaller;
+	}
+
 	public void convertObjectToXML(Object object,String filePath) {
 		File file=new File(filePath);
 		createMarshalers(object);
@@ -22,33 +26,33 @@ public class JAXBContextProcessor {
 		}
 	}
 
-	public Object convertXMLToObject(Class clazz, String filePath) {
-		Object object=new Object();
+	public Object convertXMLToObject(Class<?> clazz, String filePath) {
+		File file = new File(filePath);
+		JAXBContext jaxbContext;
+		Unmarshaller unmarshaller;
+		Object objectromXML = null;
 		try {
-			createMarshalers(clazz.newInstance());
-			File file=new File(filePath);
-			object= unmarshaller.unmarshal(file);
-		} catch (InstantiationException | IllegalAccessException | JAXBException e) {
-			System.out.println("Exceprion in method convertXMLToObject in JAXBContextProcessor");
-
-		}
-		return object;
-		
-		
+			jaxbContext = JAXBContext.newInstance(clazz);
+			unmarshaller = jaxbContext.createUnmarshaller();
+			objectromXML = unmarshaller.unmarshal(file);
+		} catch (JAXBException e) {
+			System.out.println("Exceprion in method create in convertXMLToObject");
+		}			
+		return objectromXML;		
 	}
 	
 	private void createMarshalers(Object object) {
 		String packagePath = object.getClass().getPackage().getName();
 		try {
 			jaxbContext = JAXBContext.newInstance(packagePath);
-			System.out.println("+++++++"+jaxbContext.toString());
 			marshaller=jaxbContext.createMarshaller();
 			unmarshaller=jaxbContext.createUnmarshaller();
 		} catch (JAXBException e) {
 			System.out.println("Exceprion in method create in JAXBContextProcessor");
 		}		
 	}
-	
+
+		
 	
 
 }

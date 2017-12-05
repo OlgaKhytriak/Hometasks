@@ -1,7 +1,8 @@
 package com.epam.lab.xmlxsd.jaxb;
 
 public class GigaBytePrice {
-	
+	private String name;
+	private double price;
 	public GigaBytePrice() {
 	}
 
@@ -10,10 +11,10 @@ public class GigaBytePrice {
 		this.name = name;
 		this.price = price;
 	}
-
-	private String name;
-	private double price;
-
+	public String toString() {
+		return String.format(
+				"Parameter: name= %s | price = %s ",name, price);
+	}
 	public String getName() {
 		return name;
 	}

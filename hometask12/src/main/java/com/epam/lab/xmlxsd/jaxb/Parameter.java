@@ -1,8 +1,8 @@
 package com.epam.lab.xmlxsd.jaxb;
 
-import javax.xml.bind.annotation.XmlElement;
-
 public class Parameter {
+	private String name;
+	private double price;
 
 	public Parameter() {
 	}
@@ -13,8 +13,9 @@ public class Parameter {
 		this.price = price;
 	}
 
-	private String name;
-	private double price;
+	public String toString() {
+		return String.format("Parameter: name= %s | price = %s ", name, price);
+	}
 
 	public String getName() {
 		return name;

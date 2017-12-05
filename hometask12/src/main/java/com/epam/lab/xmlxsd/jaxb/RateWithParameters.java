@@ -14,10 +14,10 @@ import javax.xml.bind.annotation.XmlType;
 import com.epam.lab.xmlxsd.models.InternetRate;
 
 @XmlRootElement
-//@XmlSeeAlso({ Parameter.class, GigaBytePrice.class})
+@XmlSeeAlso({Parameter.class, GigaBytePrice.class,InternetRate.class})
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "rate")
-public class Rate {
+public class RateWithParameters {
 	private static Integer idCounter = 0;
 	@XmlAttribute
 	private Integer id;
@@ -27,28 +27,22 @@ public class Rate {
 	private String providerName;
 	@XmlElement(required = true, name = "speed")
 	private Double speed;
+	@XmlElement
+	@XmlElementWrapper(name = "parameters")
+	List<Parameter> parameters;
+	@XmlElement
+	@XmlElementWrapper(name = "prices-per-gigabyte")
+	List<GigaBytePrice> gigaBytePrices;
 
-	/*
-	 * @XmlElement
-	 * 
-	 * @XmlElementWrapper(name = "parameters") List<Parameter> parameters;
-	 * 
-	 * @XmlElement
-	 * 
-	 * @XmlElementWrapper(name = "prices-per-gigabyte") List<GigaBytePrice>
-	 * gigaBytePrices;
-	 */
-	public Rate() {
+	public RateWithParameters() {
+		idCounter++;
+		this.id = idCounter;
 	}
 
-	//public Rate() {
-	//	idCounter++;
-	//	this.id = idCounter;
-	//}
-
 	public String toString() {
-		return String.format("InternetRate: id= %s | name= %s | providerName = %s | speed = %s ", id, name,
-				providerName, speed);
+		return String.format(
+				"InternetRate: id= %s | name= %s | providerName = %s | speed = %s | parameters (%s) | gigaBytePrices (%s)",
+				id, name, providerName,speed,parameters.toString(),gigaBytePrices.toString());
 	}
 
 	public Integer getId() {
@@ -77,6 +71,22 @@ public class Rate {
 
 	public void setSpeed(Double speed) {
 		this.speed = speed;
+	}
+
+	public List<Parameter> getRateParameters() {
+		return parameters;
+	}
+
+	public void setRateParameters(List<Parameter> parameters) {
+		this.parameters = parameters;
+	}
+
+	public List<GigaBytePrice> getGigaBytePrices() {
+		return gigaBytePrices;
+	}
+
+	public void setGigaBytePrices(List<GigaBytePrice> gigaBytePrices) {
+		this.gigaBytePrices = gigaBytePrices;
 	}
 
 }
