@@ -1,7 +1,12 @@
 package com.epam.lab.xmlxsd.jaxb;
 
+import javax.xml.bind.annotation.XmlElement;
+
+
 public class Parameter {
+	@XmlElement(required = true, name = "name")
 	private String name;
+	@XmlElement(required = true, name = "name")
 	private double price;
 
 	public Parameter() {

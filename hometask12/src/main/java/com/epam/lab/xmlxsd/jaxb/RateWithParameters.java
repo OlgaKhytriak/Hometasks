@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.epam.lab.xmlxsd.models.InternetRate;
 
 @XmlRootElement
-@XmlSeeAlso({Parameter.class, GigaBytePrice.class,InternetRate.class})
+@XmlSeeAlso({Parameter.class, GigaBytePrice.class})
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "rate")
 public class RateWithParameters {

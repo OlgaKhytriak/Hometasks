@@ -13,6 +13,7 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 
 import com.epam.lab.xmlxsd.jaxb.Rate;
+import com.epam.lab.xmlxsd.jaxb.RateWithParameters;
 import com.epam.lab.xmlxsd.jaxb.JAXBContextProcessor;
 import com.epam.lab.xmlxsd.jaxb.GigaBytePrice;
 import com.epam.lab.xmlxsd.jaxb.Parameter;
@@ -26,14 +27,14 @@ public class App {
 	private static final Logger LOG = Logger.getLogger(App.class);
 	private static String xsdFilePath = "src/main/resources/internetRate.xsd";
 	private static String xmlFilePath = "src/main/resources/internetRate.xml";
-	private static String xmlJAXBFilePath = "src/main/resources/internetRateJAXB.xml";
-
+	private static String xmlJAXBFilePath1 = "src/main/resources/internetRateJAXB1.xml";
+	
 	public static void main(String[] args) throws Exception {
 		LOG.info("--- validateExample ---------------------------------");
 		validateExample();
 		LOG.info("--- parseExample ------------------------------------");
 		parseExample();
-		LOG.info("--- JAXBExample ------------------------------------");
+		LOG.info("--- JAXBExample1 ------------------------------------");
 		exampleJAXB();
 	}
 
@@ -71,22 +72,21 @@ public class App {
 	public static void exampleJAXB() throws JAXBException {
 		JAXBContextProcessor jaxbContextProcessor = new JAXBContextProcessor();
 		Rate rate = createRateForJAXB();
-		jaxbContextProcessor.convertObjectToXML(rate, xmlJAXBFilePath);
-		Object objectFromXML2 = jaxbContextProcessor.convertXMLToObject(Rate.class, xmlJAXBFilePath);
+		jaxbContextProcessor.convertObjectToXML(rate, xmlJAXBFilePath1);
+		Object objectFromXML2 = jaxbContextProcessor.convertXMLToObject(Rate.class, xmlJAXBFilePath1);
 		Rate reteFromXML2 = (Rate) objectFromXML2;
+		System.out.println("Created object:");
 		System.out.println(reteFromXML2.toString());		
 	}
-
+	
 	private static Rate createRateForJAXB() {
 		Rate internateRateForJAXB = new Rate();
 		internateRateForJAXB.setName("Simple rate");
 		internateRateForJAXB.setProviderName("Kyivstar provider");
 		internateRateForJAXB.setSpeed(100.23);
-		// internateRateForJAXB.setGigaBytePrices(createRateGigaBytePrices());
-		// internateRateForJAXB.setRateParameters(createRateParameters());
 		return internateRateForJAXB;
 	}
-
+	
 	private static List<GigaBytePrice> createRateGigaBytePrices() {
 		List<GigaBytePrice> prices = new ArrayList<GigaBytePrice>();
 		GigaBytePrice price1 = new GigaBytePrice("less 100GB", 222);

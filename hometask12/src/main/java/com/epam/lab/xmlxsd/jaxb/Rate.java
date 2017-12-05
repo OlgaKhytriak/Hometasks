@@ -28,23 +28,13 @@ public class Rate {
 	@XmlElement(required = true, name = "speed")
 	private Double speed;
 
-	/*
-	 * @XmlElement
-	 * 
-	 * @XmlElementWrapper(name = "parameters") List<Parameter> parameters;
-	 * 
-	 * @XmlElement
-	 * 
-	 * @XmlElementWrapper(name = "prices-per-gigabyte") List<GigaBytePrice>
-	 * gigaBytePrices;
-	 */
 	public Rate() {
 	}
 
-	//public Rate() {
-	//	idCounter++;
-	//	this.id = idCounter;
-	//}
+	// public Rate() {
+	// idCounter++;
+	// this.id = idCounter;
+	// }
 
 	public String toString() {
 		return String.format("InternetRate: id= %s | name= %s | providerName = %s | speed = %s ", id, name,

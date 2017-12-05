@@ -1,7 +1,11 @@
 package com.epam.lab.xmlxsd.jaxb;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class GigaBytePrice {
+	@XmlElement(required = true, name = "name")
 	private String name;
+	@XmlElement(required = true, name = "price")
 	private double price;
 	public GigaBytePrice() {
 	}
