@@ -1,19 +1,11 @@
-package com.epam.lab.xmlxsd.models;
+package com.epam.lab.xmlxsd.jaxb;
 
-import javax.xml.bind.annotation.XmlElement;
-
-/*
-	subscriptionFee;
-	additionalSpeed;
-	smartTV;
-	cableTV;
- */
-public class RateParameter {
-
-	public RateParameter() {
+public class GigaBytePrice {
+	
+	public GigaBytePrice() {
 	}
 
-	public RateParameter(String name, double price) {
+	public GigaBytePrice(String name, double price) {
 		super();
 		this.name = name;
 		this.price = price;

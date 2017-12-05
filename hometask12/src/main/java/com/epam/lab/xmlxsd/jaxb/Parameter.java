@@ -1,15 +1,13 @@
-package com.epam.lab.xmlxsd.models;
-/*
- * less 100GB
- * more 100GB
- * more 1000GB
- */
-public class RateGigaBytePrice {
-	
-	public RateGigaBytePrice() {
+package com.epam.lab.xmlxsd.jaxb;
+
+import javax.xml.bind.annotation.XmlElement;
+
+public class Parameter {
+
+	public Parameter() {
 	}
 
-	public RateGigaBytePrice(String name, double price) {
+	public Parameter(String name, double price) {
 		super();
 		this.name = name;
 		this.price = price;

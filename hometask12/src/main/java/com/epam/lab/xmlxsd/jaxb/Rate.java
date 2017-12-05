@@ -1,4 +1,4 @@
-package com.epam.lab.xmlxsd.models;
+package com.epam.lab.xmlxsd.jaxb;
 
 import java.util.List;
 
@@ -8,12 +8,16 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
+import com.epam.lab.xmlxsd.models.InternetRate;
+
 @XmlRootElement
+@XmlSeeAlso({Parameter.class, GigaBytePrice.class,InternetRate.class})
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "rate")
-public class InternetRateForJAXB {
+public class Rate {
 	private static Integer idCounter = 0;
 	@XmlAttribute
 	private Integer id;
@@ -23,14 +27,14 @@ public class InternetRateForJAXB {
 	private String providerName;
 	@XmlElement(required = true, name = "speed")
 	private Double speed;
-	@XmlElement
-	@XmlElementWrapper(name = "PARAMETERS")
-	List<RateParameter> rateParameters;
-	@XmlElement
-	@XmlElementWrapper(name = "PRICES per gigaByte")
-	List<RateGigaBytePrice> gigaBytePrices;
+	//@XmlElement
+	//@XmlElementWrapper(name = "PARAMETERS")
+	List<Parameter> parameters;
+	//@XmlElement
+	//@XmlElementWrapper(name = "PRICES per gigaByte")
+	List<GigaBytePrice> gigaBytePrices;
 
-	public InternetRateForJAXB() {
+	public Rate() {
 		idCounter++;
 		this.id = idCounter;
 	}
@@ -38,7 +42,7 @@ public class InternetRateForJAXB {
 	public String toString() {
 		return String.format(
 				"InternetRate: id= %s | name= %s | providerName = %s | speed = %s | parameters (%s) | gigaBytePrices (%s)",
-				id, name, providerName,speed,rateParameters.toString(),gigaBytePrices.toString());
+				id, name, providerName,speed,parameters.toString(),gigaBytePrices.toString());
 	}
 
 	public Integer getId() {
@@ -69,19 +73,19 @@ public class InternetRateForJAXB {
 		this.speed = speed;
 	}
 
-	public List<RateParameter> getRateParameters() {
-		return rateParameters;
+	public List<Parameter> getRateParameters() {
+		return parameters;
 	}
 
-	public void setRateParameters(List<RateParameter> rateParameters) {
-		this.rateParameters = rateParameters;
+	public void setRateParameters(List<Parameter> parameters) {
+		this.parameters = parameters;
 	}
 
-	public List<RateGigaBytePrice> getGigaBytePrices() {
+	public List<GigaBytePrice> getGigaBytePrices() {
 		return gigaBytePrices;
 	}
 
-	public void setGigaBytePrices(List<RateGigaBytePrice> gigaBytePrices) {
+	public void setGigaBytePrices(List<GigaBytePrice> gigaBytePrices) {
 		this.gigaBytePrices = gigaBytePrices;
 	}
 
