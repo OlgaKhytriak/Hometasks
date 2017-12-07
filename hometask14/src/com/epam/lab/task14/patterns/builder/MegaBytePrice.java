@@ -1,17 +1,17 @@
-package com.epam.lab.task14.patterns.adapter.models;
+package com.epam.lab.task14.patterns.builder;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-public class GigaBytePrice {
+public class MegaBytePrice {
 	@XmlElement(required = true, name = "price-name")
 	private String priceName;
 	@XmlElement(required = true, name = "price-per-gigabyte")
 	private double pricePerGig;
-	public GigaBytePrice() {
+	public MegaBytePrice() {
 	}
 
-	public GigaBytePrice(String name, double price) {
+	public MegaBytePrice(String name, double price) {
 		super();
 		this.priceName = name;
 		this.pricePerGig = price;

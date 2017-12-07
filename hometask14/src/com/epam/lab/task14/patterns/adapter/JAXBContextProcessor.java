@@ -7,28 +7,20 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import com.epam.lab.task14.patterns.adapter.models.GigaBytePrice;
-import com.epam.lab.task14.patterns.adapter.models.Parameter;
-import com.epam.lab.task14.patterns.adapter.models.Rate;
-
-public class Object2XmlConverter implements Object2Xml {
+public class JAXBContextProcessor{
 	private JAXBContext jaxbContext;
 	private Marshaller marshaller;
 	private Unmarshaller unmarshaller;
 
-	public Object2XmlConverter(Class<?>[] clazzes){
-	//public Object2XmlConverter(){
+	public JAXBContextProcessor(Class<?>[] clazzes){
 		jaxbContext=null;
 		try {
-			//jaxbContext = JAXBContext.newInstance(new Class[] {Rate.class,Parameter.class,GigaBytePrice.class});
 			jaxbContext = JAXBContext.newInstance(clazzes);
 		} catch (JAXBException e) {
-			System.out.println("Exceprion in constructor Object2XmlConverter()");
+			System.out.println("Exceprion in constructor JAXBContextProcessor()");
 		}
 	}
-
-	@Override
-	public <T> T load(Class<T> clazz, File file) {
+	public <T> T convertXMLToObject(Class<T> clazz, File file) {
 		Object objectromXML = null;
 		try {
 
@@ -38,14 +30,11 @@ public class Object2XmlConverter implements Object2Xml {
 			System.out.println("Exceprion in  Object2XmlConverter.load()");
 		}
 		return (T) objectromXML;
-
 	}
 
-	@Override
-	public <T> void save(File file, T object) {
+	public <T> void convertObjectToXML(File file, T object) {
 		System.out.println(object.getClass().getName());
 		try {
-			// jaxbContext = JAXBContext.newInstance(object.getClass());
 			marshaller = jaxbContext.createMarshaller();
 			marshaller.marshal(object, file);
 		} catch (JAXBException e) {
