@@ -1,4 +1,4 @@
-package com.epam.lab.task14.patterns.builder;
+package com.epam.lab.task14.patterns.innerbuilder;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

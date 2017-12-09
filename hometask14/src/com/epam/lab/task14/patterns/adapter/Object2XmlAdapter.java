@@ -5,10 +5,13 @@ import java.io.File;
 public class Object2XmlAdapter implements Object2Xml {
 	private JAXBContextProcessor jAXBContextProcessor;
 
-	public Object2XmlAdapter(Class<?>[] clazzes) {
+	/*public Object2XmlAdapter(Class<?>[] clazzes) {
 		jAXBContextProcessor = new JAXBContextProcessor(clazzes);
 	}
-
+	*/
+	public Object2XmlAdapter(JAXBContextProcessor jAXBContextProcessor) {
+	this.jAXBContextProcessor = jAXBContextProcessor;
+    }
 	@Override
 	public <T> T load(File file) {
 		Object object = (T) new Object();

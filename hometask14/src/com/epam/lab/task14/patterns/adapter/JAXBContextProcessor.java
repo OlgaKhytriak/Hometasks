@@ -23,11 +23,11 @@ public class JAXBContextProcessor{
 	public <T> T convertXMLToObject(Class<T> clazz, File file) {
 		Object objectromXML = null;
 		try {
-
 			unmarshaller = jaxbContext.createUnmarshaller();
 			objectromXML = unmarshaller.unmarshal(file);
 		} catch (JAXBException e) {
 			System.out.println("Exceprion in  Object2XmlConverter.load()");
+			e.printStackTrace();
 		}
 		return (T) objectromXML;
 	}

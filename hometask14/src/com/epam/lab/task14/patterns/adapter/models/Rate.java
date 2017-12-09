@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 @XmlRootElement
-@XmlSeeAlso({Parameter.class, GigaBytePrice.class})
+@XmlSeeAlso({Param.class, GigaBytePrice.class})
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "rate")
 public class Rate {
@@ -26,7 +26,7 @@ public class Rate {
 	private Double speed;
 	@XmlElement
 	@XmlElementWrapper(name = "parameters")
-	List<Parameter> parameters;
+	List<Param> params;
 	@XmlElement
 	@XmlElementWrapper(name = "prices-per-gigabyte")
 	List<GigaBytePrice> gigaBytePrices;
@@ -39,7 +39,7 @@ public class Rate {
 	public String toString() {
 		return String.format(
 				"InternetRate: id= %s | name= %s | providerName = %s | speed = %s | parameters (%s) | gigaBytePrices (%s)",
-				id, name, providerName,speed,parameters.toString(),gigaBytePrices.toString());
+				id, name, providerName,speed,params.toString(),gigaBytePrices.toString());
 	}
 
 	public Integer getId() {
@@ -70,12 +70,12 @@ public class Rate {
 		this.speed = speed;
 	}
 
-	public List<Parameter> getRateParameters() {
-		return parameters;
+	public List<Param> getRateParameters() {
+		return params;
 	}
 
-	public void setRateParameters(List<Parameter> parameters) {
-		this.parameters = parameters;
+	public void setRateParameters(List<Param> params) {
+		this.params = params;
 	}
 
 	public List<GigaBytePrice> getGigaBytePrices() {

@@ -1,18 +1,18 @@
-package com.epam.lab.task14.patterns.builder;
+package com.epam.lab.task14.patterns.adapter.models;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-public class Option {
+public class Param {
 	@XmlElement(required = true, name = "parameter-name")
 	private String parameterName;
 	@XmlElement(required = true, name = "parameter-price")
 	private double parameterPrice;
 
-	public Option() {
+	public Param() {
 	}
 
-	public Option(String name, double price) {
+	public Param(String name, double price) {
 		super();
 		this.parameterName = name;
 		this.parameterPrice = price;

@@ -1,4 +1,4 @@
-package com.epam.lab.task14.patterns.builder;
+package com.epam.lab.task14.patterns.innerbuilder;
 
 import java.util.List;
 
