@@ -1,6 +1,6 @@
 package com.epam.lab.task14.patterns.outerbuilder;
 
-import com.epam.lab.task14.patterns.outerbuilder.models.Tariff;
+import com.epam.lab.task14.patterns.models.Tariff;
 
 public class Director {
 private TariffBuilder builder;

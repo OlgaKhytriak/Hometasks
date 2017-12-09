@@ -1,4 +1,4 @@
-package com.epam.lab.task14.patterns.outerbuilder.models;
+package com.epam.lab.task14.patterns.models;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,7 +18,7 @@ public class CallPrice {
 	}
 	public String toString() {
 		return String.format(
-				"Parameter: name= %s | price = %s ",cName, cPrice);
+				"\n Parameter: name= %s | price = %s ",cName, cPrice);
 	}
 	public String getName() {
 		return cName;

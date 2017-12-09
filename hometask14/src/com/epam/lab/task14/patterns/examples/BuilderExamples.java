@@ -6,13 +6,13 @@ import java.util.List;
 import com.epam.lab.task14.patterns.innerbuilder.MegaBytePrice;
 import com.epam.lab.task14.patterns.innerbuilder.Option;
 import com.epam.lab.task14.patterns.innerbuilder.RateWithBuilder;
+import com.epam.lab.task14.patterns.models.Tariff;
 import com.epam.lab.task14.patterns.outerbuilder.Director;
 import com.epam.lab.task14.patterns.outerbuilder.KyivstarCallAbroadTarrifBuilder;
 import com.epam.lab.task14.patterns.outerbuilder.KyivstarFriendsTarrifBuilder;
 import com.epam.lab.task14.patterns.outerbuilder.MTSCompanyTariffBuilder;
 import com.epam.lab.task14.patterns.outerbuilder.MTSFamilyTariffBuilder;
 import com.epam.lab.task14.patterns.outerbuilder.TariffBuilder;
-import com.epam.lab.task14.patterns.outerbuilder.models.Tariff;
 
 public class BuilderExamples {
 	

@@ -7,23 +7,25 @@ import javax.xml.bind.JAXBException;
 import com.epam.lab.task14.patterns.examples.AdapterExamples;
 import com.epam.lab.task14.patterns.examples.BuilderExamples;
 import com.epam.lab.task14.patterns.examples.CompositeExample;
+import com.epam.lab.task14.patterns.examples.PrototypeExamples;
 
 public class StartApplication {
 	public static void main(String[] args) throws Exception {
 		useBuilderPatterns();
 		useAdapterPattern();
 		useCompositePattern();
+		usePrototypePattern();
 	}
 	
 	private static void useBuilderPatterns() {
 		BuilderExamples builderExamples = new BuilderExamples();
-		System.out.println("--- Inner Builder Example ------------------------------------");
+		System.out.println("---------- Inner Builder Example ------------------------------------");
 		builderExamples.runExampleInnerBuilder();
-		System.out.println("--- Outer Builder Example ------------------------------------");
+		System.out.println("---------- Outer Builder Example ------------------------------------");
 		builderExamples.runExampleOuterBuilder();
 	}
 	private static void useAdapterPattern() throws JAXBException, IOException {
-		System.out.println("--- Adaper Examples ------------------------------------");
+		System.out.println("---------- Adaper Examples ------------------------------------");
 		AdapterExamples adapterExamples = new AdapterExamples();
 		System.out.println("             --- Rate.class example ---");
 		adapterExamples.runAdapterJAXBForRate();
@@ -32,8 +34,17 @@ public class StartApplication {
 	}
 	
 	private static void useCompositePattern() {
-		System.out.println("--- Composite Examples ------------------------------------");
+		System.out.println("---------- Composite Examples ------------------------------------");
 		CompositeExample compositeExample = new CompositeExample();
 		compositeExample.runTourExample();
 	}
+	private static void usePrototypePattern() {
+		System.out.println("---------- Prototype Examples ------------------------------------");
+		PrototypeExamples prototypeExamples = new PrototypeExamples();
+		System.out.println("-----------CLONE --------");
+		prototypeExamples.runCopyExample();
+		System.out.println("-----------COPY --------");
+		prototypeExamples.runCloneExample();
+	}
+	
 }

@@ -1,4 +1,4 @@
-package com.epam.lab.task14.patterns.outerbuilder.models;
+package com.epam.lab.task14.patterns.models;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso({ Parameter.class, CallPrice.class })
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "tariff")
-public class Tariff {
+public class Tariff implements Cloneable{
 	private static Integer idCounter = 0;
 	@XmlAttribute
 	private Integer id;
@@ -32,6 +32,45 @@ public class Tariff {
 	@XmlElementWrapper(name = "call-prices")
 	List<CallPrice> callPrices;
 
+	public Tariff copy() {
+		//Не копіює id. Присвоює наступне по ліку id
+		Tariff tariff = new Tariff();
+		tariff.setName(this.name);
+		tariff.setOperatorName(this.operatorName);
+		tariff.setSmsPrice(this.smsPrice);
+		tariff.setParameters(this.parameters);
+		tariff.setCallPrices(this.callPrices);
+		;
+		return tariff;
+	}
+
+	@Override
+	public Tariff clone() {
+		// Клонує разом із значенням id
+		Object clonedObj = null;
+		try {
+			clonedObj = super.clone();
+		} catch (CloneNotSupportedException e) {
+			System.out.println("Error in Tariff.clone()");
+			e.printStackTrace();
+		}
+		return (Tariff) clonedObj;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof Tariff)) {
+			return false;
+		}
+		Tariff newTariff = (Tariff) object;
+		boolean isEquals = this.name.equals(newTariff.getName())
+				&& this.operatorName.equals(newTariff.getOperatorName())
+				&& this.smsPrice.equals(newTariff.getSmsPrice()) && this.parameters.equals(newTariff.getParameters())
+				&& this.callPrices.equals(newTariff.getCallPrices());
+		return isEquals;
+
+	}
+
 	public Tariff() {
 		idCounter++;
 		this.id = idCounter;
@@ -39,7 +78,7 @@ public class Tariff {
 
 	public String toString() {
 		return String.format(
-				"TARIFF: id= %s | name= %s | operatorName = %s | smsPrice = %s | parameters: %s | callPrices: %s",
+				"TARIFF: id= %s | name= %s | operatorName = %s | smsPrice = %s |\n parameters: %s | \n callPrices: %s",
 				id, name, operatorName, smsPrice, parameters.toString(), callPrices.toString());
 	}
 

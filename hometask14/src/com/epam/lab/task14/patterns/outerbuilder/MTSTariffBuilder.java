@@ -3,7 +3,7 @@ package com.epam.lab.task14.patterns.outerbuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.epam.lab.task14.patterns.outerbuilder.models.CallPrice;
+import com.epam.lab.task14.patterns.models.CallPrice;
 
 public abstract class MTSTariffBuilder extends TariffBuilder{
 	

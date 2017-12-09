@@ -12,8 +12,8 @@ import com.epam.lab.task14.patterns.adapter.Object2XmlAdapter;
 import com.epam.lab.task14.patterns.adapter.models.GigaBytePrice;
 import com.epam.lab.task14.patterns.adapter.models.Param;
 import com.epam.lab.task14.patterns.adapter.models.Rate;
+import com.epam.lab.task14.patterns.models.Tariff;
 import com.epam.lab.task14.patterns.outerbuilder.MTSFamilyTariffBuilder;
-import com.epam.lab.task14.patterns.outerbuilder.models.Tariff;
 
 public class AdapterExamples {
 	private BuilderExamples builderExamples=new BuilderExamples();

@@ -3,7 +3,7 @@ package com.epam.lab.task14.patterns.outerbuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.epam.lab.task14.patterns.outerbuilder.models.Parameter;
+import com.epam.lab.task14.patterns.models.Parameter;
 
 public class KyivstarCallAbroadTarrifBuilder extends KyivstarTariffBuilder{
 
