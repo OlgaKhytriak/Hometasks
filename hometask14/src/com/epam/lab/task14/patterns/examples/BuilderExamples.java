@@ -1,4 +1,4 @@
-package com.epam.lab.task14.patterns.diffrentExamples;
+package com.epam.lab.task14.patterns.examples;
 
 import java.util.ArrayList;
 import java.util.List;

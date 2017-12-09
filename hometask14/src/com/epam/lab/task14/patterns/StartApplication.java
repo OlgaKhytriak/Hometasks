@@ -4,14 +4,15 @@ import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
-import com.epam.lab.task14.patterns.diffrentExamples.AdapterExamples;
-import com.epam.lab.task14.patterns.diffrentExamples.BuilderExamples;
+import com.epam.lab.task14.patterns.examples.AdapterExamples;
+import com.epam.lab.task14.patterns.examples.BuilderExamples;
+import com.epam.lab.task14.patterns.examples.CompositeExample;
 
 public class StartApplication {
 	public static void main(String[] args) throws Exception {
 		useBuilderPatterns();
 		useAdapterPattern();
-		
+		useCompositePattern();
 	}
 	
 	private static void useBuilderPatterns() {
@@ -28,5 +29,11 @@ public class StartApplication {
 		adapterExamples.runAdapterJAXBForRate();
 		System.out.println("             --- Tariff.class example ---");
 		adapterExamples.runAdapterJAXBForTariff();
+	}
+	
+	private static void useCompositePattern() {
+		System.out.println("--- Composite Examples ------------------------------------");
+		CompositeExample compositeExample = new CompositeExample();
+		compositeExample.runTourExample();
 	}
 }
