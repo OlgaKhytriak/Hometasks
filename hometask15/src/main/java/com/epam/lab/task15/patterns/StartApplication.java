@@ -31,7 +31,7 @@ public class StartApplication {
 	private static void useStrategyPatterns() {
 		StrategyExample strategyExample = new StrategyExample();
 		System.out.println("---------- Strategy Example ------------------------------------");
-		
+		strategyExample.useStrategy();
 	}
 
 
