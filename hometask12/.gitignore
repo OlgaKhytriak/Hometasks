@@ -1,0 +1,9 @@
+/bin/
+target/
+resources/
+src/libs/
+.classpath
+.project
+.settings/
+.metadata/
+RemoteSystemsTempFiles
