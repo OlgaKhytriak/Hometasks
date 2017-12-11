@@ -14,13 +14,15 @@ public class StartApplication {
 	}
 
 	private static void useBridgePatterns() {
-		BridgeExample builderExamples = new BridgeExample();
 		System.out.println("---------- Bridge Example ------------------------------------");
+		BridgeExample bridgeExamples = new BridgeExample();
+		bridgeExamples.useBridge();
 		
 	}
 	private static void useDecoratorPatterns() {
-		DecoratorExample decoratorExample = new DecoratorExample();
 		System.out.println("---------- Decorator Example ------------------------------------");
+		DecoratorExample decoratorExample = new DecoratorExample();
+		decoratorExample.useDecorator();
 		
 	}
 	private static void useFacadePatterns() {
@@ -29,8 +31,8 @@ public class StartApplication {
 		
 	}
 	private static void useStrategyPatterns() {
-		StrategyExample strategyExample = new StrategyExample();
 		System.out.println("---------- Strategy Example ------------------------------------");
+		StrategyExample strategyExample = new StrategyExample();
 		strategyExample.useStrategy();
 	}
 
