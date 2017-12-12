@@ -16,7 +16,7 @@ public class CreaterXML {
 		TriffsBuilder triffsBuilder = new TriffsBuilder();
 		Tariffs tariffs = new Tariffs();
 		tariffs = triffsBuilder.build();
-		System.out.println(tariffs.toString());
+		//System.out.println(tariffs.toString());
 		File file = new File(Constants.XML_FILE_PATH_TARIFFS);
 		try {
 			file.createNewFile();
@@ -25,8 +25,8 @@ public class CreaterXML {
 			e.printStackTrace();
 		}
 		adapter.save(file, tariffs);
-		Tariffs tariffs2 = adapter.load(file);
-		System.out.println("Created object from XML:");
-		System.out.println(tariffs2.toString());
+		//Tariffs tariffs2 = adapter.load(file);
+		//System.out.println("Created object from XML:");
+		//System.out.println(tariffs2.toString());
 	}
 }
