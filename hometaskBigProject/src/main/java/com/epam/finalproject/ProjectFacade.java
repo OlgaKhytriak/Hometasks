@@ -9,6 +9,7 @@ import com.epam.finalproject.xml.jaxbadapter.CreaterXML;
 import com.epam.finalproject.xml.parsers.Xml2Object;
 import com.epam.finalproject.xml.parsers.Xml2ObjectAdapter;
 import com.epam.finalproject.xml.validator.XSDValidator;
+import com.epam.finalproject.xml.xsl.Xml2HtmlTransformer;
 
 public class ProjectFacade {
 	private static final Logger LOG = Logger.getLogger(ProjectFacade.class);
@@ -20,7 +21,7 @@ public class ProjectFacade {
 		LOG.info(String.format("File Constants.XML_FILE_PATH_TARIFFS is created and filled in"));
 	}
 
-	public void validateXML2XSD() {
+	public void validateXml2Xsd() {
 		XSDValidator validator = new XSDValidator();
 		boolean isValid = validator.validate(Constants.XSD_FILE_PATH_TARIFFS, Constants.XML_FILE_PATH_TARIFFS);
 		if (isValid) {
@@ -45,10 +46,21 @@ public class ProjectFacade {
 		Tariffs tariffs=xml2Object.loadByDOM(Constants.XML_FILE_PATH_TARIFFS);
 		System.out.println(tariffs.toString());
 	}
+	
+	public void createHtml() {
+		Xml2HtmlTransformer transformer=new Xml2HtmlTransformer();
+		transformer.transform(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_FILE_PATH_TARIFFS, Constants.HTML_FILE_PATH_TARIFFS);
+	}
+	public void createSortedHtml() {
+		Xml2HtmlTransformer transformer=new Xml2HtmlTransformer();
+		transformer.transform(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_SORT_FILE_PATH_TARIFFS, Constants.HTML_SORT_FILE_PATH_TARIFFS);
+	}
 
 	private static <T> void printList(List<T> list) {
 		for (T element : list) {
 			System.out.println(element.toString());
 		}
 	}
+	
+	
 }
