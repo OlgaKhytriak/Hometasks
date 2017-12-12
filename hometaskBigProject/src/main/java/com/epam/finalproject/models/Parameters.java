@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "paremeters1")
 public class Parameters {
-	@XmlAttribute
+	@XmlElement(required = true, name = "parameters-id")
 	private Integer parametersId;
 	@XmlElement(required = true, name = "favourite-numbers")
 	private Integer favouriteNumbers;
@@ -22,8 +22,9 @@ public class Parameters {
 	public Parameters() {
 	}
 
-	public Parameters(Integer favouriteNumbers, boolean internet3G, boolean homeInternet) {
+	public Parameters(Integer parametersId,Integer favouriteNumbers, boolean internet3G, boolean homeInternet) {
 		super();
+		this.parametersId=parametersId;
 		this.favouriteNumbers = favouriteNumbers;
 		this.internet3G = internet3G;
 		this.homeInternet = homeInternet;

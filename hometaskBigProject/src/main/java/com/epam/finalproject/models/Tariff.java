@@ -10,8 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "tariff")
 public class Tariff implements Cloneable {
 
-	//@XmlElement(required = true, name = "tariff-id")
-	@XmlAttribute
+	@XmlElement(required = true, name = "tariff-id")
 	private Integer id;
 	@XmlElement(required = true, name = "tariff-name")
 	private String tariffName;

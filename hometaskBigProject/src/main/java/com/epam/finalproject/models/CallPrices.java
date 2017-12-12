@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "callPrices1")
 public class CallPrices {
-	@XmlAttribute
+	@XmlElement(required = true, name = "call-prices-id")
 	private Integer callPriceId;
 	@XmlElement(required = true, name = "incide-network")
 	private Integer insideNetwork;
@@ -22,8 +22,9 @@ public class CallPrices {
 	public CallPrices() {
 	}
 
-	public CallPrices(Integer insideNetwork,Integer outsideNetwork,Integer landlinePhone) {
+	public CallPrices(Integer callPriceId,Integer insideNetwork,Integer outsideNetwork,Integer landlinePhone) {
 		super();
+		this.callPriceId=callPriceId;
 		this.insideNetwork = insideNetwork;
 		this.outsideNetwork = outsideNetwork;
 		this.landlinePhone = landlinePhone;

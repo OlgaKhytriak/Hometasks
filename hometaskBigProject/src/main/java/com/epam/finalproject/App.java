@@ -11,6 +11,7 @@ public class App {
 		ProjectFacade facade = new ProjectFacade();
 		facade.createXMLFile();
 		facade.validateXML2XSD();
+		facade.getObjectBySAX();
 	}
 	
 	
