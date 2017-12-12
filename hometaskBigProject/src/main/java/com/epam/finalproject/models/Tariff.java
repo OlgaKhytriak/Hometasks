@@ -1,30 +1,33 @@
 package com.epam.finalproject.models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+@XmlRootElement(name = "call-prices")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "tariff")
 public class Tariff implements Cloneable {
 
-	@XmlAttribute
+	@XmlElement(required = true, name = "tariff-id")
 	private Integer id;
-	@XmlElement(required = true, name = "name")
-	private String name;
+	@XmlElement(required = true, name = "tariff-name")
+	private String tariffName;
 	@XmlElement(required = true, name = "operator-name")
 	private String operatorName;
 	@XmlElement(required = true, name = "sms-price")
 	private Integer smsPrice;
-	@XmlElement
-	@XmlElementWrapper(name = "parameters")
+	@XmlElement (name = "parameters")
 	private Parameters parameters;
-	@XmlElement
-	@XmlElementWrapper(name = "call-prices")
+	@XmlElement(name = "call-prices")
 	private CallPrices callPrices;
 
 	public Tariff copy() {
 		Tariff tariff = new Tariff();
 		tariff.setId(this.id);
-		tariff.setName(this.name);
+		tariff.setTariffName(this.tariffName);
 		tariff.setOperatorName(this.operatorName);
 		tariff.setSmsPrice(this.smsPrice);
 		tariff.setParameters(this.parameters);
@@ -50,7 +53,7 @@ public class Tariff implements Cloneable {
 			return false;
 		}
 		Tariff newTariff = (Tariff) object;
-		boolean isEquals = this.id.equals(newTariff.getId())&&this.name.equals(newTariff.getName())
+		boolean isEquals = this.id.equals(newTariff.getId())&&this.tariffName.equals(newTariff.getTariffName())
 				&& this.operatorName.equals(newTariff.getOperatorName())
 				&& this.smsPrice.equals(newTariff.getSmsPrice()) && this.parameters.equals(newTariff.getParameters())
 				&& this.callPrices.equals(newTariff.getCallPrices());
@@ -60,24 +63,24 @@ public class Tariff implements Cloneable {
 
 	public String toString() {
 		return String.format(
-				"TARIFF: id= %s | name= %s | operatorName = %s | smsPrice = %s |\n parameters: %s | \n callPrices: %s",
-				id, name, operatorName, smsPrice, parameters.toString(), callPrices.toString());
+				"tariff: id= %s | name= %s | operatorName = %s | smsPrice = %s |\n parameters: %s | \n callPrices: %s",
+				id, tariffName, operatorName, smsPrice, parameters.toString(), callPrices.toString());
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer id1) {
+		this.id = id1;
 	}
 
-	public String getName() {
-		return name;
+	public String getTariffName() {
+		return tariffName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTariffName(String name1) {
+		this.tariffName = name1;
 	}
 
 	public String getOperatorName() {
@@ -100,16 +103,16 @@ public class Tariff implements Cloneable {
 		return parameters;
 	}
 
-	public void setParameters(Parameters parameters) {
-		this.parameters = parameters;
+	public void setParameters(Parameters parameters1) {
+		this.parameters = parameters1;
 	}
 
 	public CallPrices getCallPrices() {
 		return callPrices;
 	}
 
-	public void setCallPrices(CallPrices callPrices) {
-		this.callPrices = callPrices;
+	public void setCallPrices(CallPrices callPrices1) {
+		this.callPrices = callPrices1;
 	}
 
 }

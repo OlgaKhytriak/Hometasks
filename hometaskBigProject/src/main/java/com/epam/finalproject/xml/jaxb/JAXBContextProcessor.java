@@ -17,6 +17,7 @@ public class JAXBContextProcessor{
 		try {
 			jaxbContext = JAXBContext.newInstance(clazzes);
 		} catch (JAXBException e) {
+			e.printStackTrace();
 			System.out.println("Exceprion in constructor JAXBContextProcessor()");
 		}
 	}
@@ -38,7 +39,8 @@ public class JAXBContextProcessor{
 			marshaller = jaxbContext.createMarshaller();
 			marshaller.marshal(object, file);
 		} catch (JAXBException e) {
-			System.out.println("Exceprion in Object2XmlConverter.save");
+			System.out.println("Exception in Object2XmlConverter.save");
+			e.printStackTrace();
 		}
 
 	}

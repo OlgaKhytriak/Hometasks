@@ -1,7 +1,13 @@
 package com.epam.finalproject.models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+@XmlRootElement(name = "parameters")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "paremeters1")
 public class Parameters {
 	@XmlElement(required = true, name = "favourite-numbers")
 	private Integer favouriteNumbers;
