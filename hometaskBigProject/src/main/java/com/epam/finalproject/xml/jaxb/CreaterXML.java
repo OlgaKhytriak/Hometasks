@@ -16,7 +16,6 @@ public class CreaterXML {
 		TriffsBuilder triffsBuilder = new TriffsBuilder();
 		Tariffs tariffs = new Tariffs();
 		tariffs = triffsBuilder.build();
-		//System.out.println(tariffs.toString());
 		File file = new File(Constants.XML_FILE_PATH_TARIFFS);
 		try {
 			file.createNewFile();

@@ -4,14 +4,14 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-@XmlRootElement(name = "call-prices")
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "tariff")
 public class Tariff implements Cloneable {
 
-	@XmlElement(required = true, name = "tariff-id")
+	//@XmlElement(required = true, name = "tariff-id")
+	@XmlAttribute
 	private Integer id;
 	@XmlElement(required = true, name = "tariff-name")
 	private String tariffName;

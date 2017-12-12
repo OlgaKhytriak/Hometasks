@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Parameters {
 	@XmlElement(required = true, name = "favourite-numbers")
 	private Integer favouriteNumbers;
-	@XmlElement(required = true, name = "3g-internet")
+	@XmlElement(required = true, name = "internet-3g")
 	private boolean internet3G;
 	@XmlElement(required = true, name = "home-internet")
 	private boolean homeInternet;
