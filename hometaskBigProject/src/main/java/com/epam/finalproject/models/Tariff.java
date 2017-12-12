@@ -50,7 +50,7 @@ public class Tariff implements Cloneable {
 			return false;
 		}
 		Tariff newTariff = (Tariff) object;
-		boolean isEquals = this.name.equals(newTariff.getName())
+		boolean isEquals = this.id.equals(newTariff.getId())&&this.name.equals(newTariff.getName())
 				&& this.operatorName.equals(newTariff.getOperatorName())
 				&& this.smsPrice.equals(newTariff.getSmsPrice()) && this.parameters.equals(newTariff.getParameters())
 				&& this.callPrices.equals(newTariff.getCallPrices());
