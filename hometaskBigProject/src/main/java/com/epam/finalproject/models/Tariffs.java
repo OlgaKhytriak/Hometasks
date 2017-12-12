@@ -13,10 +13,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "tariffs")
 @XmlSeeAlso({ Tariff.class, Parameters.class, CallPrices.class })
 @XmlAccessorType(XmlAccessType.FIELD)
-//@XmlType(name = "tariffs")
 public class Tariffs {
 	@XmlElement(name = "tariff")
-	//@XmlElementWrapper(name = "tariff123")
 		private List<Tariff> tariffs;
 		
 		public Tariffs(){

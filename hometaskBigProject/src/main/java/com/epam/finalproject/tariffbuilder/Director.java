@@ -1,4 +1,4 @@
-package com.epam.finalproject.tariffBuilder;
+package com.epam.finalproject.tariffbuilder;
 
 import com.epam.finalproject.models.Tariff;
 

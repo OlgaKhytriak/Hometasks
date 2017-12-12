@@ -2,6 +2,7 @@ package com.epam.finalproject.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -9,6 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "paremeters1")
 public class Parameters {
+	@XmlAttribute
+	private Integer parametersId;
 	@XmlElement(required = true, name = "favourite-numbers")
 	private Integer favouriteNumbers;
 	@XmlElement(required = true, name = "internet-3g")
@@ -51,5 +54,12 @@ public class Parameters {
 
 	public void setHomeInternet(boolean homeInternet) {
 		this.homeInternet = homeInternet;
+	}
+	public Integer getParametersId() {
+		return parametersId;
+	}
+
+	public void setParametersId(Integer parametersId) {
+		this.parametersId = parametersId;
 	}
 }

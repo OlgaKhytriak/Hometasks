@@ -1,4 +1,4 @@
-package com.epam.finalproject.xml.jaxb;
+package com.epam.finalproject.xml.jaxbadapter;
 
 import java.io.File;
 

@@ -1,23 +1,29 @@
-package com.epam.finalproject.tariffBuilder;
+package com.epam.finalproject.tariffbuilder;
 
 import com.epam.finalproject.models.CallPrices;
 import com.epam.finalproject.models.Parameters;
 
-public class MTSFamilyTariffBuilder extends MTSTariffBuilder {
+public class KyivstarFriendsTarrifBuilder extends KyivstarTariffBuilder {
 	@Override
 	public void buildiD() {
-		tariff.setId(1);
+		tariff.setId(3);
 	}
 
 	@Override
 	public void buildName() {
-		tariff.setTariffName("Family tariff from MTS");
+		tariff.setTariffName("Friends together from Kyivstar");
+	}
+
+	@Override
+	public void buildSmsPrice() {
+		tariff.setSmsPrice(10);
 	}
 
 	@Override
 	public void buildParameters() {
 		Parameters parameters = new Parameters();
-		parameters.setFavouriteNumbers(10);
+		parameters.setParametersId(3);
+		parameters.setFavouriteNumbers(12);
 		parameters.setHomeInternet(true);
 		parameters.setInternet3G(true);
 		tariff.setParameters(parameters);
@@ -26,9 +32,10 @@ public class MTSFamilyTariffBuilder extends MTSTariffBuilder {
 	@Override
 	public void buildCallPrices() {
 		CallPrices callPrices = new CallPrices();
-		callPrices.setInsideNetwork(10);
-		callPrices.setOutsideNetwork(50);
-		callPrices.setLandlinePhone(200);
+		callPrices.setCallPriceId(3);
+		callPrices.setInsideNetwork(12);
+		callPrices.setOutsideNetwork(350);
+		callPrices.setLandlinePhone(550);
 		tariff.setCallPrices(callPrices);
 	}
 

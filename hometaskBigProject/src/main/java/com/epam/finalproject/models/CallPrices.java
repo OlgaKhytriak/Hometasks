@@ -2,6 +2,7 @@ package com.epam.finalproject.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -9,6 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "callPrices1")
 public class CallPrices {
+	@XmlAttribute
+	private Integer callPriceId;
 	@XmlElement(required = true, name = "incide-network")
 	private Integer insideNetwork;
 	@XmlElement(required = true, name = "outside-network")
@@ -52,6 +55,14 @@ public class CallPrices {
 
 	public void setLandlinePhone(Integer landlinePhone) {
 		this.landlinePhone = landlinePhone;
+	}
+
+	public Integer getCallPriceId() {
+		return callPriceId;
+	}
+
+	public void setCallPriceId(Integer callPriceId) {
+		this.callPriceId = callPriceId;
 	}
 	
 }
