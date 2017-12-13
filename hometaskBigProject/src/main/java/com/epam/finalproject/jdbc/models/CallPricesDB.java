@@ -4,7 +4,7 @@ import com.epam.finalproject.jdbc.anotations.Entity;
 import com.epam.finalproject.jdbc.anotations.FieldAnn;
 
 @Entity("call_prices")
-public class CallPricesDB2 extends ModelElement {
+public class CallPricesDB extends ModelElement {
 	@FieldAnn(value = "id", type = "INT(11)")
 	private Integer id;
 	@FieldAnn(value = "incide_network", type = "INT(11)")
@@ -14,14 +14,14 @@ public class CallPricesDB2 extends ModelElement {
 	@FieldAnn(value = "landline_phone", type = "INT(11)")
 	private Integer landlinePhone;
 
-	public CallPricesDB2() {
+	public CallPricesDB() {
 	}
 
 	public String toValuesString() {
 		return String.format("(%s,%s,%s,%s)", id, insideNetwork, outsideNetwork, landlinePhone);
 	}
 
-	public CallPricesDB2(int id, Integer insideNetwork, Integer outsideNetwork, Integer landlinePhone) {
+	public CallPricesDB(int id, Integer insideNetwork, Integer outsideNetwork, Integer landlinePhone) {
 		this.id = id;
 		this.insideNetwork = insideNetwork;
 		this.outsideNetwork = outsideNetwork;

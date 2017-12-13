@@ -1,6 +1,6 @@
 package com.epam.finalproject.tariffbuilder;
 
-import com.epam.finalproject.models.*;
+import com.epam.finalproject.xml.models.*;
 
 public abstract class SingleTariffBuilder {
 	protected Tariff tariff;

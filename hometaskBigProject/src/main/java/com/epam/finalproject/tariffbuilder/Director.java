@@ -1,6 +1,6 @@
 package com.epam.finalproject.tariffbuilder;
 
-import com.epam.finalproject.models.Tariff;
+import com.epam.finalproject.xml.models.Tariff;
 
 public class Director {
 private SingleTariffBuilder builder;

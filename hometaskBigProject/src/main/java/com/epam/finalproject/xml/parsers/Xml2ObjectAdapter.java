@@ -2,7 +2,7 @@ package com.epam.finalproject.xml.parsers;
 
 import java.util.List;
 
-import com.epam.finalproject.models.*;
+import com.epam.finalproject.xml.models.*;
 import com.epam.finalproject.xml.parsers.factory.*;
 import com.epam.finalproject.xml.parsers.factory.ParserType;
 

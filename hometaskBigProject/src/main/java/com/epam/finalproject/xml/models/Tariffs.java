@@ -1,4 +1,4 @@
-package com.epam.finalproject.models;
+package com.epam.finalproject.xml.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,9 @@ public class Tariffs {
 
 		public void add(Tariff tariff) {
 			this.tariffs.add(tariff);
+		}
+		public Tariff getTariff(int index) {
+			return tariffs.get(index);
 		}
 		
 		public List<Tariff> getTariffs() {

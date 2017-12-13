@@ -9,7 +9,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import com.epam.finalproject.models.Tariff;
+import com.epam.finalproject.xml.models.Tariff;
 
 public class SAXParserXML extends SampleParser {
 	private final SAXHandler handler;

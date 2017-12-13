@@ -1,4 +1,4 @@
-package com.epam.finalproject.models;
+package com.epam.finalproject.xml.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -31,7 +31,7 @@ public class Parameters {
 	}
 
 	public String toString() {
-		return String.format("\nParameter: favouriteNumbers = %s | internet3G = %s | homeInternet=%s ",
+		return String.format("\nParameter: id = %s | favouriteNumbers = %s | internet3G = %s | homeInternet=%s ",parametersId,
 				favouriteNumbers, internet3G, homeInternet);
 	}
 	public Integer getFavouriteNumbers() {
@@ -63,4 +63,5 @@ public class Parameters {
 	public void setParametersId(Integer parametersId) {
 		this.parametersId = parametersId;
 	}
+	
 }

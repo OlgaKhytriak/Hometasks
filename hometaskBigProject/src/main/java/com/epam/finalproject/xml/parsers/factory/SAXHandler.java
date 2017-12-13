@@ -9,7 +9,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.epam.finalproject.models.*;
+import com.epam.finalproject.xml.models.*;
 
 public class SAXHandler extends DefaultHandler {
 	private List<Tariff> tariffs = new ArrayList<Tariff>();

@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import com.epam.finalproject.constants.Constants;
-import com.epam.finalproject.models.Tariffs;
+import com.epam.finalproject.modelstransformer.ModelsTransformer;
 import com.epam.finalproject.xml.jaxbadapter.CreaterXML;
+import com.epam.finalproject.xml.models.Tariff;
+import com.epam.finalproject.xml.models.Tariffs;
 import com.epam.finalproject.xml.parsers.Xml2Object;
 import com.epam.finalproject.xml.parsers.Xml2ObjectAdapter;
 import com.epam.finalproject.xml.validator.XSDValidator;
@@ -56,6 +58,17 @@ public class ProjectFacade {
 		transformer.transform(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_SORT_FILE_PATH_TARIFFS, Constants.HTML_SORT_FILE_PATH_TARIFFS);
 	}
 
+	public void test() {
+		System.out.println("---- SAX CREATED TARIFFS OBJECT: -----");
+		Tariffs tariffs=xml2Object.loadBySAX(Constants.XML_FILE_PATH_TARIFFS);
+		System.out.println(tariffs.toString());
+		Tariff tariff = tariffs.getTariff(0);
+		ModelsTransformer modelsTransformer = new ModelsTransformer();
+		System.out.println(modelsTransformer.getTariff(tariff).toString());
+		System.out.println(modelsTransformer.getParameters(tariff).toString());
+		System.out.println(modelsTransformer.getCallPrices(tariff).toString());
+	}
+	
 	private static <T> void printList(List<T> list) {
 		for (T element : list) {
 			System.out.println(element.toString());

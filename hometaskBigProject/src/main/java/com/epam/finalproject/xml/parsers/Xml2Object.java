@@ -1,6 +1,6 @@
 package com.epam.finalproject.xml.parsers;
 
-import com.epam.finalproject.models.Tariffs;
+import com.epam.finalproject.xml.models.Tariffs;
 
 public interface Xml2Object {
 

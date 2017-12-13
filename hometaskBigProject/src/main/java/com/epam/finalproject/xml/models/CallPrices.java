@@ -1,4 +1,4 @@
-package com.epam.finalproject.models;
+package com.epam.finalproject.xml.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -31,7 +31,7 @@ public class CallPrices {
 	}
 	public String toString() {
 		return String.format(
-				"\n CallPrices: insideNetwork= %s | outsideNetwork = %s | landlinePhone=%s ",insideNetwork, outsideNetwork,landlinePhone);
+				"\n CallPrices: id= %s | insideNetwork= %s | outsideNetwork = %s | landlinePhone=%s ",callPriceId,insideNetwork, outsideNetwork,landlinePhone);
 	}
 
 	public Integer getInsideNetwork() {

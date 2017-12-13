@@ -1,7 +1,7 @@
 package com.epam.finalproject.tariffbuilder;
 
-import com.epam.finalproject.models.CallPrices;
-import com.epam.finalproject.models.Parameters;
+import com.epam.finalproject.xml.models.CallPrices;
+import com.epam.finalproject.xml.models.Parameters;
 
 public abstract class MTSTariffBuilder extends SingleTariffBuilder {
 	
