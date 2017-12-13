@@ -26,7 +26,6 @@ public class ModelsTransformer {
 		parametersDB.setInternet3G(tariffXML.getParameters().isInternet3G());
 		parametersDB.setHomeInternet(tariffXML.getParameters().isHomeInternet());
 		return parametersDB;
-
 	}
 
 	public CallPricesDB getCallPrices(Tariff tariffXML) {
