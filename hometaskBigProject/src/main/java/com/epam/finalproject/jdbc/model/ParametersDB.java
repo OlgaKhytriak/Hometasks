@@ -1,17 +1,17 @@
-package com.epam.finalproject.jdbc.models;
+package com.epam.finalproject.jdbc.model;
 
-import com.epam.finalproject.jdbc.anotations.Entity;
-import com.epam.finalproject.jdbc.anotations.FieldAnn;
+import com.epam.finalproject.jdbc.anotation.Entity;
+import com.epam.finalproject.jdbc.anotation.EntityField;
 
 @Entity("parameters")
 public class ParametersDB extends ModelElement {
-	@FieldAnn(value = "id", type = "INT(11)")
+	@EntityField(value = "id", type = "INT(11)")
 	private Integer id;
-	@FieldAnn(value = "favourite_numbers", type = "INT(11)")
+	@EntityField(value = "favourite_numbers", type = "INT(11)")
 	private Integer favouriteNumbers;
-	@FieldAnn(value = "internet_3g", type = "TINYINT")
+	@EntityField(value = "internet_3g", type = "TINYINT")
 	private Boolean internet3G;
-	@FieldAnn(value = "home_internet", type = "TINYINT")
+	@EntityField(value = "home_internet", type = "TINYINT")
 	private Boolean homeInternet;
 
 	public ParametersDB() {

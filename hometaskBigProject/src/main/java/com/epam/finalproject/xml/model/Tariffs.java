@@ -1,4 +1,4 @@
-package com.epam.finalproject.xml.models;
+package com.epam.finalproject.xml.model;
 
 import java.util.ArrayList;
 import java.util.List;

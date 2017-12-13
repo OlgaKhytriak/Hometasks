@@ -3,20 +3,22 @@ package com.epam.finalproject;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import com.epam.finalproject.constants.Constants;
-import com.epam.finalproject.modelstransformer.ModelsTransformer;
+
+import com.epam.finalproject.constant.Constants;
 import com.epam.finalproject.xml.jaxbadapter.CreaterXML;
-import com.epam.finalproject.xml.models.Tariff;
-import com.epam.finalproject.xml.models.Tariffs;
-import com.epam.finalproject.xml.parsers.Xml2Object;
-import com.epam.finalproject.xml.parsers.Xml2ObjectAdapter;
+import com.epam.finalproject.xml.model.Tariffs;
+import com.epam.finalproject.xml.parser.Xml2Object;
+import com.epam.finalproject.xml.parser.Xml2ObjectAdapter;
 import com.epam.finalproject.xml.validator.XSDValidator;
 import com.epam.finalproject.xml.xsl.Xml2HtmlTransformer;
+import com.epam.finalproject.xml.xsl.XmlChanger;
+import com.epam.finalproject.xml2jdbs.Xml2DB;
+import com.epam.finalproject.xml2jdbs.Xml2DBFacade;
 
 public class ProjectFacade {
 	private static final Logger LOG = Logger.getLogger(ProjectFacade.class);
-	private Xml2Object xml2Object= new Xml2ObjectAdapter(); 
-	
+	private Xml2Object xml2Object = new Xml2ObjectAdapter();
+
 	public void createXMLFile() {
 		CreaterXML createrXML = new CreaterXML();
 		createrXML.create();
@@ -36,44 +38,47 @@ public class ProjectFacade {
 	}
 
 	public void getObjectByStAX() {
-		Tariffs tariffs=xml2Object.loadByStAX(Constants.XML_FILE_PATH_TARIFFS);
+		Tariffs tariffs = xml2Object.loadByStAX(Constants.XML_FILE_PATH_TARIFFS);
 		System.out.println(tariffs.toString());
-	}
-	public void getObjectBySAX() {
-		System.out.println("---- SAX CREATED TARIFFS OBJECT: -----");
-		Tariffs tariffs=xml2Object.loadBySAX(Constants.XML_FILE_PATH_TARIFFS);
-		System.out.println(tariffs.toString());
-	}
-	public void getObjectByDOM() {
-		Tariffs tariffs=xml2Object.loadByDOM(Constants.XML_FILE_PATH_TARIFFS);
-		System.out.println(tariffs.toString());
-	}
-	
-	public void createHtml() {
-		Xml2HtmlTransformer transformer=new Xml2HtmlTransformer();
-		transformer.transform(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_FILE_PATH_TARIFFS, Constants.HTML_FILE_PATH_TARIFFS);
-	}
-	public void createSortedHtml() {
-		Xml2HtmlTransformer transformer=new Xml2HtmlTransformer();
-		transformer.transform(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_SORT_FILE_PATH_TARIFFS, Constants.HTML_SORT_FILE_PATH_TARIFFS);
 	}
 
-	public void test() {
+	public void getObjectBySAX() {
 		System.out.println("---- SAX CREATED TARIFFS OBJECT: -----");
-		Tariffs tariffs=xml2Object.loadBySAX(Constants.XML_FILE_PATH_TARIFFS);
+		Tariffs tariffs = xml2Object.loadBySAX(Constants.XML_FILE_PATH_TARIFFS);
 		System.out.println(tariffs.toString());
-		Tariff tariff = tariffs.getTariff(0);
-		ModelsTransformer modelsTransformer = new ModelsTransformer();
-		System.out.println(modelsTransformer.getTariff(tariff).toString());
-		System.out.println(modelsTransformer.getParameters(tariff).toString());
-		System.out.println(modelsTransformer.getCallPrices(tariff).toString());
 	}
+
+	public void getObjectByDOM() {
+		Tariffs tariffs = xml2Object.loadByDOM(Constants.XML_FILE_PATH_TARIFFS);
+		System.out.println(tariffs.toString());
+	}
+
+	public void createHtml() {
+		Xml2HtmlTransformer transformer = new Xml2HtmlTransformer();
+		transformer.transform(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_FILE_PATH_TARIFFS,
+				Constants.HTML_FILE_PATH_TARIFFS);
+	}
+
+	public void createSortedHtml() {
+		Xml2HtmlTransformer transformer = new Xml2HtmlTransformer();
+		transformer.transform(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_SORT_FILE_PATH_TARIFFS,
+				Constants.HTML_SORT_FILE_PATH_TARIFFS);
+	}
+
+	public void importXML2DB() {
+		Xml2DB xml2DB = new Xml2DBFacade();
+		xml2DB.save2DB(Constants.XML_FILE_PATH_TARIFFS);
+	}
+	public void changeRootElement() {
+		XmlChanger xmlChanger = new XmlChanger();
+		xmlChanger.change(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_FILE_PATH_TARIFFS_ROOT_CHANGER, Constants.XML_FILE_PATH_TARIFFS_CHANGED_ROOT);
+	}
+	
 	
 	private static <T> void printList(List<T> list) {
 		for (T element : list) {
 			System.out.println(element.toString());
 		}
 	}
-	
-	
+
 }

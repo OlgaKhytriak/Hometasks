@@ -10,8 +10,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.epam.finalproject.jdbc.anotations.Entity;
-import com.epam.finalproject.jdbc.anotations.FieldAnn;
+import com.epam.finalproject.jdbc.anotation.*;
 
 public class Transformer {
 	private static final Logger LOG = Logger.getLogger(Transformer.class);
@@ -53,8 +52,8 @@ public class Transformer {
 		T currentInstance = (T) clazz.newInstance();
 		Field[] fields = currentInstance.getClass().getDeclaredFields();
 		for (int i = 0; i < fields.length; i++) {
-			if (fields[i].isAnnotationPresent(FieldAnn.class)) {
-				FieldAnn fieldAnnotations = fields[i].getDeclaredAnnotation(FieldAnn.class);
+			if (fields[i].isAnnotationPresent(EntityField.class)) {
+				EntityField fieldAnnotations = fields[i].getDeclaredAnnotation(EntityField.class);
 				String anotFieldName = fieldAnnotations.value();
 				String anotFieldType = fieldAnnotations.type();
 				if (0==i) {
@@ -106,17 +105,14 @@ public class Transformer {
 		T currentInstance = (T) clazz.newInstance();
 		Field[] fields = currentInstance.getClass().getDeclaredFields();
 		for (int i = 0; i < fields.length; i++) {
-			if (fields[i].isAnnotationPresent(FieldAnn.class)) {
-				FieldAnn fieldAnnotations = fields[i].getDeclaredAnnotation(FieldAnn.class);
+			if (fields[i].isAnnotationPresent(EntityField.class)) {
+				EntityField fieldAnnotations = fields[i].getDeclaredAnnotation(EntityField.class);
 				String anotName = fieldAnnotations.value();
 				setField(currentInstance, fields[i], resultSet.getObject(anotName));
 			}
 		}
 		return currentInstance;
-	}
-
-
-	
+	}	
 	private <T> void setField(Object obj, Field field, T value) {
 		try {
 			Class<?> clazz = obj.getClass();
@@ -127,29 +123,5 @@ public class Transformer {
 		}
 
 	}
-
 }
 
-/*
- * public List<Student> getAllStudents() throws SQLException,
- * InstantiationException, IllegalAccessException { List<Student>
- * listAllStudents = new ArrayList<Student>(); ConnectorToDB connectorToDB = new
- * ConnectorToDB(); Connection connection = connectorToDB.connect(); String sql
- * = "SELECT * FROM student"; Statement statement =
- * connection.createStatement(); ResultSet resultSet =
- * statement.executeQuery(sql); while (resultSet.next()) { Student
- * currentStudent = convertToInstance(Student.class,resultSet);
- * listAllStudents.add(currentStudent); } statement.close();
- * connectorToDB.close(); return listAllStudents; }
- */
-
-
-/*
- * private <T> void setField(Object obj, String fieldName, T value) { try {
- * Class<?> clazz = obj.getClass(); Field field =
- * clazz.getDeclaredField(fieldName); field.setAccessible(true); field.set(obj,
- * value); } catch (Exception e) {
- * System.err.println("In FieldsInvoker method  exception. Set is failed"); }
- * 
- * }
- */

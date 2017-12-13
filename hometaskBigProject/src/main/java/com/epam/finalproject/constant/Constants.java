@@ -1,4 +1,4 @@
-package com.epam.finalproject.constants;
+package com.epam.finalproject.constant;
 
 public class Constants {
 	public static final String XML_FILE_PATH_TARIFFS= "src/main/resources/tariffs.xml";
@@ -8,6 +8,9 @@ public class Constants {
 	
 	public static final String XSL_SORT_FILE_PATH_TARIFFS="src/main/resources/tariffsSorted.xsl";
 	public static final String HTML_SORT_FILE_PATH_TARIFFS="src/main/resources/tariffsSorted.html";
+	
+	public static final String XML_FILE_PATH_TARIFFS_CHANGED_ROOT= "src/main/resources/tariffsChangedRoot.xml";
+	public static final String XSL_FILE_PATH_TARIFFS_ROOT_CHANGER="src/main/resources/tariffsRootChanger.xsl";
 	
 	public static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	public static final String DB_NAME ="tariffs";

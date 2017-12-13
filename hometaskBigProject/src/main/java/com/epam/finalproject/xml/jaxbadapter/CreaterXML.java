@@ -3,9 +3,9 @@ package com.epam.finalproject.xml.jaxbadapter;
 import java.io.File;
 import java.io.IOException;
 
-import com.epam.finalproject.constants.Constants;
+import com.epam.finalproject.constant.Constants;
 import com.epam.finalproject.tariffbuilder.TriffsBuilder;
-import com.epam.finalproject.xml.models.Tariffs;
+import com.epam.finalproject.xml.model.Tariffs;
 
 public class CreaterXML {
 

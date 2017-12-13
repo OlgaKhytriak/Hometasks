@@ -13,7 +13,8 @@ public class App {
 		//facade.getObjectBySAX();
 		//facade.createHtml();
 		//facade.createSortedHtml();
-		facade.test();
+		//facade.importXML2DB();
+		//facade.changeRootElement();
 	}
 	
 	

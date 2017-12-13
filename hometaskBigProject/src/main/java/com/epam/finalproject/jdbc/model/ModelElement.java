@@ -1,4 +1,4 @@
-package com.epam.finalproject.jdbc.models;
+package com.epam.finalproject.jdbc.model;
 
 public abstract class ModelElement {
 	public abstract String toValuesString();

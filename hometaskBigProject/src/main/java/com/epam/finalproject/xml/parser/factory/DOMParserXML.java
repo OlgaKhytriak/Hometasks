@@ -1,4 +1,4 @@
-package com.epam.finalproject.xml.parsers.factory;
+package com.epam.finalproject.xml.parser.factory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.epam.finalproject.xml.models.Tariff;
+import com.epam.finalproject.xml.model.Tariff;
 
 public class DOMParserXML extends SampleParser {
 	private List<Tariff> internetRates = new ArrayList<Tariff>();

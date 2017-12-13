@@ -1,21 +1,21 @@
-package com.epam.finalproject.jdbc.models;
+package com.epam.finalproject.jdbc.model;
 
-import com.epam.finalproject.jdbc.anotations.Entity;
-import com.epam.finalproject.jdbc.anotations.FieldAnn;
+import com.epam.finalproject.jdbc.anotation.Entity;
+import com.epam.finalproject.jdbc.anotation.EntityField;
 
 @Entity("tariff")
 public class TariffDB extends ModelElement {
-	@FieldAnn(value = "id", type = "INT(11)")
+	@EntityField(value = "id", type = "INT(11)")
 	private Integer id;
-	@FieldAnn("tariff_name")
+	@EntityField("tariff_name")
 	private String tariffName;
-	@FieldAnn("operator_name")
+	@EntityField("operator_name")
 	private String operatorName;
-	@FieldAnn(value = "sms_price", type = "INT(11)")
+	@EntityField(value = "sms_price", type = "INT(11)")
 	private Integer smsPrice;
-	@FieldAnn(value = "parameters_id", type = "INT(11)")
+	@EntityField(value = "parameters_id", type = "INT(11)")
 	private Integer parametersId;
-	@FieldAnn(value = "call_prices_id", type = "INT(11)")
+	@EntityField(value = "call_prices_id", type = "INT(11)")
 	private Integer callPricesId;
 
 	public TariffDB() {

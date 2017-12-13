@@ -1,4 +1,4 @@
-package com.epam.finalproject.xml.parsers.factory;
+package com.epam.finalproject.xml.parser.factory;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,7 +14,7 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import com.epam.finalproject.xml.models.Tariff;
+import com.epam.finalproject.xml.model.Tariff;
 import com.epam.lab.xmlxsd.models.InternetRate;
 
 public class StAXParserXML extends SampleParser{

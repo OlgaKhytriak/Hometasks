@@ -6,8 +6,8 @@ import java.sql.Statement;
 
 import org.apache.log4j.Logger;
 
-import com.epam.finalproject.constants.Constants;
-import com.epam.finalproject.jdbc.models.ModelElement;
+import com.epam.finalproject.constant.Constants;
+import com.epam.finalproject.jdbc.model.ModelElement;
 
 
 public class BasicDao {

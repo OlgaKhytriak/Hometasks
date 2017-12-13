@@ -1,4 +1,4 @@
-package com.epam.finalproject.xml.parsers.factory;
+package com.epam.finalproject.xml.parser.factory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.epam.finalproject.xml.models.*;
+import com.epam.finalproject.xml.model.*;
 
 public class SAXHandler extends DefaultHandler {
 	private List<Tariff> tariffs = new ArrayList<Tariff>();

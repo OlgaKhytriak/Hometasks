@@ -4,17 +4,20 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.epam.finalproject.constants.Constants;
+import com.epam.finalproject.constant.Constants;
 import com.epam.finalproject.jdbc.dao.ParametersDao;
-import com.epam.finalproject.jdbc.models.ModelElement;
-import com.epam.finalproject.jdbc.models.ParametersDB;
+import com.epam.finalproject.jdbc.dao.Transformer;
+import com.epam.finalproject.jdbc.model.ModelElement;
+import com.epam.finalproject.jdbc.model.ParametersDB;
 
-public class ParametersService extends BasicService {
+public class ParametersService {
 	private static final Logger LOG = Logger.getLogger(ParametersService.class);
 	private final ParametersDao paramDao;
+	private final Transformer transformer;
 
 	public ParametersService() {
 		paramDao = new ParametersDao();
+		transformer = new Transformer();
 	}
 
 	public void addParameters(ModelElement modelElement) throws Exception {

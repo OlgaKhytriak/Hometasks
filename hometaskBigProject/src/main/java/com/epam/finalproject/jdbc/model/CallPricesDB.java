@@ -1,17 +1,17 @@
-package com.epam.finalproject.jdbc.models;
+package com.epam.finalproject.jdbc.model;
 
-import com.epam.finalproject.jdbc.anotations.Entity;
-import com.epam.finalproject.jdbc.anotations.FieldAnn;
+import com.epam.finalproject.jdbc.anotation.Entity;
+import com.epam.finalproject.jdbc.anotation.EntityField;
 
 @Entity("call_prices")
 public class CallPricesDB extends ModelElement {
-	@FieldAnn(value = "id", type = "INT(11)")
+	@EntityField(value = "id", type = "INT(11)")
 	private Integer id;
-	@FieldAnn(value = "incide_network", type = "INT(11)")
+	@EntityField(value = "incide_network", type = "INT(11)")
 	private Integer insideNetwork;
-	@FieldAnn(value = "outside_network", type = "INT(11)")
+	@EntityField(value = "outside_network", type = "INT(11)")
 	private Integer outsideNetwork;
-	@FieldAnn(value = "landline_phone", type = "INT(11)")
+	@EntityField(value = "landline_phone", type = "INT(11)")
 	private Integer landlinePhone;
 
 	public CallPricesDB() {

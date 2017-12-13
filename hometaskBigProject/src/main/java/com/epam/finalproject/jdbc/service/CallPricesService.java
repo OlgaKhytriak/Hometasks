@@ -4,18 +4,20 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.epam.finalproject.constants.Constants;
+import com.epam.finalproject.constant.Constants;
 import com.epam.finalproject.jdbc.dao.CallPricesDao;
-import com.epam.finalproject.jdbc.models.ModelElement;
-import com.epam.finalproject.jdbc.models.CallPricesDB;
+import com.epam.finalproject.jdbc.dao.Transformer;
+import com.epam.finalproject.jdbc.model.CallPricesDB;
+import com.epam.finalproject.jdbc.model.ModelElement;
 
-public class CallPricesService extends BasicService {
+public class CallPricesService {
 	private static final Logger LOG = Logger.getLogger(CallPricesService.class);
-
+	protected final Transformer transformer;
 	private final CallPricesDao CallPricesDao;
 
 	public CallPricesService() {
 		CallPricesDao = new CallPricesDao();
+		transformer = new Transformer();
 	}
 
 	public void addCallPrices(ModelElement modelElement) throws Exception {

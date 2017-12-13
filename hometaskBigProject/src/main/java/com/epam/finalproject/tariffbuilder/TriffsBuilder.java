@@ -1,6 +1,6 @@
 package com.epam.finalproject.tariffbuilder;
-import com.epam.finalproject.xml.models.Tariff;
-import com.epam.finalproject.xml.models.Tariffs;
+import com.epam.finalproject.xml.model.Tariff;
+import com.epam.finalproject.xml.model.Tariffs;
 
 public class TriffsBuilder {
 

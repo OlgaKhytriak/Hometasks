@@ -1,4 +1,4 @@
-package com.epam.finalproject.jdbc.anotations;
+package com.epam.finalproject.jdbc.anotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

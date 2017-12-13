@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
-import com.epam.finalproject.constants.Constants;
+import com.epam.finalproject.constant.Constants;
 
 public class ConnectorToDB {	
 	private static final Logger LOG = Logger.getLogger(ConnectorToDB.class);

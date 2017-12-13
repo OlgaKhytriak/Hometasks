@@ -1,9 +1,9 @@
-package com.epam.finalproject.modelstransformer;
+package com.epam.finalproject.xml2jdbs;
 
-import com.epam.finalproject.jdbc.models.CallPricesDB;
-import com.epam.finalproject.jdbc.models.ParametersDB;
-import com.epam.finalproject.jdbc.models.TariffDB;
-import com.epam.finalproject.xml.models.Tariff;
+import com.epam.finalproject.jdbc.model.CallPricesDB;
+import com.epam.finalproject.jdbc.model.ParametersDB;
+import com.epam.finalproject.jdbc.model.TariffDB;
+import com.epam.finalproject.xml.model.Tariff;
 
 public class ModelsTransformer {
 

@@ -1,10 +1,9 @@
-package com.epam.finalproject.xml.parsers;
+package com.epam.finalproject.xml.parser;
 
 import java.util.List;
 
-import com.epam.finalproject.xml.models.*;
-import com.epam.finalproject.xml.parsers.factory.*;
-import com.epam.finalproject.xml.parsers.factory.ParserType;
+import com.epam.finalproject.xml.model.*;
+import com.epam.finalproject.xml.parser.factory.*;
 
 public class Xml2ObjectAdapter implements Xml2Object {
 
