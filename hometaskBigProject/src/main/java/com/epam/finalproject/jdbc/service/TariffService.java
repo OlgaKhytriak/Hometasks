@@ -38,12 +38,12 @@ public class TariffService{
 	}
 
 	public void deleteTableFromDB() throws Exception {
-		String tableName = Constants.TABLE_TARIFF_TEST;
+		String tableName = Constants.TABLE_TARIFF;
 		tariffDao.dropTable(tableName);
 	}
 
 	public void createTableInDB() throws Exception {
-		String tableName = Constants.TABLE_TARIFF_TEST;
+		String tableName = Constants.TABLE_TARIFF;
 		transformer.createTableForInstance(TariffDB.class, tableName);
 		tariffDao.setTariffForeignKeys(tableName);
 	}

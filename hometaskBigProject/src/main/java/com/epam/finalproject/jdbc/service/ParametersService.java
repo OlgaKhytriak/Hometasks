@@ -30,12 +30,12 @@ public class ParametersService {
 	}
 
 	public void createTableInDB() throws Exception {
-		String tableName = Constants.TABLE_PARAMETERS_TEST;
+		String tableName = Constants.TABLE_PARAMETERS;
 		transformer.createTableForInstance(ParametersDB.class, tableName);
 	}
 
 	public void deleteTableFromDB() throws Exception {
-		String tableName = Constants.TABLE_PARAMETERS_TEST;
+		String tableName = Constants.TABLE_PARAMETERS;
 		paramDao.dropTable(tableName);
 	}
 

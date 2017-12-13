@@ -8,13 +8,15 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 		ProjectFacade facade = new ProjectFacade();
-		//facade.createXMLFile();
-		//facade.validateXml2Xsd();
-		//facade.getObjectBySAX();
-		//facade.createHtml();
-		//facade.createSortedHtml();
-		//facade.importXML2DB();
-		//facade.changeRootElement();
+		facade.clearDB();
+		facade.createXMLFile();
+		facade.validateXml2Xsd();
+		facade.getObjectBySAX();
+		facade.createHtml();
+		facade.createSortedHtml();
+		facade.importXML2DB();
+		facade.createSortedXML();
+		facade.changeRootElement();
 	}
 	
 	

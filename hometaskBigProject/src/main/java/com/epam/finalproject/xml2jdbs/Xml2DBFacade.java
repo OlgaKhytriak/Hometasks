@@ -2,7 +2,7 @@ package com.epam.finalproject.xml2jdbs;
 
 import com.epam.finalproject.constant.Constants;
 import com.epam.finalproject.jdbc.service.CallPricesService;
-import com.epam.finalproject.jdbc.service.ParametersService;
+import com.epam.finalproject.jdbc.service.*;
 import com.epam.finalproject.jdbc.service.TariffService;
 import com.epam.finalproject.xml.model.*;
 import com.epam.finalproject.xml.parser.Xml2Object;
@@ -15,16 +15,19 @@ public class Xml2DBFacade implements Xml2DB {
 	private final TariffService tariffService;
 	private final ParametersService parametersService;
 	private final CallPricesService callPricesService;
+	private final GeneralService generalService;
 	public Xml2DBFacade(){
 	xml2Object= new Xml2ObjectAdapter(); 
 	modelsTransformer = new ModelsTransformer();
 	tariffService = new TariffService();
 	parametersService=new ParametersService();
 	callPricesService= new CallPricesService();
+	generalService=new GeneralService();
 	}
 
 	@Override
 	public void save2DB(String xmlFilePath) {
+		generalService.createAllTables();
 		Tariffs tariffs=xml2Object.loadBySAX(Constants.XML_FILE_PATH_TARIFFS);
 		for (int i=0; i<tariffs.size();i++) {
 			Tariff tariffXML = new Tariff();
@@ -43,4 +46,6 @@ public class Xml2DBFacade implements Xml2DB {
 			e.printStackTrace();
 		}
 	}
+	
+	
 }

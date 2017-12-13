@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.epam.finalproject.constant.Constants;
+import com.epam.finalproject.jdbc.service.GeneralService;
+import com.epam.finalproject.sort.Sorter;
 import com.epam.finalproject.xml.jaxbadapter.CreaterXML;
 import com.epam.finalproject.xml.model.Tariffs;
 import com.epam.finalproject.xml.parser.Xml2Object;
@@ -21,7 +23,7 @@ public class ProjectFacade {
 
 	public void createXMLFile() {
 		CreaterXML createrXML = new CreaterXML();
-		createrXML.create();
+		createrXML.createTariffsXML();
 		LOG.info(String.format("File Constants.XML_FILE_PATH_TARIFFS is created and filled in"));
 	}
 
@@ -69,11 +71,23 @@ public class ProjectFacade {
 		Xml2DB xml2DB = new Xml2DBFacade();
 		xml2DB.save2DB(Constants.XML_FILE_PATH_TARIFFS);
 	}
-	public void changeRootElement() {
-		XmlChanger xmlChanger = new XmlChanger();
-		xmlChanger.change(Constants.XML_FILE_PATH_TARIFFS, Constants.XSL_FILE_PATH_TARIFFS_ROOT_CHANGER, Constants.XML_FILE_PATH_TARIFFS_CHANGED_ROOT);
+	public void createSortedXML() {
+		Sorter sorter = new Sorter();
+		Tariffs tariffs = xml2Object.loadBySAX(Constants.XML_FILE_PATH_TARIFFS);
+		Tariffs sortedTariffs= sorter.sort(tariffs);
+		CreaterXML createrXML = new CreaterXML();
+		createrXML.create(Constants.XML_FILE_PATH_TARIFFS_SORTED, sortedTariffs);
 	}
 	
+	public void changeRootElement() {
+		XmlChanger xmlChanger = new XmlChanger();
+		xmlChanger.change(Constants.XML_FILE_PATH_TARIFFS_SORTED, Constants.XSL_FILE_PATH_TARIFFS_ROOT_CHANGER, Constants.XML_FILE_PATH_TARIFFS_CHANGED_ROOT);
+	}
+	
+	public void clearDB() {
+		GeneralService generalService = new GeneralService();
+		generalService.dropAllTables();
+	}
 	
 	private static <T> void printList(List<T> list) {
 		for (T element : list) {

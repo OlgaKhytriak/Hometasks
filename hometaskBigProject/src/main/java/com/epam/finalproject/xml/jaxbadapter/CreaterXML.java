@@ -9,13 +9,10 @@ import com.epam.finalproject.xml.model.Tariffs;
 
 public class CreaterXML {
 
-	public void create() {
+	public void create(String filePath, Tariffs tariffs) {
 		JAXBContextProcessor jAXBContextProcessor = new JAXBContextProcessor(new Class[] { Tariffs.class });
 		Object2XmlAdapter adapter = new Object2XmlAdapter(jAXBContextProcessor);
-		TriffsBuilder triffsBuilder = new TriffsBuilder();
-		Tariffs tariffs = new Tariffs();
-		tariffs = triffsBuilder.build();
-		File file = new File(Constants.XML_FILE_PATH_TARIFFS);
+		File file = new File(filePath);
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
@@ -23,8 +20,15 @@ public class CreaterXML {
 			e.printStackTrace();
 		}
 		adapter.save(file, tariffs);
-		//Tariffs tariffs2 = adapter.load(file);
-		//System.out.println("Created object from XML:");
-		//System.out.println(tariffs2.toString());
+		
+	}
+	
+	public void createTariffsXML() {
+		JAXBContextProcessor jAXBContextProcessor = new JAXBContextProcessor(new Class[] { Tariffs.class });
+		Object2XmlAdapter adapter = new Object2XmlAdapter(jAXBContextProcessor);
+		TriffsBuilder triffsBuilder = new TriffsBuilder();
+		Tariffs tariffs = new Tariffs();
+		tariffs = triffsBuilder.build();
+		create(Constants.XML_FILE_PATH_TARIFFS,  tariffs);
 	}
 }

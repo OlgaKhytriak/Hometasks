@@ -30,12 +30,12 @@ public class CallPricesService {
 	}
 
 	public void deleteTableFromDB() throws Exception {
-		String tableName = Constants.TABLE_CALL_PRICES_TEST;
+		String tableName = Constants.TABLE_CALL_PRICES;
 		CallPricesDao.dropTable(tableName);
 	}
 
 	public void createTableInDB() throws Exception {
-		String tableName = Constants.TABLE_CALL_PRICES_TEST;
+		String tableName = Constants.TABLE_CALL_PRICES;
 		transformer.createTableForInstance(CallPricesDB.class, tableName);
 	}
 
