@@ -12,7 +12,7 @@ public class App {
 		//facade.validateXml2Xsd();
 		//facade.getObjectBySAX();
 		//facade.getObjectByStAX();
-		facade.getObjectByDOM();
+		//facade.getObjectByDOM();
 		//facade.createHtml();
 		//facade.createSortedHtml();
 		
