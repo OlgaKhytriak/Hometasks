@@ -31,7 +31,7 @@ public class CallPrices {
 	}
 	public String toString() {
 		return String.format(
-				"\n CallPrices: id= %s | insideNetwork= %s | outsideNetwork = %s | landlinePhone=%s ",callPriceId,insideNetwork, outsideNetwork,landlinePhone);
+				"\nCallPrices: id= %s | insideNetwork= %s | outsideNetwork = %s | landlinePhone=%s ",callPriceId,insideNetwork, outsideNetwork,landlinePhone);
 	}
 
 	public Integer getInsideNetwork() {

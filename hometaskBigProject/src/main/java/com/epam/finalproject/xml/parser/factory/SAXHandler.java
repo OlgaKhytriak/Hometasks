@@ -86,7 +86,7 @@ public class SAXHandler extends DefaultHandler {
 			 landlinePhone= Integer.parseInt(new String(ch, start, length));}
 	}
 
-	public List<Tariff> getInternetRates() {
+	public List<Tariff> getTariffList() {
 		return tariffs;
 	}
 }

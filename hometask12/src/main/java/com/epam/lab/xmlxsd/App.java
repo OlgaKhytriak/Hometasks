@@ -17,7 +17,7 @@ import com.epam.lab.xmlxsd.jaxb.RateWithParameters;
 import com.epam.lab.xmlxsd.jaxb.JAXBContextProcessor;
 import com.epam.lab.xmlxsd.jaxb.GigaBytePrice;
 import com.epam.lab.xmlxsd.jaxb.Parameter;
-import com.epam.lab.xmlxsd.models.InternetRate;
+import com.epam.lab.xmlxsd.models.Tariff;
 import com.epam.lab.xmlxsd.parsers.ParserCreator;
 import com.epam.lab.xmlxsd.parsers.ParserType;
 import com.epam.lab.xmlxsd.parsers.ParserXML;
@@ -53,17 +53,17 @@ public class App {
 		Date startLinked;
 		Date finishLinked;
 		startLinked = new Date();
-		List<InternetRate> internetRatesSAX = performParse(xmlFilePath, ParserType.SAX);
+		List<Tariff> internetRatesSAX = performParse(xmlFilePath, ParserType.SAX);
 		printList(internetRatesSAX);
 		finishLinked = new Date();
 		LOG.info(String.format("Time result for SAX: %s", finishLinked.getTime() - startLinked.getTime()));
 		startLinked = new Date();
-		List<InternetRate> internetRatesStAX = performParse(xmlFilePath, ParserType.StAX);
+		List<Tariff> internetRatesStAX = performParse(xmlFilePath, ParserType.StAX);
 		printList(internetRatesStAX);
 		finishLinked = new Date();
 		LOG.info(String.format("Time result for StAX: %s", finishLinked.getTime() - startLinked.getTime()));
 		startLinked = new Date();
-		List<InternetRate> internetRatesDOM = performParse(xmlFilePath, ParserType.DOM);
+		List<Tariff> internetRatesDOM = performParse(xmlFilePath, ParserType.DOM);
 		printList(internetRatesDOM);
 		finishLinked = new Date();
 		LOG.info(String.format("Time result for DOM: %s", finishLinked.getTime() - startLinked.getTime()));
@@ -111,10 +111,10 @@ public class App {
 		return parameters;
 	}
 
-	private static List<InternetRate> performParse(String xmlFilePath, ParserType parserType) {
+	private static List<Tariff> performParse(String xmlFilePath, ParserType parserType) {
 		ParserCreator parserCreator = new ParserCreator();
 		ParserXML parserXML = parserCreator.create(parserType);
-		List<InternetRate> internetProvidersList = parserXML.parse(xmlFilePath);
+		List<Tariff> internetProvidersList = parserXML.parse(xmlFilePath);
 		LOG.info(String.format("%s results: -------------", parserXML.getClass().getSimpleName()));
 		return internetProvidersList;
 	}

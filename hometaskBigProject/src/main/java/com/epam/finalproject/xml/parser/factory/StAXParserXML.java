@@ -14,22 +14,30 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
+import com.epam.finalproject.xml.model.CallPrices;
+import com.epam.finalproject.xml.model.Parameters;
 import com.epam.finalproject.xml.model.Tariff;
-import com.epam.lab.xmlxsd.models.InternetRate;
 
-public class StAXParserXML extends SampleParser{
-	private List<Tariff> internetRates = new ArrayList<Tariff>();
-	Tariff internetRate;
+public class StAXParserXML extends SampleParser {
+	private List<Tariff> tariffList = new ArrayList<Tariff>();
+	private Tariff tariff;
+	private Parameters parameters;
+	private CallPrices callPrices;
+
+	private boolean isId = false;
+	private boolean isTariffName = false;
+	private boolean isOperatorName = false;
+	private boolean isSmsPrice = false;
+	private boolean isParametersId = false;
+	private boolean isFavouriteNumbers = false;
+	private boolean isInternet3G = false;
+	private boolean isHomeInternet = false;
+	private boolean isCallPriceId = false;
+	private boolean isInsideNetwork = false;
+	private boolean isOutsideNetwork = false;
+	private boolean isLandlinePhone = false;
 
 	public List<Tariff> parse(String xmlFilePath) {
-		boolean isName = false;
-		boolean isProviderName = false;
-		boolean isSubscriptionFee = false;
-		boolean isAdditionalSpeed = false;
-		boolean isSmartTV = false;
-		boolean isCableTV = false;
-		boolean isSpeed = false;
-		
 		try {
 			XMLInputFactory factory = XMLInputFactory.newInstance();
 			XMLEventReader eventReader = factory.createXMLEventReader(new FileReader(xmlFilePath));
@@ -39,67 +47,97 @@ public class StAXParserXML extends SampleParser{
 				case XMLStreamConstants.START_ELEMENT:
 					StartElement startElement = event.asStartElement();
 					String qName = startElement.getName().getLocalPart();
-					if (qName.equals("rate")) {
-						internetRate = new InternetRate();
-					} else if (qName.equals("name")) {
-						isName = true;
-					} else if (qName.equals("providerName")) {
-						isProviderName = true;
-					} else if (qName.equals("subscriptionFee")) {
-						isSubscriptionFee = true;
-					} else if (qName.equals("additionalSpeed")) {
-						isAdditionalSpeed = true;
-					} else if (qName.equals("smartTV")) {
-						isSmartTV = true;
-					} else if (qName.equals("cableTV")) {
-						isCableTV = true;
-					} else if (qName.equals("speed")) {
-						isSpeed = true;
-					}
+					setBoolens(qName);
 					break;
 				case XMLStreamConstants.CHARACTERS:
 					Characters characters = event.asCharacters();
-					if (isName) {
-						internetRate.setName(characters.getData());
-						isName = false;
-					}
-					if (isProviderName) {
-						internetRate.setProviderName(characters.getData());
-						isProviderName = false;
-					}
-					if (isSubscriptionFee) {
-						internetRate.setSubscriptionFee(Double.parseDouble(characters.getData()));
-						isSubscriptionFee = false;
-					}
-					if (isAdditionalSpeed) {
-						internetRate.setAdditionalSpeed(Double.parseDouble(characters.getData()));
-						isAdditionalSpeed = false;
-					}
-					if (isSmartTV) {
-						internetRate.setSmartTV(Double.parseDouble(characters.getData()));
-						isSmartTV = false;
-					}
-					if (isCableTV) {
-						internetRate.setCableTV(Double.parseDouble(characters.getData()));
-						isCableTV = false;
-					}
-					if (isSpeed) {
-						internetRate.setSpeed(Double.parseDouble(characters.getData()));
-						isSpeed = false;
-					}
+					setFields(characters);
 					break;
 				case XMLStreamConstants.END_ELEMENT:
 					EndElement endElement = event.asEndElement();
-					if (endElement.getName().getLocalPart().equals("rate")) {
-						internetRates.add(internetRate);
+					if (endElement.getName().getLocalPart().equals("tariff")) {
+						tariff.setParameters(parameters);
+						tariff.setCallPrices(callPrices);
+						tariffList.add(tariff);
 					}
 				}
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (XMLStreamException e) {
+		} catch (FileNotFoundException | XMLStreamException e) {
 			e.printStackTrace();
 		}
-	return internetRates;
+		return tariffList;
 	}
+
+	private void setBoolens(String qName) {
+		if (qName.equals("tariff")) {
+			tariff = new Tariff();
+			parameters = new Parameters();
+			callPrices = new CallPrices();
+		} else if (qName.equals("tariff-id")) {
+			isId = true;
+		} else if (qName.equals("tariff-name")) {
+			isTariffName = true;
+		} else if (qName.equals("operator-name")) {
+			isOperatorName = true;
+		} else if (qName.equals("sms-price")) {
+			isSmsPrice = true;
+		} else if (qName.equals("parameters-id")) {
+			isParametersId = true;
+		} else if (qName.equals("favourite-numbers")) {
+			isFavouriteNumbers = true;
+		} else if (qName.equals("internet-3g")) {
+			isInternet3G = true;
+		} else if (qName.equals("home-internet")) {
+			isHomeInternet = true;
+		} else if (qName.equals("call-prices-id")) {
+			isCallPriceId = true;
+		} else if (qName.equals("incide-network")) {
+			isInsideNetwork = true;
+		} else if (qName.equals("outside-network")) {
+			isOutsideNetwork = true;
+		} else if (qName.equals("landline-phone")) {
+			isLandlinePhone = true;
+		}
+	}
+
+	private void setFields(Characters characters) {
+		if (isId) {
+			tariff.setId(Integer.parseInt(characters.getData()));
+			isId = false;
+		} else if (isTariffName) {
+			tariff.setTariffName(characters.getData());
+			isTariffName = false;
+		} else if (isOperatorName) {
+			tariff.setOperatorName(characters.getData());
+			isOperatorName = false;
+		} else if (isSmsPrice) {
+			tariff.setSmsPrice(Integer.parseInt(characters.getData()));
+			isSmsPrice = false;
+		} else if (isParametersId) {
+			parameters.setParametersId(Integer.parseInt(characters.getData()));
+			isParametersId = false;
+		} else if (isFavouriteNumbers) {
+			parameters.setFavouriteNumbers(Integer.parseInt(characters.getData()));
+			isFavouriteNumbers = false;
+		} else if (isInternet3G) {
+			parameters.setInternet3G(Boolean.parseBoolean(characters.getData()));
+			isInternet3G = false;
+		} else if (isHomeInternet) {
+			parameters.setHomeInternet(Boolean.parseBoolean(characters.getData()));
+			isHomeInternet = false;
+		} else if (isCallPriceId) {
+			callPrices.setCallPriceId((Integer.parseInt(characters.getData())));
+			isCallPriceId = false;
+		} else if (isInsideNetwork) {
+			callPrices.setInsideNetwork((Integer.parseInt(characters.getData())));
+			isInsideNetwork = false;
+		} else if (isOutsideNetwork) {
+			callPrices.setOutsideNetwork((Integer.parseInt(characters.getData())));
+			isOutsideNetwork = false;
+		} else if (isLandlinePhone) {
+			callPrices.setLandlinePhone((Integer.parseInt(characters.getData())));
+			isLandlinePhone = false;
+		}
+	}
+
 }

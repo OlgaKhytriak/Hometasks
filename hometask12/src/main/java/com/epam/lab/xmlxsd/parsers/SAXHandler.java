@@ -7,10 +7,10 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.epam.lab.xmlxsd.models.InternetRate;
+import com.epam.lab.xmlxsd.models.Tariff;
 
 public class SAXHandler extends DefaultHandler {
-	private List<InternetRate> internetRates = new ArrayList<InternetRate>();
+	private List<Tariff> internetRates = new ArrayList<Tariff>();
 	private String element;
 	private String name;
 	private String providerName;
@@ -36,7 +36,7 @@ public class SAXHandler extends DefaultHandler {
 	@Override
 	public void endElement(String names, String localName, String qName) {
 		if (qName.equals("rate")) {
-			InternetRate internetRate = new InternetRate();
+			Tariff internetRate = new Tariff();
 			internetRate.setName(name);
 			internetRate.setProviderName(providerName);
 			internetRate.setSubscriptionFee(subscriptionFee);
@@ -75,7 +75,7 @@ public class SAXHandler extends DefaultHandler {
 		}
 	}
 
-	public List<InternetRate> getInternetRates() {
+	public List<Tariff> getInternetRates() {
 		return internetRates;
 	}
 }

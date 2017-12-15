@@ -1,6 +1,6 @@
 package com.epam.lab.xmlxsd.models;
 
-public class InternetRate {
+public class Tariff {
 	private static Integer idCounter = 0;
 	private Integer id;
 	private String name;
@@ -11,7 +11,7 @@ public class InternetRate {
 	private Double cableTV;
 	private Double speed;
 
-	public InternetRate() {
+	public Tariff() {
 		idCounter++;
 		this.id = idCounter;
 	}

@@ -40,6 +40,7 @@ public class ProjectFacade {
 	}
 
 	public void getObjectByStAX() {
+		System.out.println("---- StAX CREATED TARIFFS OBJECT: -----");
 		Tariffs tariffs = xml2Object.loadByStAX(Constants.XML_FILE_PATH_TARIFFS);
 		System.out.println(tariffs.toString());
 	}
@@ -51,6 +52,7 @@ public class ProjectFacade {
 	}
 
 	public void getObjectByDOM() {
+		System.out.println("---- DOM CREATED TARIFFS OBJECT: -----");
 		Tariffs tariffs = xml2Object.loadByDOM(Constants.XML_FILE_PATH_TARIFFS);
 		System.out.println(tariffs.toString());
 	}

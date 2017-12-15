@@ -11,12 +11,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.epam.lab.xmlxsd.models.InternetRate;
+import com.epam.lab.xmlxsd.models.Tariff;
 
 public class DOMParserXML extends SampleParser {
-	private List<InternetRate> internetRates = new ArrayList<InternetRate>();
+	private List<Tariff> internetRates = new ArrayList<Tariff>();
 
-	public List<InternetRate> parse(String xmlFilePath) {
+	public List<Tariff> parse(String xmlFilePath) {
 		try {
 			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -27,7 +27,7 @@ public class DOMParserXML extends SampleParser {
 				Node rate = rateList.item(i);
 				if (rate.getNodeType() == Node.ELEMENT_NODE) {
 					Element rateElement = (Element) rate;
-					InternetRate internetRate = new InternetRate();
+					Tariff internetRate = new Tariff();
 					NodeList rateInfo = rateElement.getChildNodes();
 					for (int j = 0; j < rateInfo.getLength(); j++) {
 						Node infoCurrentRate = rateInfo.item(j);
@@ -78,7 +78,7 @@ public class DOMParserXML extends SampleParser {
 		return internetRates;
 	}
 
-	public List<InternetRate> getInternetProviders() {
+	public List<Tariff> getInternetProviders() {
 		return internetRates;
 	}
 }

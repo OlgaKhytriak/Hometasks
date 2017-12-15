@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
-import com.epam.lab.xmlxsd.models.InternetRate;
+import com.epam.lab.xmlxsd.models.Tariff;
 
 @XmlRootElement
 //@XmlSeeAlso({ Parameter.class, GigaBytePrice.class})

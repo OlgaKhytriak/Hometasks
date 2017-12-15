@@ -62,7 +62,7 @@ public class Tariff implements Cloneable {
 
 	public String toString() {
 		return String.format(
-				"tariff: id= %s | name= %s | operatorName = %s | smsPrice = %s |\n parameters: %s | \n callPrices: %s",
+				"[TARIFF]: id= %s | name= %s | operatorName = %s | smsPrice = %s %s%s",
 				id, tariffName, operatorName, smsPrice, parameters.toString(), callPrices.toString());
 	}
 

@@ -26,6 +26,6 @@ public class SAXParserXML extends SampleParser {
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			System.out.println("Exception in SAXParserXML");
 		}
-		return handler.getInternetRates();
+		return handler.getTariffList();
 	}
 }

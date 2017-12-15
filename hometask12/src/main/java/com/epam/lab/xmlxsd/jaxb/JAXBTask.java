@@ -7,7 +7,7 @@ import javax.xml.bind.JAXBException;
 
 import org.apache.log4j.Logger;
 
-import com.epam.lab.xmlxsd.models.InternetRate;
+import com.epam.lab.xmlxsd.models.Tariff;
 import com.epam.lab.xmlxsd.parsers.ParserCreator;
 import com.epam.lab.xmlxsd.parsers.ParserType;
 import com.epam.lab.xmlxsd.parsers.ParserXML;
@@ -58,10 +58,10 @@ public class JAXBTask {
 		return parameters;
 	}
 
-	private static List<InternetRate> performParse(String xmlFilePath, ParserType parserType) {
+	private static List<Tariff> performParse(String xmlFilePath, ParserType parserType) {
 		ParserCreator parserCreator = new ParserCreator();
 		ParserXML parserXML = parserCreator.create(parserType);
-		List<InternetRate> internetProvidersList = parserXML.parse(xmlFilePath);
+		List<Tariff> internetProvidersList = parserXML.parse(xmlFilePath);
 		LOG.info(String.format("%s results: -------------", parserXML.getClass().getSimpleName()));
 		return internetProvidersList;
 	}

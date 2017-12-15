@@ -31,7 +31,7 @@ public class Parameters {
 	}
 
 	public String toString() {
-		return String.format("\nParameter: id = %s | favouriteNumbers = %s | internet3G = %s | homeInternet=%s ",parametersId,
+		return String.format("\nParameters: id = %s | favouriteNumbers = %s | internet3G = %s | homeInternet=%s ",parametersId,
 				favouriteNumbers, internet3G, homeInternet);
 	}
 	public Integer getFavouriteNumbers() {

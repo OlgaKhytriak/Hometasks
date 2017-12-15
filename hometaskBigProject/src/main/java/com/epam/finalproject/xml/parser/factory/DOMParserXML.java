@@ -1,84 +1,128 @@
 package com.epam.finalproject.xml.parser.factory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import com.epam.finalproject.xml.model.CallPrices;
+import com.epam.finalproject.xml.model.Parameters;
 import com.epam.finalproject.xml.model.Tariff;
 
 public class DOMParserXML extends SampleParser {
-	private List<Tariff> internetRates = new ArrayList<Tariff>();
+	private List<Tariff> tariffs = new ArrayList<Tariff>();
+	Tariff tariff;
+	Parameters parameters;
+	CallPrices callPrices;
+
+	private NodeList getNodeList(String xmlFilePath) {
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder documentBuilder = null;
+		Document document = null;
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(xmlFilePath);
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			e.printStackTrace();
+		}
+		Node root = document.getDocumentElement();
+		NodeList rateList = root.getChildNodes();
+		return rateList;
+	}
 
 	public List<Tariff> parse(String xmlFilePath) {
-		try {
-			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-			Document document = documentBuilder.parse(xmlFilePath);
-			Node root = document.getDocumentElement();
-			NodeList rateList = root.getChildNodes();
-			for (int i = 0; i < rateList.getLength(); i++) {
-				Node rate = rateList.item(i);
-				if (rate.getNodeType() == Node.ELEMENT_NODE) {
-					Element rateElement = (Element) rate;
-					InternetRate internetRate = new InternetRate();
-					NodeList rateInfo = rateElement.getChildNodes();
-					for (int j = 0; j < rateInfo.getLength(); j++) {
-						Node infoCurrentRate = rateInfo.item(j);
-						if (infoCurrentRate.getNodeType() == Node.ELEMENT_NODE) {
-							Element info = (Element) infoCurrentRate;
-							if (info.getTagName().equals("name")) {
-								internetRate.setName(info.getTextContent());
-							}
-							if (info.getTagName().equals("providerName")) {
-								internetRate.setProviderName(info.getTextContent());
-							}
-							if (info.getTagName().equals("subscriptionFee")) {
-								internetRate.setSubscriptionFee(Double.parseDouble(info.getTextContent()));
-							}
-							if (info.getTagName().equals("parameters")) {
-								NodeList parameters = info.getChildNodes();
-								for (int k = 0; k < parameters.getLength(); k++) {
-									Node parametersCurrentRate = parameters.item(k);
-									if (parametersCurrentRate.getNodeType() == Node.ELEMENT_NODE) {
-										Element parametersInfo = (Element) parametersCurrentRate;
-										if (parametersInfo.getTagName().equals("additionalSpeed")) {
-											internetRate.setAdditionalSpeed(
-													Double.parseDouble(parametersInfo.getTextContent()));
-										}
-										if (parametersInfo.getTagName().equals("smartTV")) {
-											internetRate
-													.setSmartTV(Double.parseDouble(parametersInfo.getTextContent()));
-										}
-										if (parametersInfo.getTagName().equals("cableTV")) {
-											internetRate
-													.setCableTV(Double.parseDouble(parametersInfo.getTextContent()));
-										}
-									}
-								}
-							}
-							if (info.getTagName().equals("speed")) {
-								internetRate.setSpeed(Double.parseDouble(info.getTextContent()));
-								internetRates.add(internetRate);
-							}
-						}
-					}
-				}
-
+		NodeList rateList = getNodeList(xmlFilePath);
+		for (int i = 0; i < rateList.getLength(); i++) {
+			Node tariffNode = rateList.item(i);
+			if (tariffNode.getNodeType() == Node.ELEMENT_NODE) {
+				tariff = new Tariff();
+				parameters = new Parameters();
+				callPrices = new CallPrices();
+				Element tariffElement = (Element) tariffNode;
+				NodeList tariffInfo = tariffElement.getChildNodes();
+				constructTariffs(tariffInfo);
 			}
-		} catch (Exception e) {
-			System.out.println("Exception in DOMParserXML");
 		}
-		return internetRates;
+		return tariffs;
+	}
+
+	private void constructTariffs(NodeList tariffInfo) {
+		for (int j = 0; j < tariffInfo.getLength(); j++) {
+			Node infoCurrentTariff = tariffInfo.item(j);
+			if (infoCurrentTariff.getNodeType() == Node.ELEMENT_NODE) {
+				Element info = (Element) infoCurrentTariff;
+				setFields(info);
+			}
+		}
+		tariff.setParameters(parameters);
+		tariff.setCallPrices(callPrices);
+		tariffs.add(tariff);
+	}
+
+	private void setFields(Element info) {
+		if (info.getTagName().equals("tariff-id")) {
+			tariff.setId(Integer.parseInt(info.getTextContent()));
+		} else if (info.getTagName().equals("tariff-name")) {
+			tariff.setTariffName(info.getTextContent());
+		} else if (info.getTagName().equals("operator-name")) {
+			tariff.setOperatorName(info.getTextContent());
+		} else if (info.getTagName().equals("sms-price")) {
+			tariff.setSmsPrice(Integer.parseInt(info.getTextContent()));
+		} else if (info.getTagName().equals("parameters")) {
+			setFieldsIfParameters(info);
+		} else if (info.getTagName().equals("call-prices")) {
+			setFieldsIfCallPrices(info);
+		}
+	}
+
+	private void setFieldsIfCallPrices(Element info) {
+		NodeList nodeList = info.getChildNodes();
+		for (int k = 0; k < nodeList.getLength(); k++) {
+			Node node = nodeList.item(k);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element element = (Element) node;
+				if (element.getTagName().equals("call-prices-id")) {
+					callPrices.setCallPriceId(Integer.parseInt(element.getTextContent()));
+				} else if (element.getTagName().equals("incide-network")) {
+					callPrices.setInsideNetwork(Integer.parseInt(element.getTextContent()));
+				} else if (element.getTagName().equals("outside-network")) {
+					callPrices.setOutsideNetwork(Integer.parseInt(element.getTextContent()));
+				} else if (element.getTagName().equals("landline-phone")) {
+					callPrices.setLandlinePhone(Integer.parseInt(element.getTextContent()));
+				}
+			}
+		}
+	}
+
+	private void setFieldsIfParameters(Element info) {
+		NodeList nodeList = info.getChildNodes();
+		for (int k = 0; k < nodeList.getLength(); k++) {
+			Node node = nodeList.item(k);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element element = (Element) node;
+				if (element.getTagName().equals("parameters-id")) {
+					parameters.setParametersId(Integer.parseInt(element.getTextContent()));
+				} else if (element.getTagName().equals("favourite-numbers")) {
+					parameters.setFavouriteNumbers(Integer.parseInt(element.getTextContent()));
+				} else if (element.getTagName().equals("internet-3g")) {
+					parameters.setInternet3G(Boolean.parseBoolean(element.getTextContent()));
+				} else if (element.getTagName().equals("home-internet")) {
+					parameters.setHomeInternet(Boolean.parseBoolean(element.getTextContent()));
+				}
+			}
+		}
 	}
 
 	public List<Tariff> getInternetProviders() {
-		return internetRates;
+		return tariffs;
 	}
 }

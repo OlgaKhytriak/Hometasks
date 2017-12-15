@@ -10,7 +10,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import com.epam.lab.xmlxsd.models.InternetRate;
+import com.epam.lab.xmlxsd.models.Tariff;
 
 public class SAXParserXML extends SampleParser{
 	//private List<InternetRate> internetRates;
@@ -20,7 +20,7 @@ public class SAXParserXML extends SampleParser{
 		//internetRates = new ArrayList<InternetRate>();
 	}
 	
-	public List<InternetRate> parse(String xmlFilePath) {
+	public List<Tariff> parse(String xmlFilePath) {
 		SAXParserFactory parserFactory = SAXParserFactory.newInstance();
 		try {
 			SAXParser saxParser = parserFactory.newSAXParser();

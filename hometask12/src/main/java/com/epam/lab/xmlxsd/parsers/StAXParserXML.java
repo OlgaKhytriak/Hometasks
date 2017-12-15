@@ -14,13 +14,13 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import com.epam.lab.xmlxsd.models.InternetRate;
+import com.epam.lab.xmlxsd.models.Tariff;
 
 public class StAXParserXML extends SampleParser{
-	private List<InternetRate> internetRates = new ArrayList<InternetRate>();
-	InternetRate internetRate;
+	private List<Tariff> internetRates = new ArrayList<Tariff>();
+	Tariff internetRate;
 
-	public List<InternetRate> parse(String xmlFilePath) {
+	public List<Tariff> parse(String xmlFilePath) {
 		boolean isName = false;
 		boolean isProviderName = false;
 		boolean isSubscriptionFee = false;
@@ -39,7 +39,7 @@ public class StAXParserXML extends SampleParser{
 					StartElement startElement = event.asStartElement();
 					String qName = startElement.getName().getLocalPart();
 					if (qName.equals("rate")) {
-						internetRate = new InternetRate();
+						internetRate = new Tariff();
 					} else if (qName.equals("name")) {
 						isName = true;
 					} else if (qName.equals("providerName")) {
