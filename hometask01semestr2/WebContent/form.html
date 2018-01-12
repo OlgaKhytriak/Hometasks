@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration form</title>
+<link rel="stylesheet" type="text/css" href="styles/styleform.css">
+</head>
+<body>
+	<form action="success.html" method="get">
+		<h1>Registration form</h1>
+		<p>
+			Username: <input type="text" name="username" size="15" maxlength="30"
+				placeholder="username" required="required"/>
+		</p>
+		<p>
+			Password: <input type="password" name="password" size="15"
+				maxlength="30" placeholder="password" required="required"/>
+		</p>
+		<p>
+			Email : <input type="email" placeholder="email" name="email required="required"">
+		</p>
+		
+		<fieldset>
+			<legend>Parsonal data</legend>
+			<label>First name:<br /> <input type="text" name="firstname" /></label><br />
+			<label>Second name:<br /> <input type="text"
+				name="secondname" /></label><br /> 
+				<label>Age: <br /> <input type="text"
+				name="age" /></label>
+				<p>
+			<label>Gender : <input type="radio" name="gender" value="male"
+				checked="checked">Male <input type="radio" name="gender"
+				value="female">Female
+		</label>
+		<br />
+		<label for="username">Birhtday :</label>
+<input type="date" name="depart" /><br />
+		</fieldset>
+
+		<p>
+			Phone no : <select name="operator">
+				<option>068</option>
+				<option>067</option>
+				<option>066</option>
+				<option>053</option>
+				<option>096</option>
+			</select> <input type="phone" placeholder="*******" name="phone">
+		</p>
+
+
+		<p>
+			Country <select name="country">
+				<option value="france">France</option>
+				<option value="ukraine">Ukraine</option>
+				<option value="russia">Russia</option>
+				<option value="japan">Japan</option>
+			</select>
+		</p>
+
+		<p>
+			Post index : <input type="text" placeholder="00000" name="postindex">
+			<a href="https://www.google.com" title="The Mozilla homepage"
+				target="_blank">Find your post index</a>
+		</p>
+		<p>
+			Interested in : <br /> <input type="checkbox" name="interest"
+				value="java" /> Java <input type="checkbox" name="interest"
+				value="html" /> Html <input type="checkbox" name="interest"
+				value="php" /> Php <input type="checkbox" name="interest" value="c" />
+			C++ <input type="checkbox" name="interest" value="perl" /> Perl
+		</p>
+
+
+		<p>
+			Describe yourself
+			<textarea id="code" class="input"
+				placeholder="A few words about yourself"></textarea>
+		</p>
+		<p>Upload your resume:</p>
+		<input type="file" name="resume" /><br /> <input type="submit"
+			value="load" />
+
+		<div class="field">
+			
+				<input type="submit" value="Submit" />
+		</div>
+
+		<div class="controls">
+			  <input id="reset" type="button" value="Reset"
+				onclick="window.location.href='form.html'" />
+		</div>
+	</form>
+</body>
+</html>
