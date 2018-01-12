@@ -1,6 +1,7 @@
 package com.epam.finalproject.constant;
 
 public class Constants {
+	private Constants() {}
 	public static final String XML_FILE_PATH_TARIFFS= "src/main/resources/tariffs.xml";
 	public static final String XSD_FILE_PATH_TARIFFS="src/main/resources/tariffs.xsd";
 	public static final String XSL_FILE_PATH_TARIFFS="src/main/resources/tariffs.xsl";
