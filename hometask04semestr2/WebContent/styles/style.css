@@ -1,0 +1,102 @@
+    body {
+        background-color: rgb(0, 153, 255);
+        color: white;
+        font-size: 150%;
+    }
+    
+    div {
+        border-color: white;
+        border-style: solid;
+        border-bottom-width: 4px;
+        border-radius: 12px;
+        text-align: center;
+        margin: 0.1%;
+        align-content: center;
+        align-items: center;
+    }
+    
+    li {
+        list-style-type: none;
+        padding: 0.5%;
+    }
+    
+    li div {
+        width: 85%;
+    }
+    
+    .header {
+        height: 100px;
+        width: 83%;
+        float: right;
+    }
+    
+    .nav {
+        height: 668px;
+        width: 15%;
+        float: left;
+    }
+    
+    .main {
+        height: 550px;
+        width: 69%;
+        float: left;
+        border-style: dotted;
+        margin: 0.5%;
+    }
+    
+    .aside {
+        height: 550px;
+        width: 12%;
+        margin: 0.5%;
+        float: left;
+    }
+    
+    .imgblock {
+        height: 40%;
+        width: 98%;
+        margin: 0.5%;
+    }
+    
+    .img {
+        width: 13%;
+        height: 35%;
+        float: left;
+        margin: 1%;
+    }
+    
+    .articleblock {
+        height: 50%;
+        width: 100%;
+        float: left;
+        border-color: rgb(0, 153, 255);
+    }
+    
+    .footer {
+        height: 25%;
+        width: 97%;
+        float: left;
+        margin: 0.5%;
+    }
+    
+    .article {
+        width: 48%;
+        height: 70%;
+        float: left;
+        margin: 0.5%;
+    }
+    
+    .nav1 {
+        //margin-top: 100px;
+        border-color: rgb(0, 153, 255);
+    }
+    
+    .nav2,
+    .nav3 {
+        margin: 4%
+    }
+    
+    .nav3 div {
+        border-color: rgb(0, 153, 255);
+    }
+    
+    %
