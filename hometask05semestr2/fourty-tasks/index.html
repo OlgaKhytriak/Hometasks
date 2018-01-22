@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="scripts/indexscript.js"></script>
+    <script src="scripts/tasks1_20.js"></script>
+    <script src="scripts/tasks21_40.js"></script>
+
+</head>
+
+<body>
+
+    <form name="formTask1">
+        <p>
+            <h4>Task 1</h4>
+            Write a JavaScript program to display the current day and time in the following format.
+            <br />Sample Output : Today is : Friday.
+            <br />Current time is : 4 PM : 50 : 22
+            <button type="buttonTask1" onclick="solveTask1();">Result</button>
+        </p>
+    </form>
+    <form name="formTask2">
+        <p>
+            <h4>Task 2</h4>
+            Write a JavaScript program to print the contents of the current window
+            <button type="buttonTask2" onclick="solveTask2();">Result</button>
+        </p>
+    </form>
+    <form name="formTask3">
+        <p>
+            <h4>Task 3</h4>
+            Write a JavaScript program to get the current date. Expected Output :
+            <br /> mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy
+            <button type="buttonTask3" onclick="solveTask3();">Result</button>
+        </p>
+    </form>
+    <form name="formTask4">
+        <p>
+            <h4>Task 4</h4>
+            Write a JavaScript program to find the area of a triangle Name:
+        </p>
+        a :
+        <input id="aSize" type="text" name="aSize"> b :
+        <input id="bSize" type="text" name="bSize"> c :
+        <input id="cSize" type="text" name="cSize">
+
+        <button type="buttonTask4" onclick="solveTask4();">Result</button>
+    </form>
+
+    <form name="formTask5">
+        <p>
+            <h4>Task 5</h4>
+            Rotate the string 'w3resource' in right direction by periodically removing one letter from the end of the string and attaching it to the front.
+            <pre id="w3resource">w3resource </pre>
+            <button type="buttonTask5" onclick="solveTask5();">Result</button> </p>
+    </form>
+
+
+    <form name="formTask6">
+        <p>
+            <h4>Task 6</h4>
+            Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar year :
+
+            <button type="buttonTask6" onclick="solveTask6();">Result</button> </p>
+    </form>
+    <form name="formTask7">
+        <p>
+            <h4>Task 7</h4>
+            1st Number : <input type="text" id="firstNumber" />
+            <br> 2nd Number: <input type="text" id="secondNumber" /><br>
+            <input type="button" onClick="multiplyBy()" Value="Multiply" />
+            <input type="button" onClick="divideBy()" Value="Divide" />
+            <div id="rezDivMult"> </div>
+        </p>
+    </form>
+    <form name="formTask8">
+        <p>
+            <h4>Task 8</h4>
+            Write a JavaScript program to get the website URL (loading page).
+            <button type="buttonTask8" onclick="solveTask8();">Result</button> </p>
+    </form>
+    <form name="formTask9">
+        <p>
+            <h4>Task 9</h4>
+            Write a JavaScript exercise to get the extension of a filename.
+            <br/>File name : <input type="text" id="fileName" /><br>
+            <button type="buttonTask9" onclick="solveTask9();">Result</button>
+        </p>
+        <div id="extension"> </div>
+    </form>
+
+    <form name="formTask10">
+        <p>
+            <h4>Task 10</h4>
+            Write a JavaScript program to create a new string adding "Py" in front of a given string. If the given string begins with "Py" then return the original string.
+            <br/>Input string : <input type="text" id="string10" /><br>
+            <button type="buttonTask10" onclick="solveTask10();">Result</button> </p>
+    </form>
+    <!--___________________ 11 ______________________-->
+    <form name="formTask11">
+
+        <p>
+            <h4>Task 11</h4>
+            JavaScript program to remove a character at the specified position of a given string and return the new string.
+            <br/>Input string : <input type="text" id="text11" /><br>
+            <br/>Input position : <input type="text" id="charPosition11" /><br>
+            <button type="buttonTask11" onclick="solveTask11();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 12 ______________________-->
+    <form name="formTask12">
+
+        <p>
+            <h4>Task 12</h4>
+            Write a JavaScript program to create a new string from a given string taking the last 3 characters and added at both the front and back. The string length must be 3 or more.
+            <br/>Input string : <input type="text" id="text12" />
+            <button type="buttonTask12" onclick="solveTask12();">Result</button> </p>
+        </p>
+
+    </form>
+    <!--___________________ 13 ______________________-->
+    <form name="formTask13">
+
+        <p>
+            <h4>Task 13</h4>
+            Write a JavaScript program to check a given string contains 2 to 4 numbers of a specified character.
+            <br/>Input string : <input type="text" id="text13" />
+            <br/>Input charachter : <input type="text" id="char13" />
+            <button type="buttonTask13" onclick="solveTask13();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 14 ______________________-->
+    <form name="formTask14">
+
+        <p>
+            <h4>Task 14</h4>
+            Write a JavaScript program to create new string with first 3 characters are in lower case. If the string length is less than 3 convert all the characters in upper case.
+            <br/>Input string : <input type="text" id="text14" /><br>
+            <button type="buttonTask14" onclick="solveTask14();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 15 ______________________-->
+    <form name="formTask15">
+
+        <p>
+            <h4>Task 15</h4>
+            Write a JavaScript program to reverse a given string.
+            <br/>Input string : <input type="text" id="text15" /><br>
+            <button type="buttonTask15" onclick="solveTask15();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 16 ______________________-->
+    <form name="formTask16">
+
+        <p>
+            <h4>Task 16</h4>
+            Write a JavaScript program to convert the letters of a given string in alphabetical order.
+            <br/>Input string : <input type="text" id="text16" /><br>
+            <button type="buttonTask16" onclick="solveTask16();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 17 ______________________-->
+    <form name="formTask17">
+
+        <p>
+            <h4>Task 17</h4>
+            Write a JavaScript program to capitalize the first letter of each word of a given string. <br/>Input string : <input type="text" id="text17" /><br>
+            <button type="buttonTask17" onclick="solveTask17();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 18 ______________________-->
+    <form name="formTask18">
+
+        <p>
+            <h4>Task 18</h4>
+            Write a JavaScript program to concatenate two strings except their first character.
+            <br/>Input string : <input type="text" id="text181" /><br>
+            <br/>Input string : <input type="text" id="text182" /><br>
+            <button type="buttonTask18" onclick="solveTask18();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 19 ______________________-->
+    <form name="formTask19">
+
+        <p>
+            <h4>Task 19</h4>
+            Write a JavaScript function that reverse a number.
+            <br/>Input string : <input type="text" id="text19" /><br>
+            <button type="buttonTask19" onclick="solveTask19();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 20 ______________________-->
+    <form name="formTask20">
+
+        <p>
+            <h4>Task 20</h4>
+            Write a JavaScript function to generate a random integer.
+            <br/>Input min bound : <input type="text" id="text201" /><br>
+            <br/>Input max bound : <input type="text" id="text202" /><br>
+            <button type="buttonTask20" onclick="solveTask20();">Result</button> </p>
+        </p>
+    </form>
+    <!--___________________ 21-30 ______________________-->
+    <form name="formTask21_30">
+        <h4>Tasks 21-40</h4>
+        <button type="buttonTask21" onclick="solveTask21();">Solve 21</button>
+        <button type="buttonTask22" onclick="solveTask22();">Solve 22</button>
+        <button type="buttonTask23" onclick="solveTask23();">Solve 23</button>
+        <button type="buttonTask24" onclick="solveTask24();">Solve 24</button>
+        <button type="buttonTask25" onclick="solveTask25();">Solve 25</button>
+        <button type="buttonTask26" onclick="solveTask26();">Solve 26</button>
+        <button type="buttonTask27" onclick="solveTask27();">Solve 27</button>
+        <button type="buttonTask28" onclick="solveTask28();">Solve 28</button>
+        <button type="buttonTask29" onclick="solveTask29();">Solve 29</button>
+        <button type="buttonTask30" onclick="solveTask30();">Solve 30</button>
+
+        <button type="buttonTask31" onclick="solveTask31();">Solve 31</button>
+        <button type="buttonTask32" onclick="solveTask32();">Solve 32</button>
+        <button type="buttonTask33" onclick="solveTask33();">Solve 33</button>
+        <button type="buttonTask34" onclick="solveTask34();">Solve 34</button>
+        <button type="buttonTask35" onclick="solveTask35();">Solve 35</button>
+        <button type="buttonTask36" onclick="solveTask36();">Solve 36</button>
+        <button type="buttonTask37" onclick="solveTask37();">Solve 37</button>
+        <button type="buttonTask38" onclick="solveTask38();">Solve 38</button>
+        <button type="buttonTask39" onclick="solveTask39();">Solve 39</button>
+        <button type="buttonTask40" onclick="solveTask40();">Solve 40</button>
+
+    </form>
+
+</body>
+
+
+</html>

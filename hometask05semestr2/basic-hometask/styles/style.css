@@ -1,0 +1,25 @@
+    body {
+        background-color: rgb(178, 186, 190);
+        color: rgb(0, 0, 0);
+        font-size: 100%;
+    }
+    
+    form {
+        background-color: rgb(57, 194, 215);
+        height: 750px;
+        width: 450px;
+        border-color: white;
+        border-style: solid;
+        border-bottom-width: 2px;
+        border-radius: 12px;
+        text-align: left;
+        margin: 0.1%;
+        align-content: flex-end;
+        float: left;
+    }
+    
+    input#aSize,
+    input#bSize,
+    input#cSize {
+        width: 50px;
+    }

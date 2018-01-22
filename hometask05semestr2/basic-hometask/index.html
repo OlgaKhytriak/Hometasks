@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Capitalize</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="scripts/scripts.js"></script>
+
+
+</head>
+
+<body onload="setDefaultValues()">
+
+    <form name="formTask1">
+        <p>
+            <h4>Task 1</h4>
+            Написати функцію, скорочує строку і додає три крапки
+            <br />function truncate(str, maxlength) { //}
+            <br />truncate("рудщ ві віав",3) = "руд..."
+            <br /> 2. Знайти кількість букв "а" в речені "Назва Львів дана місту на честь князя Лева Даниловича, сина засновника Львова Данила Галицького." використовуючи indexOf
+            <br /> 3. Написати функцію, яка буде фільтрувати рядок і видиляти слова "xxxx" i "polityka"
+            <br /> 4. Профільтрувати строку "іва 24 уц ац34434ауку" і виветси тільки цифри
+        </p>
+        <hr/>
+        <p>
+            Input string : <input id="string1" type="text" name="string1">
+        </p>
+        <p>
+            Input size : <input id="size1" type="text" name="size1">
+        </p>
+        <button type="buttonTask11" onclick="solveTask11();">Truncate</button>
+        <hr/>
+        <p>
+            Input string : <input id="string2" type="text" name="string2">
+        </p>
+        <p>
+            Input letter : <input id="letter1" type="text" name="letter1">
+        </p>
+        <button type="buttonTask12" onclick="solveTask12();">Count Letters</button>
+        <hr/> Input text to filter
+        <textarea id="text13" class="input"></textarea>
+        </p>
+        </p>
+        <button type="buttonTask13" onclick="solveTask13();">Filter Text</button>
+        <button type="buttonTask14" onclick="solveTask14();">Delete Letters</button>
+
+    </form>
+
+    <form name="formTask2">
+        <p>
+            <h4>Task 2</h4>
+            1. Напишіть функцію, яка буде вертати масив з подвоєними значенями, використовуючи метод map()
+            <br />var testArray = [1,2435,544,4545, 4, 6, 7 ,23];
+            <br />function double(array) { // }
+            <br />console.log(testArray);
+
+            <br />2. Напишіть функцію, яка буде вертати масив з непарними елементами, використовуючи метод filter()
+            <br />function oddFilter(array) { // }
+            <br />console.oddFilter(testArray);
+
+            <br />3. Напишіть функцію, яка буде вертати середнє арифметичне елментів масиву, використовуючи метод reduce()
+            <br />function avg(array) { // }
+            <br />console.avg(testArray);
+
+        </p>
+        <p>
+            <input type="text" id="textArrayElement"></input>
+            <input type="button" id="button1" value="Add Element" onclick="addElementToArray();"></input>
+            <input type="button" id="button2" value="Display Basic Array" onclick="displayArray('InputArray');"></input>
+            <div id="InputArray"> </div>
+            <hr/>
+            <input type="button" id="buttonTask21" value="Double Array" onclick="solveTask21();"></input>
+            <div id="RezArray21"> </div>
+            <hr/>
+
+            <input type="button" id="buttonTask22" value="Odd Array" onclick="solveTask22();"></input>
+            <div id="RezArray22"> </div>
+            <hr/>
+            <input type="button" id="buttonTask23" value="Average" onclick="solveTask23();"></input>
+            <div id="RezArray23"> </div>
+
+        </p>
+    </form>
+
+
+    <form name="formTask3">
+        <p>
+            <h4>Task 3</h4>
+            Написати функцію, яка буде виводити символи (включаючи пробыли, цифри) які повторюются в строці
+            <br /> remember("apple") => returns ["p"]
+            <br />remember("apPle") => returns [] // "p" != "P"
+            <br />remember("pippi") => returns ["p","i"]
+            <br />remember('Pippi') => returns ["p","i"]
+        </p>
+        <p>
+            <hr/> Input text to filter
+            <textarea id="text3" class="input"></textarea>
+
+            <button type="buttonTask3" onclick="solveTask3();">Result</button>
+        </p>
+    </form>
+
+</body>
+
+
+</html>
