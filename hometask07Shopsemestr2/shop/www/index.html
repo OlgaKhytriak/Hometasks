@@ -1,0 +1,267 @@
+<!DOCTYPE >
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>Internet Shop</title>
+</head>
+
+<body>
+    <div id="block-body">
+        <div id="block-header-in-body">
+            <!--HEADER-->
+
+            <div id="block-header">
+                <div id="header-top-block">
+                    <ul id="header-top-menu">
+                        <li> Your city - <span>Lviv</span></li>
+                        <li><a href="o-nas.php">About us</a></li>
+                        <li><a href="magaziny.php">Our shops</a></li>
+                        <li><a href="contacts.php">Contacts</a></li>
+                    </ul>
+                    <!-- ���� �� ��������� -->
+                    <p id="reg-auth-title" align="right"><a class="top-auth">Enter</a>
+                        <a href="registration.php">Registration</a></p>
+                </div>
+                <!-- ������� -->
+                <img id="img-logo" src="images/logo.png" />
+                <!-- ����������� ���������� -->
+                <div id="personal-info">
+                    <p align="right">Free call</p>
+                    <h3 align="right"> 050-550-50-50</h3>
+                    <img src="images/phone-icon.png" />
+                    <p align="right">Opening hours</p>
+                    <p align="right">Weekdays: 9:00 - 20:00</p>
+                    <p align="right">Weekends - 11:00 - 16:00</p>
+                    <img src="images/time-icon.png" />
+                </div>
+
+                <!-- ����� -->
+                <div id="block-search">
+                    <form method="GET" action="search.php?q=">
+
+                        <input type="text" id="input-search" name="q" placeholder="Search among thousands of goods" />
+
+                        <input type="submit" id="button-search" value="Search" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--End HEADER-->
+        <!--TOP-menu-->
+        <div id="top-menu">
+            <ul>
+                <li><img src="images/shop.png" />
+                    <a href="index.php">Main</a>
+                </li>
+                <li><img src="images/new-32.png" />
+                    <a href="">New</a>
+                </li>
+                <li><img src="images/bestprice-32.png" />
+                    <a href="">Best prices</a></li>
+                <li><img src="images/sale-32.png" />
+                    <a href="">Sale</a></li>
+                </li>
+            </ul>
+
+            <p align="right" id="block-basket">
+                <img src="images/cart-icon.png" />
+                <a href="" id="empty-bascket"> </a>
+            </p>
+
+        </div>
+        <!--End top-menu-->
+
+        <div id="block-right">
+            <!--RIGHT              -->
+
+            <div id="wrapper">
+                <p><button id="checkout">Order</button> &nbsp;
+                    <!--img src="images/cart-icon.png" id="cart-picture" /-->
+                    <button id="clear_cart">Clear cart</button></p>
+                <div id="cart_content"></div>
+            </div>
+
+
+        </div>
+        <!--END RIGHT              -->
+
+        <div id="block-content">
+            <!--CONTENT              -->
+
+            <ul id="block-tovar-grid">
+                <!--������ �������-->
+
+                <li class="item_box">
+                    <!--����� � 1-->
+                    <div class="block-images-grid">
+                        <img src="images/img1.jpg" width="110px" height="200px" />
+                    </div>
+                    <p class="style-title-grid"> <a href="" class="item_title">Samsung Galaxy Note 8</a></p>
+                    <a class="add-cart-style-grid" data-id="1"><img src="images/add-cart-norm.png" /></a>
+                    <p class="style-price-grid"> <strong class="item_price">320</strong> $</p>
+                    <div class="mini-features">
+                        <br /> 12MP Dual Camera with Dual OIS<br /> 16.05 centimeters (6.3-inch) QHD+ capacitive touchscreen. <br /> Exynos 8895 10nm octa core processor 2.3GHz + 1.7GHz. <br /> 6GB RAM, 64GB internal memory<br />
+
+                    </div>
+                </li>
+                <!--end 1-->
+
+                <li class="item_box">
+                    <!--����� � 2-->
+                    <div class="block-images-grid">
+                        <img src="images/img2.jpg" width="110px" height="200px" />
+                    </div>
+                    <p class="style-title-grid"> <a href="" class="item_title">Samsung On7 Pro</a></p>
+                    <a class="add-cart-style-grid" data-id="2"><img src="images/add-cart-norm.png" /></a>
+
+                    <p class="style-price-grid"> <strong class="item_price">285</strong> $</p>
+                    <div class="mini-features">
+                        <br /> 13MP primary camera with auto mode.<br /> 13.86 centimeters (5.5-inch) TFT capacitive touchscreen.<br /> Andorid v6.0 Marshmallow<br /> Removable Li-Ion 3000 mAh battery.<br />
+                    </div>
+                </li>
+                <!--end 2-->
+
+                <li class="item_box">
+                    <!--����� � 3-->
+                    <div class="block-images-grid">
+                        <img src="images/img3.jpg" width="110px" height="200px" />
+                    </div>
+                    <p class="style-title-grid"> <a href="" class="item_title">Samsung Galaxy J5 (New 2016 edition)</a></p>
+                    <a class="add-cart-style-grid" data-id="3"><img src="images/add-cart-norm.png" /></a>
+
+                    <p class="style-price-grid"> <strong class="item_price">430</strong> $</p>
+                    <div class="mini-features">
+                        <br /> 13MP primary camera with FHD.<br /> 13.2 centimeters touchscreen.<br /> Android v6 Marshmallow operating system.<br /> 3100mAH lithium-ion battery.
+                    </div>
+                </li>
+                <!--end 3-->
+
+                <li class="item_box">
+                    <!--����� � 4-->
+                    <div class="block-images-grid">
+                        <img src="images/img4.jpg" width="110px" height="200px" />
+                    </div>
+                    <p class="style-title-grid"> <a href="" class="item_title">Nokia Lumia 730</a></p>
+                    <a class="add-cart-style-grid" data-id="4"><img src="images/add-cart-norm.png" /></a>
+
+                    <p class="style-price-grid"> <strong class="item_price">320</strong> $</p>
+                    <div class="mini-features">
+                        <br />6.7MP primary camera with ZEISS optics.
+                        <br />4.7-inch OLED capacitive touchscreen.
+                        <br />Windows v8.1 (upgradable to Windows 10) .
+                        <br />2220mAH battery.
+
+                    </div>
+                </li>
+                <!--end 4-->
+
+                <li class="item_box">
+                    <!--����� � 5-->
+                    <div class="block-images-grid">
+                        <img src="images/img5.jpg" width="110px" height="200px" />
+                    </div>
+                    <p class="style-title-grid"> <a href="" class="item_title">Sony Xperia U ST25i </a></p>
+                    <a class="add-cart-style-grid" data-id="5"><img src="images/add-cart-norm.png" /></a>
+
+                    <p class="style-price-grid"> <strong class="item_price">300</strong> $</p>
+                    <div class="mini-features">
+                        <br />5MP primary camera with LED flash.
+                        <br />3.5-inch scratch-resistant LED-backlit LCD.
+                        <br />Android v2.3 Gingerbread .
+                        <br />1290mAH battery
+                    </div>
+                </li>
+                <!--end 5-->
+                <li class="item_box">
+                    <!--����� � 6-->
+                    <div class="block-images-grid">
+                        <img src="images/img8.jpg" width="110px" height="200px" />
+                    </div>
+                    <p class="style-title-grid"> <a href="" class="item_title">LG Brown K7i 16GB</a></p>
+                    <a class="add-cart-style-grid" data-id="6"><img src="images/add-cart-norm.png" /></a>
+
+                    <p class="style-price-grid"> <strong class="item_price">250</strong> $</p>
+                    <div class="mini-features">
+                        <br /> Front Camera:5 MP.
+                        <br /> Screen Size (in cm):12.7 cm (5).
+                        <br /> Internal Memory:16GB.
+                        <br /> Front Camera:5 MP.
+                    </div>
+                </li>
+                <!--end 6-->
+
+            </ul>
+            <!--END ������ �������-->
+
+        </div>
+        <!--End content-->
+
+
+
+        <div id="block-footer">
+            <div id="bottom-line"></div>
+            <div id="footer-phone">
+                <h4>Support service</h4>
+                <h3>8 (800) 100-12-34</h3>
+                <p>
+                    Opening hours:<br /> Weekdays: 9:00 - 20:00<br /> Weekends - 11:00 - 16:00
+                </p>
+            </div>
+
+            <div class="footer-list">
+                <p>Service and Help</p>
+                <ul>
+                    <li><a href="">How to make an order</a></li>
+                    <li><a href="">Payment Methods</a></li>
+                    <li><a href="">Return</a></li>
+                    <li><a href="">Public offer</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footer-list">
+                <p>About company:</p>
+                <ul>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">vacancies</a></li>
+                    <li><a href="">Partners</a></li>
+                    <li><a href="">Contacts</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footer-list">
+                <p>Navigation</p>
+                <ul>
+                    <li><a href="index.php">Main Page</a></li>
+                    <li><a href="">Feedback</a></li>
+                </ul>
+                <p>Tell about us</p>
+
+
+                <div class="pluso" data-options="small,square,line,horizontal,nocounter,theme=08" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print" data-background="#ebebeb"></div>
+
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    <script src="scripts/scripts.js"></script>
+    <script>
+        /* Відкрити корзину */
+        addEvent(d.getElementById('checkout'), 'click', openCart);
+        /* Очистити корзину */
+        addEvent(d.getElementById('clear_cart'), 'click', function(e) {
+            localStorage.removeItem('cart');
+            cartCont.innerHTML = 'Cart has been cleaned';
+        });
+    </script>
+</body>
+
+</html>
