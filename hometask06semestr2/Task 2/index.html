@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Робота з дом і датою </title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <script src="scripts/script.js"></script>
+
+
+</head>
+
+<body>
+    <h1>World time</h1>
+
+    <ul>
+        <li data-location="london">London -
+            <span class="time" id="zone_0">null</span>
+            <script type="text/javascript">
+                clockTimezone();
+            </script>
+        </li>
+
+        <li data-location="kiev"> Kiev -
+            <span class="time" id="zone_2">null</span>
+            <script type="text/javascript">
+                clockTimezone();
+            </script>
+        </li>
+        <li data-location="kiev"> Warshawa -
+            <span class="time" id="zone_1">null</span>
+            <script type="text/javascript">
+                clockTimezone();
+            </script>
+        </li>
+        <li data-location="los angeles">Los Angeles -
+            <span class="time" id="zone_8min">null</span>
+            <script type="text/javascript">
+                clockTimezone();
+            </script>
+        </li>
+        <li data-location="new york">New York -
+            <span class="time" id="zone_5min">null</span>
+            <script type="text/javascript">
+                clockTimezone();
+            </script>
+        </li>
+
+    </ul>
+
+    <span id="doc_time">  Дата і час   </span>
+    <script type="text/javascript">
+        clock();
+    </script>
+    <br />
+
+</body>
+
+</html>

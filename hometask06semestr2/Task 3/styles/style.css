@@ -1,0 +1,72 @@
+/*Базовая обертка*/
+
+.droplink {
+    width: 200px;
+    position: absolute;
+    border-radius: 3px;
+    margin: 10px 0 0 1225px
+}
+
+
+/*Сбросим отступы*/
+
+.droplink ul {
+    padding: 0;
+    margin: 0
+}
+
+
+/*стиль кнопки*/
+
+.socialbutton {
+    background-color: #ededed;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    color: #777777;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 27px;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer
+}
+
+
+/*кнопка при наведении*/
+
+.socialbutton:hover {
+    background-color: #dfdfdf
+}
+
+
+/*активное состояние кнопки*/
+
+.socialbutton:active {
+    position: relative;
+    top: 1px
+}
+
+.droplink li {
+    display: block
+}
+
+
+/*Стиль элемента списка*/
+
+.droplink li a {
+    padding: 5px 12px 4px 34px;
+    margin: 1px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    background-repeat: no-repeat;
+    background-position: 10px 3px
+}
+
+
+/*Стиль элемента при наведении*/
+
+.droplink li a:hover {
+    background-color: #999
+}

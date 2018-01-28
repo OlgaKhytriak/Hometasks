@@ -1,0 +1,77 @@
+    body {
+        background-color: rgb(178, 186, 190);
+        color: rgb(0, 0, 0);
+        font-size: 100%;
+    }
+    
+    form {
+        background-color: rgb(57, 194, 215);
+        height: 250px;
+        width: 250px;
+        border-color: white;
+        border-style: solid;
+        border-bottom-width: 2px;
+        border-radius: 12px;
+        text-align: left;
+        margin: 0.1%;
+        align-content: flex-end;
+        float: left;
+    }
+    
+    #myDiv {
+        width: 100%;
+        padding: 50px 0;
+        text-align: left;
+        background-color: rgb(57, 194, 215);
+        margin-top: 20px;
+    }
+    
+    button {
+        width: 100px;
+        height: 30px;
+        background: -moz-linear-gradient(#00BBD6, #EBFFFF);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+        padding: 3px 7px;
+        color: #333;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        border: 2px solid #666;
+    }
+    
+    .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+    }
+    
+    .alert.success {
+        background-color: #4CAF50;
+    }
+    
+    .alert.info {
+        background-color: #2196F3;
+    }
+    
+    .alert.warning {
+        background-color: #ff9800;
+    }
+    
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s
+    }
+    
+    .closebtn:hover {
+        color: black;
+    }
