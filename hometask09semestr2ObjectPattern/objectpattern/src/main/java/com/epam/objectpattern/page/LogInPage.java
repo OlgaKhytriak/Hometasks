@@ -16,13 +16,13 @@ public class LogInPage extends AbstractPage{
 	}
 
 	private static final Logger LOG = Logger.getLogger(LogInPage.class);
-//private WebDriver driver;
+
 
 @FindBy(xpath="//input[@type='email'][@name='identifier']")
 //@CacheLookup
 private WebElement logInField;
 
-@FindBy(id="identifierId")
+@FindBy(id="identifierNext")
 //@CacheLookup
 private WebElement logInNextButton;
 
@@ -39,14 +39,15 @@ private WebElement logInNextButton;
 	public void openPage() {
 		LOG.error("START ---- LogInPage.openPage() ---- ");
 		driver.get(WEB_SITE_URL);
-		LOG.error("FINISH ---- LogInPage.openPage() ---- ");
+		//LOG.error("FINISH ---- LogInPage.openPage() ---- ");
 	}
 
 	public void inputLogIn(String userLogin) {
-		LOG.error("START ---- LogInPage.inputLogIn() ---- ");
+		//LOG.error("START ---- LogInPage.inputLogIn() ---- ");
 		logInField.sendKeys(userLogin);
+		LOG.error(logInNextButton.getText().toString());
 		logInNextButton.click();
-		LOG.error("FINISH ---- LogInPage.inputLogIn() ---- ");
+		//LOG.error("FINISH ---- LogInPage.inputLogIn() ---- ");
 		
 	}
 

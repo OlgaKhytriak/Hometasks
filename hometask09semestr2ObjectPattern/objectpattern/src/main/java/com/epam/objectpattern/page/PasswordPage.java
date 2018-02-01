@@ -13,24 +13,13 @@ public class PasswordPage extends AbstractPage{
 	}
 
 	private static final Logger LOG = Logger.getLogger(PasswordPage.class);
-	//private WebDriver driver;
 
-	@FindBy(xpath = "//input[@type='password'][@name='password']")
+
+	@FindBy(xpath = "//div[@id='password']//input[@name='password']")
 	private WebElement passwordField;
 	
 	@FindBy(id="passwordNext")
 	private WebElement passwordNextButton;
-
-	/*
-	public PasswordPage(WebDriver driver) {
-		LOG.error("START ---- PasswordPage() ---- ");
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		LOG.error(passwordField.toString());
-		
-		LOG.error("END ---- PasswordPage() ---- ");
-	}
-	*/
 
 	public void inputPassword(String userPassword) {
 		LOG.error("START ---- PasswordPage.inputPassword() ---- ");
@@ -38,8 +27,9 @@ public class PasswordPage extends AbstractPage{
 		//waitForElementToLoad(passwordField);
 		js.executeScript("elem=arguments[0]; elem.setAttribute('type','text'); ", passwordField);
 		passwordField.sendKeys(userPassword);
+		//js.executeScript("elem=arguments[0]; elem.setAttribute('type','password'); ", passwordField);
 		passwordNextButton.click();
-		LOG.error("END ---- PasswordPage.inputPassword() ---- ");
+		
 	}
 
 }
