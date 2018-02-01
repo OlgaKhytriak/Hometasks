@@ -54,7 +54,7 @@ public class AppTest extends TestCase {
 		steps.initBrowser();
 	}
 	@Test
-	public void userCanLoginTest() {	
+	public void userCanLoginTest() {
 		steps.loginGmail(USER_LOGIN,USER_PASSWORD);
 		assertTrue(steps.isUserLoggedIn(IS_LOGGED_IN_URL));
 	}
