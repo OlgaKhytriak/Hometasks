@@ -24,18 +24,23 @@ public class Steps {
 	}
 
 	public void loginGmail(String userLogin, String userPassword) {
-		LOG.error("START ---- Steps.loginGmail() ---- ");
-		
+		LOG.error("START ---- Steps.loginGmail() ---- ");		
 		LogInPage logInPage=new LogInPage(driver);
 		logInPage.openPage();
-		logInPage.inputLogIn(userLogin);
-		
+		logInPage.inputLogIn(userLogin);		
 		PasswordPage passwordPage=new  PasswordPage(driver);
 		passwordPage.inputPassword(userPassword);
-
 		LOG.error("FINISH ---- Steps.loginGmail() ---- ");
 	}
-
+	
+	public void openDrafts() {
+		DraftsPage draftsPage = new DraftsPage(driver);
+		draftsPage.openPage();
+	}
+	public void openSentMail() {
+		SentPage sentPage = new SentPage(driver);
+		sentPage.openPage();
+	}
 	public boolean isUserLoggedIn(String isLoggedInUrl) {
 		String ss = driver.getCurrentUrl();
 		return ss.equals(isLoggedInUrl);
@@ -64,17 +69,7 @@ public class Steps {
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-	//--------------Additional --------------
-	public boolean isAlertPresent() {
-		boolean foundAlert = false;
-		WebDriverWait wait = new WebDriverWait(driver, 2);
-		try {
-			wait.until(ExpectedConditions.alertIsPresent());
-			foundAlert = true;
-		} catch (TimeoutException eTO) {
-			foundAlert = false;
-		}
-		return foundAlert;
-	}
+	
+	
 
 }

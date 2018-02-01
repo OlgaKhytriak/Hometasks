@@ -2,6 +2,7 @@ package com.epam.objectpattern.constant;
 
 public class Constant {
 	public static final int    GLOBAL_WAIT_TIME=20;
+	public static final int    ALERT_WAIT_TIME=3;
 	
 	public static final String DRIVER_TYPE = "webdriver.chrome.driver";
 	public static final String DRIVER_PATH = "src/main/resources/chromedriver.exe";

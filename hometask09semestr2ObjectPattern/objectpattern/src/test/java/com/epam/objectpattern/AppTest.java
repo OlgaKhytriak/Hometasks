@@ -63,15 +63,7 @@ public class AppTest extends TestCase {
 	public void draftSentLetterTest() {
 		WebDriver driver=steps.getDriver();
 		steps.loginGmail(USER_LOGIN,USER_PASSWORD);
-		/*
-		driver.findElement(By.xpath("//input[@type='email'][@name='identifier']")).sendKeys(USER_LOGIN);
-		driver.findElement(By.id("identifierNext")).click();
-		WebElement myElement = driver.findElement(By.xpath("//input[@type='password'][@name='password']"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("elem=arguments[0]; elem.setAttribute('type','text'); ", myElement);
-		myElement.sendKeys(USER_PASSWORD);
-		driver.findElement(By.id("passwordNext")).click();
-*/
+		
 		driver.findElement(By.xpath("//div[@role='navigation']/preceding-sibling::div//div[@role='button']")).click();
 
 		WebElement elementToSent = driver
@@ -94,11 +86,7 @@ public class AppTest extends TestCase {
 
 		elementMessage.sendKeys(Keys.ESCAPE);
 
-		driver.get("https://mail.google.com/mail/u/0/#drafts");
-		if (steps.isAlertPresent()) {
-			Alert alert = driver.switchTo().alert();
-			alert.accept();
-		}
+		steps.openDrafts();
 
 		driver.findElement(By.xpath("//div[contains(text(),'" + String.format("%s", MESSAGE_TEXT) + "')]"));
 
@@ -115,9 +103,9 @@ public class AppTest extends TestCase {
 		WebElement elementSentFormButton = driver.findElement(By.xpath(
 				"//form[@enctype='multipart/form-data']/following::table/tbody/child::tr[2]/descendant::table//div[@role='button'][1]"));
 		elementSentFormButton.click();
-
-		driver.get("https://mail.google.com/mail/u/0/#sent");
-
+///
+		steps.openSentMail();
+///
 		List<WebElement> elementsDrafts = driver
 				.findElements(By.xpath("//div[contains(text(),'" + String.format("%s", MESSAGE_TEXT) + "')]"));
 		assertTrue("Draft has been sended", (elementsDrafts.size() > 0));
