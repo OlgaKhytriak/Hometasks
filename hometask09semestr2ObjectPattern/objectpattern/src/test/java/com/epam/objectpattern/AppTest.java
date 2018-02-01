@@ -7,10 +7,13 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -22,8 +25,8 @@ public class AppTest extends TestCase {
 	private static final String DRIVER_TYPE = "webdriver.chrome.driver";
 	private static final String DRIVER_PATH = "src/main/resources/chromedriver.exe";
 	private static final String WEB_SITE_URL = "https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
-	private static final String MY_LOGIN = "ForHometaskTest";
-	private static final String MY_PASSWORD = "12345aKids";
+	private static final String MY_LOGIN = 	"ForHometaskTest";
+	private static final String MY_PASSWORD ="12345aKids";
 	private static final String SENT_TO = "ForHometaskTest@gmail.com";
 	private static final String MESSAGE_TEXT="Message text. Massage text";
 	private static WebDriver driver;
@@ -75,15 +78,21 @@ public class AppTest extends TestCase {
 		builder.moveToElement(elementMessage).click().sendKeys(MESSAGE_TEXT).perform();
 		
 		elementMessage.sendKeys(Keys.ESCAPE);
-		driver.get("https://mail.google.com/mail/u/0/#drafts");
 		
+		driver.get("https://mail.google.com/mail/u/0/#drafts");
+		if (isAlertPresent()) {
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
+		}
+		
 		driver.findElement(By.xpath("//div[contains(text(),'"+String.format("%s", MESSAGE_TEXT)+"')]"));
+		
 		WebElement elementTableTr = driver
 				.findElement(By.xpath("//div[contains(text(),'"+String.format("%s", MESSAGE_TEXT)+"')]/parent::td/parent::tr"));
+		
 		WebElement elementLinkDiv = driver
 				.findElement(By.xpath("//div[@role='link'][contains(.,'"+String.format("%s", MESSAGE_TEXT)+"')]"));
+		//HERE 
 		builder.moveToElement(elementLinkDiv).click().perform();
 		
 		
@@ -97,6 +106,18 @@ public class AppTest extends TestCase {
 				.findElements(By.xpath("//div[contains(text(),'"+String.format("%s", MESSAGE_TEXT)+"')]"));
 		assertTrue("Draft has been sended",(elementsDrafts.size()> 0));
 		
+	}
+	
+	private boolean isAlertPresent(){
+	    boolean foundAlert = false;
+	    WebDriverWait wait = new WebDriverWait(driver, 2);
+	    try {
+	        wait.until(ExpectedConditions.alertIsPresent());
+	        foundAlert = true;
+	    } catch (TimeoutException eTO) {
+	        foundAlert = false;
+	    }
+	    return foundAlert;
 	}
 	
 	@AfterClass
