@@ -20,4 +20,6 @@ public class DraftsPage extends AbstractPage{
 			alert.accept();
 		}
 	}
+	
+	
 }

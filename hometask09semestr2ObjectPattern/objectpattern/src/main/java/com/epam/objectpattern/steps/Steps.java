@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.epam.objectpattern.page.LogInPage;
 import com.epam.objectpattern.page.*;
 import static com.epam.objectpattern.constant.Constant.*;
 
@@ -19,31 +18,44 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
 	private static final Logger LOG = Logger.getLogger(Steps.class);
 	private WebDriver driver;
-	
-	public Steps() {	
+
+	public Steps() {
 	}
 
 	public void loginGmail(String userLogin, String userPassword) {
-		LOG.error("START ---- Steps.loginGmail() ---- ");		
-		LogInPage logInPage=new LogInPage(driver);
+		LOG.error("START ---- Steps.loginGmail() ---- ");
+		LogInPage logInPage = new LogInPage(driver);
 		logInPage.openPage();
-		logInPage.inputLogIn(userLogin);		
-		PasswordPage passwordPage=new  PasswordPage(driver);
+		logInPage.inputLogIn(userLogin);
+		PasswordPage passwordPage = new PasswordPage(driver);
 		passwordPage.inputPassword(userPassword);
 		LOG.error("FINISH ---- Steps.loginGmail() ---- ");
 	}
-	
-	public void openDrafts() {
-		DraftsPage draftsPage = new DraftsPage(driver);
-		draftsPage.openPage();
-	}
+
 	public void openSentMail() {
 		SentPage sentPage = new SentPage(driver);
 		sentPage.openPage();
 	}
-	public boolean isUserLoggedIn(String isLoggedInUrl) {
-		String ss = driver.getCurrentUrl();
-		return ss.equals(isLoggedInUrl);
+
+	public boolean isUserLoggedIn() {
+		StartPage startPage = new StartPage(driver);
+		return startPage.isOpened();
+	}
+
+	public void openDrafts() {
+		DraftsPage draftsPage = new DraftsPage(driver);
+		draftsPage.openPage();
+	}
+
+	public void createDraft(String messageSentTo, String messageSubject, String messageText) {
+		StartPage startPage = new StartPage(driver);
+		startPage.craeteMessage(messageSentTo, messageSubject, messageText);
+
+	}
+	
+	public void findMessageInDrafts(String messageText) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public void initBrowser() {
@@ -60,8 +72,8 @@ public class Steps {
 		}
 
 	}
-	
-	//--------------Getters and setters-------------
+
+	// --------------Getters and setters-------------
 	public WebDriver getDriver() {
 		return driver;
 	}
@@ -69,7 +81,7 @@ public class Steps {
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	
 
 }
