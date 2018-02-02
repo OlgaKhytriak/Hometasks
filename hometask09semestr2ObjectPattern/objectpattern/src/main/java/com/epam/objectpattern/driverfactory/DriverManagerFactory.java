@@ -1,10 +1,17 @@
 package com.epam.objectpattern.driverfactory;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 public class DriverManagerFactory {
-	public static DriverManager getManager(DriverType type) {
+	private static DriverManagerFactory driverManagerFactory=null;
+	private DriverManagerFactory() {}
+	
+	public static DriverManagerFactory getInstance() {
+		if (driverManagerFactory==null) {
+			driverManagerFactory =new DriverManagerFactory();
+		}
+		return driverManagerFactory;
+		
+	}
+	public DriverManager getManager(DriverType type) {
 
 		DriverManager driverManager = null;
 		if (type.equals(DriverType.CHROME)) {
@@ -15,3 +22,5 @@ public class DriverManagerFactory {
 		return driverManager;
 	}
 }
+
+

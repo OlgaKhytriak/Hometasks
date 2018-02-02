@@ -87,7 +87,7 @@ public class Steps {
 		//this.driver = new ChromeDriver();
 		//driver.manage().timeouts().implicitlyWait(GLOBAL_WAIT_TIME, TimeUnit.SECONDS);
 		
-		driverManager = DriverManagerFactory.getManager(driverType);
+		driverManager = DriverManagerFactory.getInstance().getManager(driverType);
 		this.driver = driverManager.getDriver();
 		LOG.error("FINISH ---- Steps.initBrowser() ---- ");
 	}

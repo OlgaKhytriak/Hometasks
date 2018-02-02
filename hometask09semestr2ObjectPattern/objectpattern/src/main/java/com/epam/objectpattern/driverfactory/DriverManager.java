@@ -1,11 +1,11 @@
 package com.epam.objectpattern.driverfactory;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class DriverManager {
 
-	protected WebDriver driver;
-	
+	 WebDriver driver;
 	protected abstract void createDriver();
 
 	public void quitDriver() {
@@ -22,3 +22,4 @@ public abstract class DriverManager {
 		return driver;
 	}
 }
+
