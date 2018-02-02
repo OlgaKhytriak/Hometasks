@@ -29,41 +29,54 @@ public class Steps {
 		logInPage.inputLogIn(userLogin);
 		PasswordPage passwordPage = new PasswordPage(driver);
 		passwordPage.inputPassword(userPassword);
-		LOG.error("FINISH ---- Steps.loginGmail() ---- ");
 	}
 
 	public void openSentMail() {
+		LOG.error("START ---- Steps.openSentMail() ---- ");
 		SentPage sentPage = new SentPage(driver);
 		sentPage.openPage();
 	}
 
 	public boolean isUserLoggedIn() {
+		LOG.error("START ---- Steps.isUserLoggedIn() ---- ");
 		StartPage startPage = new StartPage(driver);
 		return startPage.isOpened();
 	}
 
 	public void openDrafts() {
+		LOG.error("START ---- Steps.openDrafts() ---- ");
 		DraftsPage draftsPage = new DraftsPage(driver);
 		draftsPage.openPage();
 	}
 
 	public void createDraft(String messageSentTo, String messageSubject, String messageText) {
+		LOG.error("START ---- Steps.createDraft() ---- ");
 		StartPage startPage = new StartPage(driver);
 		startPage.craeteMessage(messageSentTo, messageSubject, messageText);
 
 	}
 	
 	public boolean isMessageInDrafts(String messageText) {
+		LOG.error("START ---- Steps.isMessageInDrafts() ---- ");
 		DraftsPage draftsPage = new DraftsPage(driver);
 		return draftsPage.isMasageFound(messageText);
 		
 	}
 
 	public void sendMessageFromDrafts(String messageText) {
+		LOG.error("START ---- Steps.sendMessageFromDrafts() ---- ");
 		DraftsPage draftsPage = new DraftsPage(driver);
 		draftsPage.openPage();
 		draftsPage.sendMasageFound(messageText);
 	}
+	
+	public boolean isMessageInSent(String messageText) {
+		LOG.error("START ---- Steps.isMessageInSent() ---- ");
+		SentPage sentPage = new SentPage(driver);
+		return sentPage.isMasageFound(messageText);
+		
+	}
+	
 	public void initBrowser() {
 		LOG.error("START ---- Steps.initBrowser() ---- ");
 		System.setProperty(DRIVER_TYPE, DRIVER_PATH);
@@ -74,7 +87,7 @@ public class Steps {
 
 	public void closeBrowser() {
 		if (driver != null) {
-			driver.close();
+			driver.close();		
 		}
 
 	}

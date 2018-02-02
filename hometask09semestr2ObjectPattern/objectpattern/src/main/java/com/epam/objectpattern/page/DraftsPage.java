@@ -41,6 +41,7 @@ public class DraftsPage extends AbstractPage {
 				.findElement(By.xpath("//div[@role='link'][contains(.,'" + String.format("%s", messageText) + "')]"));
 		return element;
 	}
+	
 
 	public boolean isMasageFound(String messageText) {
 		WebElement elementLinkDiv = findMessageByText(messageText);
@@ -48,6 +49,7 @@ public class DraftsPage extends AbstractPage {
 	}
 
 	public void sendMasageFound(String messageText) {
+		LOG.error("START ---- DraftsPage.sendMasageFound() ---- ");
 		WebElement elementLinkDiv = findMessageByText(messageText);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(elementLinkDiv).click().perform();

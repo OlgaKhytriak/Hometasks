@@ -48,7 +48,6 @@ public class StartPage extends AbstractPage {
 	public void craeteMessage(String messageSentTo, String messageSubject, String messageText) {
 		LOG.error("START ---- StartPage.craeteMessage() ---- ");
 		openNewMessageForm();
-		LOG.error("sentToTextarea="+sentToTextarea.toString());
 		sentToTextarea.sendKeys(messageSentTo);
 		sentToTextarea.click();
 		messageTexbox.click();
@@ -57,6 +56,7 @@ public class StartPage extends AbstractPage {
 		subjectBox.sendKeys(messageSubject);
 		builder.moveToElement(messageTexbox).click().sendKeys(messageText).perform();
 		messageTexbox.sendKeys(Keys.ESCAPE);
+		LOG.error("FINISH ---- StartPage.craeteMessage() ---- ");
 	}
 
 }

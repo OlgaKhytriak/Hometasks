@@ -43,17 +43,18 @@ public class AppTest extends TestCase {
 	public AppTest(String testName) {
 		super(testName);
 	}
-
-	public static TestSuite suite() {
-		return new TestSuite(AppTest.class);
-	}
-
+	
 	@BeforeClass(description = "init browser")
 	public void setUp() {
 		steps = new Steps();
 		steps.initBrowser();
 	}
 
+	public static TestSuite suite() {
+		return new TestSuite(AppTest.class);
+	}
+
+	
 	@Test
 	public void userCanLoginTest() {
 		steps.loginGmail(USER_LOGIN, USER_PASSWORD);
@@ -65,22 +66,15 @@ public class AppTest extends TestCase {
 		steps.loginGmail(USER_LOGIN, USER_PASSWORD);
 		steps.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
 		steps.openDrafts();
-		assertTrue(steps.isMessageInDrafts(MESSAGE_TEXT));
+		assertTrue("Draft has been creates successfully",steps.isMessageInDrafts(MESSAGE_TEXT));
 	}
 
 	@Test
 	public void draftSentLetterTest() {
-		WebDriver driver = steps.getDriver();
 		steps.loginGmail(USER_LOGIN, USER_PASSWORD);
 		steps.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
-		steps.sendMessageFromDrafts(MESSAGE_TEXT);
-	 
-		steps.openSentMail();
-		///
-		List<WebElement> elementsDrafts = driver
-				.findElements(By.xpath("//div[contains(text(),'" + String.format("%s", MESSAGE_TEXT) + "')]"));
-		assertTrue("Draft has been sended", (elementsDrafts.size() > 0));
-
+		steps.sendMessageFromDrafts(MESSAGE_TEXT); 
+		assertTrue("Draft has been sended successfully", steps.isMessageInSent(MESSAGE_TEXT));
 	}
 
 	@AfterClass(description = "close browser")
