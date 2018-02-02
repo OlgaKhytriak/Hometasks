@@ -53,11 +53,17 @@ public class Steps {
 
 	}
 	
-	public void findMessageInDrafts(String messageText) {
-		// TODO Auto-generated method stub
+	public boolean isMessageInDrafts(String messageText) {
+		DraftsPage draftsPage = new DraftsPage(driver);
+		return draftsPage.isMasageFound(messageText);
 		
 	}
 
+	public void sendMessageFromDrafts(String messageText) {
+		DraftsPage draftsPage = new DraftsPage(driver);
+		draftsPage.openPage();
+		draftsPage.sendMasageFound(messageText);
+	}
 	public void initBrowser() {
 		LOG.error("START ---- Steps.initBrowser() ---- ");
 		System.setProperty(DRIVER_TYPE, DRIVER_PATH);

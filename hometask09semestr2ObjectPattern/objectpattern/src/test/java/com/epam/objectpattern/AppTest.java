@@ -65,7 +65,7 @@ public class AppTest extends TestCase {
 		steps.loginGmail(USER_LOGIN, USER_PASSWORD);
 		steps.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
 		steps.openDrafts();
-		assertTrue(steps.isUserLoggedIn());
+		assertTrue(steps.isMessageInDrafts(MESSAGE_TEXT));
 	}
 
 	@Test
@@ -73,26 +73,8 @@ public class AppTest extends TestCase {
 		WebDriver driver = steps.getDriver();
 		steps.loginGmail(USER_LOGIN, USER_PASSWORD);
 		steps.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
-		steps.openDrafts();
-		/*steps.findMessageInDrafts(MESSAGE_TEXT);
-		
-		driver.findElement(By.xpath("//div[contains(text(),'" + String.format("%s", MESSAGE_TEXT) + "')]"));
-
-		WebElement elementTableTr = driver.findElement(
-				By.xpath("//div[contains(text(),'" + String.format("%s", MESSAGE_TEXT) + "')]/parent::td/parent::tr"));
-*/
-		WebElement elementLinkDiv = driver
-				.findElement(By.xpath("//div[@role='link'][contains(.,'" + String.format("%s", MESSAGE_TEXT) + "')]"));
-		// HERE
-		Actions builder = new Actions(driver);
-		builder.moveToElement(elementLinkDiv).click().perform();
-
-		WebElement elementSentForm = driver
-				.findElement(By.xpath("//form[@enctype='multipart/form-data']/following::table//div[@role='textbox']"));
-		WebElement elementSentFormButton = driver.findElement(By.xpath(
-				"//form[@enctype='multipart/form-data']/following::table/tbody/child::tr[2]/descendant::table//div[@role='button'][1]"));
-		elementSentFormButton.click();
-		///
+		steps.sendMessageFromDrafts(MESSAGE_TEXT);
+	 
 		steps.openSentMail();
 		///
 		List<WebElement> elementsDrafts = driver
