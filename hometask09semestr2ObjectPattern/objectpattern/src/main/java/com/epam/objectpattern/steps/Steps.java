@@ -10,6 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.epam.objectpattern.driverfactory.DriverManager;
+import com.epam.objectpattern.driverfactory.DriverManagerFactory;
+import com.epam.objectpattern.driverfactory.DriverType;
 import com.epam.objectpattern.page.*;
 import static com.epam.objectpattern.constant.Constant.*;
 
@@ -18,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
 	private static final Logger LOG = Logger.getLogger(Steps.class);
 	private WebDriver driver;
+    private DriverManager driverManager;
 
 	public Steps() {
 	}
@@ -77,11 +81,14 @@ public class Steps {
 		
 	}
 	
-	public void initBrowser() {
+	public void initBrowser(DriverType driverType) {
 		LOG.error("START ---- Steps.initBrowser() ---- ");
-		System.setProperty(DRIVER_TYPE, DRIVER_PATH);
-		this.driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(GLOBAL_WAIT_TIME, TimeUnit.SECONDS);
+		//System.setProperty(DRIVER_TYPE, DRIVER_PATH);
+		//this.driver = new ChromeDriver();
+		//driver.manage().timeouts().implicitlyWait(GLOBAL_WAIT_TIME, TimeUnit.SECONDS);
+		
+		driverManager = DriverManagerFactory.getManager(driverType);
+		this.driver = driverManager.getDriver();
 		LOG.error("FINISH ---- Steps.initBrowser() ---- ");
 	}
 

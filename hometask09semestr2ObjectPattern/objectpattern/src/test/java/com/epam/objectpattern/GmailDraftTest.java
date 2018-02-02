@@ -10,6 +10,8 @@ import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.epam.objectpattern.driverfactory.DriverType;
 import com.epam.objectpattern.steps.Steps;
 
 import junit.framework.TestCase;
@@ -21,7 +23,7 @@ public class GmailDraftTest extends TestCase {
 	@BeforeClass(description = "init browser")
 	public void setUp() {
 		steps = new Steps();
-		steps.initBrowser();
+		steps.initBrowser(DriverType.CHROME);
 	}
 	@Test
 	public void userCanLoginTest() {
