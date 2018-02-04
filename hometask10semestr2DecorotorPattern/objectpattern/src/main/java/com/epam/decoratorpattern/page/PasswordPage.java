@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.decoratorpattern.elements.Button;
+
 public class PasswordPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(PasswordPage.class);
 
@@ -14,13 +16,14 @@ public class PasswordPage extends AbstractPage {
 	private WebElement passwordField;
 
 	@FindBy(id = "passwordNext")
-	private WebElement passwordNextButton;
+	//private WebElement passwordNextButton;
+	private Button passwordNextButton;
 
 	public PasswordPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public void inputPassword(String userPassword) {
+	public StartPage inputPassword(String userPassword) {
 		LOG.info("START ---- PasswordPage.inputPassword() ---- ");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// waitForElementToLoad(passwordField);
@@ -29,6 +32,7 @@ public class PasswordPage extends AbstractPage {
 		// js.executeScript("elem=arguments[0]; elem.setAttribute('type','password'); ",
 		// passwordField);
 		passwordNextButton.click();
+		return new StartPage(driver);
 
 	}
 

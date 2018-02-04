@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.epam.decoratorpattern.elements.Button;
+
 public class LogInPage extends AbstractPage {
 
 	private static final Logger LOG = Logger.getLogger(LogInPage.class);
@@ -17,7 +19,8 @@ public class LogInPage extends AbstractPage {
 
 	@FindBy(id = "identifierNext")
 	// @CacheLookup
-	private WebElement logInNextButton;
+	//private WebElement logInNextButton;
+	private Button logInNextButton;
 
 	public LogInPage(WebDriver driver) {
 		super(driver);
@@ -28,9 +31,10 @@ public class LogInPage extends AbstractPage {
 		driver.get(WEB_SITE_URL);
 	}
 
-	public void inputLogIn(String userLogin) {
+	public PasswordPage inputLogIn(String userLogin) {
 		logInField.sendKeys(userLogin);
 		logInNextButton.click();
+		return new PasswordPage(driver);
 
 	}
 

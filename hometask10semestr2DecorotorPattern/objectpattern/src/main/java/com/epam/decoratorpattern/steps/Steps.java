@@ -30,9 +30,9 @@ public class Steps {
 	public void loginGmail(String userLogin, String userPassword) {
 		LOG.info("START ---- Steps.loginGmail() ---- ");
 		LogInPage logInPage = new LogInPage(driver);
-		logInPage.openPage();
-		logInPage.inputLogIn(userLogin);
-		PasswordPage passwordPage = new PasswordPage(driver);
+		logInPage.openPage();	
+		PasswordPage passwordPage=logInPage.inputLogIn(userLogin);
+		//PasswordPage passwordPage = new PasswordPage(driver);
 		passwordPage.inputPassword(userPassword);
 	}
 
@@ -90,10 +90,10 @@ public class Steps {
 		//this.driver = DriverManagerFactory.getManager(driverType).getDriver();	
 		this.driver = DriverManagerFactory.getDriver(driverType);	
 		
-		WebDriver driver1=DriverManagerFactory.getDriver(driverType);	
-		WebDriver driver2=DriverManagerFactory.getDriver(driverType);
-		LOG.info(driver1);
-		LOG.info(driver2);
+		//WebDriver driver1=DriverManagerFactory.getDriver(driverType);	
+		//WebDriver driver2=DriverManagerFactory.getDriver(driverType);
+		//LOG.info(driver1);
+		//LOG.info(driver2);
 		
 	}
 

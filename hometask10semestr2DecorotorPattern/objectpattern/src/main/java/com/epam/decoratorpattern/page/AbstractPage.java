@@ -1,8 +1,9 @@
 package com.epam.decoratorpattern.page;
 
-import static com.epam.decoratorpattern.constant.Constant.*;
+import static com.epam.decoratorpattern.constant.Constant.ALERT_WAIT_TIME;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -11,17 +12,23 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.epam.decoratorpattern.elements.ExtendedFieldDecorator;
+
 public abstract class AbstractPage {
 	private static final Logger LOG = Logger.getLogger(AbstractPage.class);
-	public WebDriver driver;
+	protected final WebDriver driver;
 
 	public AbstractPage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new ExtendedFieldDecorator(driver), this);
+		
 	}
 	
 	
 	//--------------Additional --------------
+	public boolean isElementPresent(By locator) {
+return driver.findElements(locator).size()>0;}
+	
 	protected boolean isSearchElementDisplayed(WebElement element) {
 		try {
 			return element.isDisplayed();
