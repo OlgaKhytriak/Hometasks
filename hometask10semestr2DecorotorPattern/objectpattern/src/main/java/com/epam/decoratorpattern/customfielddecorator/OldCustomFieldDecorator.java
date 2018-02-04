@@ -1,4 +1,4 @@
-package com.epam.decoratorpattern.elements;
+package com.epam.decoratorpattern.customfielddecorator;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

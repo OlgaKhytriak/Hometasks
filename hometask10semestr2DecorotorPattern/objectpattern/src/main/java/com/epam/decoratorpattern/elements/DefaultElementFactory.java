@@ -2,7 +2,6 @@ package com.epam.decoratorpattern.elements;
 
 import org.openqa.selenium.WebElement;
 
-
 import java.lang.reflect.InvocationTargetException;
 
 import static java.text.MessageFormat.format;

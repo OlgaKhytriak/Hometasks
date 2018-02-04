@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.epam.decoratorpattern.elements.ExtendedFieldDecorator;
+import com.epam.decoratorpattern.customfielddecorator.ExtendedFieldDecorator;
 
 public abstract class AbstractPage {
 	private static final Logger LOG = Logger.getLogger(AbstractPage.class);

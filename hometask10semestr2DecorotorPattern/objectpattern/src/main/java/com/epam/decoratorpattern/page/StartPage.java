@@ -14,23 +14,29 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
+import com.epam.decoratorpattern.elements.Button;
+import com.epam.decoratorpattern.elements.TextField;
 import com.epam.decoratorpattern.steps.Steps;
 
 public class StartPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(StartPage.class);
-	
+
 	@FindBy(xpath = "//div[@role='navigation']/preceding-sibling::div//div[@role='button']")
-	private WebElement composeButton;
+	// private WebElement composeButton;
+	private Button composeButton;
 
 	@FindBy(xpath = "//form[@enctype='multipart/form-data']//textarea[@name='to']")
-	private WebElement sentToTextarea;
+	// private WebElement sentToTextarea;
+	private TextField sentToTextarea;
 
 	@FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table//div[@role='textbox']")
 	@CacheLookup
-	private WebElement messageTexbox;
+	//private WebElement messageTexbox;
+	private TextField messageTexbox;
 
 	@FindBy(xpath = "//form[@enctype='multipart/form-data']//input[@name='subjectbox']")
-	private WebElement subjectBox;
+	//private WebElement subjectBox;
+	private TextField subjectBox;
 
 	public StartPage(WebDriver driver) {
 		super(driver);
@@ -48,17 +54,21 @@ public class StartPage extends AbstractPage {
 	public void craeteMessage(String messageSentTo, String messageSubject, String messageText) {
 		LOG.info("START ---- StartPage.craeteMessage() ---- ");
 		openNewMessageForm();
-		sentToTextarea.sendKeys(messageSentTo);
+		//sentToTextarea.sendKeys(messageSentTo);
+		sentToTextarea.type(messageSentTo);
 		sentToTextarea.click();
 		messageTexbox.click();
-		Actions builder = new Actions(driver);
-		builder.moveToElement(subjectBox).build().perform();
-		subjectBox.sendKeys(messageSubject);
-		builder.moveToElement(messageTexbox).click().sendKeys(messageText).perform();
-		messageTexbox.sendKeys(Keys.ESCAPE);
+		//Actions builder = new Actions(driver);
+		subjectBox.click();
+		//builder.moveToElement(subjectBox).build().perform();
+		//subjectBox.sendKeys(messageSubject);
+		subjectBox.type(messageSubject);
+		//builder.moveToElement(messageTexbox).click().sendKeys(messageText).perform();
+		messageTexbox.click();
+		messageTexbox.type(messageText);
+		//messageTexbox.sendKeys(Keys.ESCAPE);
+		messageTexbox.type(Keys.ESCAPE);
 		LOG.info("FINISH ---- StartPage.craeteMessage() ---- ");
 	}
 
 }
-
-

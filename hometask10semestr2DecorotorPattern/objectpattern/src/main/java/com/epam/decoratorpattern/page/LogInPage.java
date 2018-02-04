@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.epam.decoratorpattern.elements.Button;
+import com.epam.decoratorpattern.elements.InputTextField;
 
 public class LogInPage extends AbstractPage {
 
@@ -15,7 +16,8 @@ public class LogInPage extends AbstractPage {
 
 	@FindBy(xpath = "//input[@type='email'][@name='identifier']")
 	// @CacheLookup
-	private WebElement logInField;
+	//private WebElement logInField;
+	private InputTextField logInField;
 
 	@FindBy(id = "identifierNext")
 	// @CacheLookup
@@ -32,7 +34,8 @@ public class LogInPage extends AbstractPage {
 	}
 
 	public PasswordPage inputLogIn(String userLogin) {
-		logInField.sendKeys(userLogin);
+		//logInField.sendKeys(userLogin);
+		logInField.type(userLogin);
 		logInNextButton.click();
 		return new PasswordPage(driver);
 

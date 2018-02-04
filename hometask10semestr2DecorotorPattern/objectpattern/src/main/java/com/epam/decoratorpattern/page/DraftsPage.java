@@ -12,16 +12,23 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
+import com.epam.decoratorpattern.elements.Button;
+import com.epam.decoratorpattern.elements.InputTextField;
+import com.epam.decoratorpattern.elements.TextField;
+
 public class DraftsPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(DraftsPage.class);
 
 	@FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table//div[@role='textbox']")
 	@CacheLookup
-	private WebElement sentMessageForm;
+	//private WebElement sentMessageForm;
+	private TextField sentMessageForm;
 	
 	@FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table/tbody/child::tr[2]/descendant::table//div[@role='button'][1]")
 	@CacheLookup
-	private WebElement sentFormButton;
+	//private WebElement sentFormButton;
+	private Button sentFormButton;
+	
 	
 	public DraftsPage(WebDriver driver) {
 		super(driver);

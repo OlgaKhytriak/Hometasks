@@ -1,10 +1,9 @@
 package com.epam.decoratorpattern.elements;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-class TextFieldImpl extends AbstractElement implements TextField {
-    protected TextFieldImpl(final WebElement wrappedElement) {
+class InputTextFieldImpl extends AbstractElement implements InputTextField {
+    protected InputTextFieldImpl(final WebElement wrappedElement) {
         super(wrappedElement);
     }
 
@@ -23,16 +22,4 @@ class TextFieldImpl extends AbstractElement implements TextField {
         clear();
         type(text);
     }
-
-	@Override
-	public void click() {
-		wrappedElement.click();
-		
-	}
-
-	@Override
-	public void type(Keys keys) {
-		wrappedElement.sendKeys(keys);
-		
-	}
 }

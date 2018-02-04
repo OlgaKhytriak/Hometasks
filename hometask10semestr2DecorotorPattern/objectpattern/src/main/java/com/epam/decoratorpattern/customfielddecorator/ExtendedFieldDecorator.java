@@ -1,4 +1,4 @@
-package com.epam.decoratorpattern.elements;
+package com.epam.decoratorpattern.customfielddecorator;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.SearchContext;
@@ -8,6 +8,12 @@ import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.DefaultFieldDecorator;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
 
+import com.epam.decoratorpattern.elements.Container;
+import com.epam.decoratorpattern.elements.ContainerFactory;
+import com.epam.decoratorpattern.elements.DefaultContainerFactory;
+import com.epam.decoratorpattern.elements.DefaultElementFactory;
+import com.epam.decoratorpattern.elements.Element;
+import com.epam.decoratorpattern.elements.ElementFactory;
 import com.epam.decoratorpattern.page.AbstractPage;
 
 import java.lang.reflect.Field;
