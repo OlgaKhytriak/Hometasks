@@ -12,8 +12,8 @@ public class FirefoxDriverManager extends DriverManager {
 
 	@Override
 	protected void createDriver() {
-		System.setProperty(FIREFOX_DRIVER_TYPE, FIREFOX_DRIVER_PATH); // !!!
-		driver = new ChromeDriver();// !!!
+		System.setProperty(FIREFOX_DRIVER_TYPE, FIREFOX_DRIVER_PATH); 
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(GLOBAL_WAIT_TIME, TimeUnit.SECONDS);
 
 	}
