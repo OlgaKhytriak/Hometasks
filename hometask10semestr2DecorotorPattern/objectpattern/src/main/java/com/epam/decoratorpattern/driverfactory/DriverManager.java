@@ -4,9 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class DriverManager {
+	protected static WebDriver driver;
 
-	 WebDriver driver;
 	protected abstract void createDriver();
+	
 
 	public void quitDriver() {
 		if (null != driver) {
@@ -17,9 +18,8 @@ public abstract class DriverManager {
 
 	public WebDriver getDriver() {
 		if (null == driver) {
-            createDriver();
-        }
+			createDriver();
+		}
 		return driver;
 	}
 }
-

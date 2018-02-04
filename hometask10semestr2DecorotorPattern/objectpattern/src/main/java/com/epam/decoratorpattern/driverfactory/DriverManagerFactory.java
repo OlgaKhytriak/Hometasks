@@ -1,26 +1,24 @@
 package com.epam.decoratorpattern.driverfactory;
 
-public class DriverManagerFactory {
-	private static DriverManagerFactory driverManagerFactory=null;
-	private DriverManagerFactory() {}
-	
-	public static DriverManagerFactory getInstance() {
-		if (driverManagerFactory==null) {
-			driverManagerFactory =new DriverManagerFactory();
-		}
-		return driverManagerFactory;
-		
-	}
-	public DriverManager getManager(DriverType type) {
+import org.openqa.selenium.WebDriver;
 
-		DriverManager driverManager = null;
-		if (type.equals(DriverType.CHROME)) {
-			driverManager = new ChromeDriverManager();
-		} else if (type.equals(DriverType.FIREFOX)) {
-			driverManager = new FirefoxDriverManager();
+public class DriverManagerFactory {
+	// private static DriverManagerFactory driverManagerFactory=null;
+	private static DriverManager driverManager;
+
+	private DriverManagerFactory() {
+	}
+
+	public static DriverManager getManager(DriverType type) {
+		if (null == driverManager) {
+			// DriverManager driverManager = null;
+			if (type.equals(DriverType.CHROME)) {
+				driverManager = new ChromeDriverManager();
+			} else if (type.equals(DriverType.FIREFOX)) {
+				driverManager = new FirefoxDriverManager();
+			}
+			;
 		}
 		return driverManager;
 	}
 }
-
-
