@@ -87,7 +87,14 @@ public class Steps {
 		//System.setProperty(DRIVER_TYPE, DRIVER_PATH);
 		//this.driver = new ChromeDriver();
 		//driver.manage().timeouts().implicitlyWait(GLOBAL_WAIT_TIME, TimeUnit.SECONDS);		
-		this.driver = DriverManagerFactory.getManager(driverType).getDriver();	
+		//this.driver = DriverManagerFactory.getManager(driverType).getDriver();	
+		this.driver = DriverManagerFactory.getDriver(driverType);	
+		
+		WebDriver driver1=DriverManagerFactory.getDriver(driverType);	
+		WebDriver driver2=DriverManagerFactory.getDriver(driverType);
+		LOG.info(driver1);
+		LOG.info(driver2);
+		
 	}
 
 	public void closeBrowser() {

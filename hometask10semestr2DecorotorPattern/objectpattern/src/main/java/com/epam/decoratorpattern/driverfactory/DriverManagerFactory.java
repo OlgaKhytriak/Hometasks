@@ -9,7 +9,7 @@ public class DriverManagerFactory {
 	private DriverManagerFactory() {
 	}
 
-	public static DriverManager getManager(DriverType type) {
+	private static DriverManager getManager(DriverType type) {
 		if (null == driverManager) {
 			// DriverManager driverManager = null;
 			if (type.equals(DriverType.CHROME)) {
@@ -20,5 +20,9 @@ public class DriverManagerFactory {
 			;
 		}
 		return driverManager;
+	}
+	public static WebDriver getDriver(DriverType type) {
+		return getManager(type).getDriver();
+		
 	}
 }

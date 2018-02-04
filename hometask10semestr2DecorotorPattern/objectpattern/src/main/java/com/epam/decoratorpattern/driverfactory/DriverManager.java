@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public abstract class DriverManager {
 	protected static WebDriver driver;
 
-	protected abstract void createDriver();
-	
+	protected abstract WebDriver createDriver();
 
 	public void quitDriver() {
 		if (null != driver) {
@@ -18,7 +17,7 @@ public abstract class DriverManager {
 
 	public WebDriver getDriver() {
 		if (null == driver) {
-			createDriver();
+			driver=createDriver();
 		}
 		return driver;
 	}
