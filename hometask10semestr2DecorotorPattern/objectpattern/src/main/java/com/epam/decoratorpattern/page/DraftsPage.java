@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import com.epam.decoratorpattern.elements.single.Button;
 import com.epam.decoratorpattern.elements.single.TextField;
 
+import static com.epam.decoratorpattern.constant.Constant.*;
+
 public class DraftsPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(DraftsPage.class);
 
@@ -26,7 +28,7 @@ public class DraftsPage extends AbstractPage {
 
 	public void openPage() {
 		LOG.info("START ---- DraftsPage.openPage() ---- ");
-		driver.get("https://mail.google.com/mail/u/0/#drafts");
+		driver.get(DRAFTS_URL);
 		if (isAlertPresent()) {
 			Alert alert = driver.switchTo().alert();
 			alert.accept();

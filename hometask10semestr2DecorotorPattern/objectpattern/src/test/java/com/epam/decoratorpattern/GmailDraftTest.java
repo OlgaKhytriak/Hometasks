@@ -1,10 +1,6 @@
 package com.epam.decoratorpattern;
 
-import static com.epam.decoratorpattern.constant.Constant.MESSAGE_SENT_TO;
-import static com.epam.decoratorpattern.constant.Constant.MESSAGE_SUBJECT;
-import static com.epam.decoratorpattern.constant.Constant.MESSAGE_TEXT;
-import static com.epam.decoratorpattern.constant.Constant.USER_LOGIN;
-import static com.epam.decoratorpattern.constant.Constant.USER_PASSWORD;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -43,16 +39,11 @@ public class GmailDraftTest extends TestCase {
 
 	@Test
 	public void draftSentLetterTest() {
-		//gmailLogInBO.login(USER_LOGIN, USER_PASSWORD);
 		gmailLogInBO.login(gmailData.getUserLogin(), gmailData.getUserPassword());
 		assertTrue(gmailLogInBO.isUserLoggedIn());
-		//draftsBO.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
 		draftsBO.createDraft(gmailData.getMessageSentTo(), gmailData.getMessageSubject(), gmailData.getMessageText());
-		//assertTrue(draftsBO.isMessageInDrafts(MESSAGE_TEXT));
 		assertTrue(draftsBO.isMessageInDrafts(gmailData.getMessageText()));
-		//sentMailBO.sendMessageFromDrafts(MESSAGE_TEXT); 
 		sentMailBO.sendMessageFromDrafts(gmailData.getMessageText()); 
-		//assertTrue(sentMailBO.isMessageInSent(MESSAGE_TEXT));
 		assertTrue(sentMailBO.isMessageInSent(gmailData.getMessageText()));
 	}
 

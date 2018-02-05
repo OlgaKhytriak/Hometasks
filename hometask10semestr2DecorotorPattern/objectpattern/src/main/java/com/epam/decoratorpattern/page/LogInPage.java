@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
 
 import com.epam.decoratorpattern.elements.single.Button;
-import com.epam.decoratorpattern.elements.single.InputTextField;
 import com.epam.decoratorpattern.elements.single.TextField;
 
 public class LogInPage extends AbstractPage {
@@ -25,14 +24,10 @@ public class LogInPage extends AbstractPage {
 
 	public void openPage() {
 		LOG.info("START ---- LogInPage.openPage() ---- ");
-		LOG.info(driver);
-		//driver.get(WEB_SITE_URL);
-		//LOG.info(gmailData.getGmailLink());
 		driver.get(gmailData.getGmailLink());
 	}
 
 	public PasswordPage inputLogIn(String userLogin) {
-		// logInField.sendKeys(userLogin);
 		logInField.type(userLogin);
 		logInNextButton.click();
 		return new PasswordPage();

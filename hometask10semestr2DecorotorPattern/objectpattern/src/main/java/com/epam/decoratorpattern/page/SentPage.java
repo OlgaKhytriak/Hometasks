@@ -7,12 +7,14 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import static com.epam.decoratorpattern.constant.Constant.*;
+
 public class SentPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(SentPage.class);
 
 	public void openPage() {
 		LOG.info("START ---- SentPage.openPage() ---- ");
-		driver.get("https://mail.google.com/mail/u/0/#sent");
+		driver.get(SENTED_URL);
 		if (isAlertPresent()) {
 			Alert alert = driver.switchTo().alert();
 			alert.accept();
