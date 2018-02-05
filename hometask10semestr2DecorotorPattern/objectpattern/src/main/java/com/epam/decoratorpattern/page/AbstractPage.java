@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.epam.decoratorpattern.customfielddecorator.ExtendedFieldDecorator;
+import com.epam.decoratorpattern.customfielddecorator.CustomFieldDecorator;
 import com.epam.decoratorpattern.driverfactory.DriverManagerFactory;
 import com.epam.decoratorpattern.driverfactory.DriverType;
 
@@ -23,7 +23,7 @@ public abstract class AbstractPage {
 	public AbstractPage() {
 		this.driver  = DriverManagerFactory.getDriver(DriverType.CHROME);
 		//LOG.info(" ---- Driver has been initialized in AbstractPage().Constructor() ---- ");
-		PageFactory.initElements(new ExtendedFieldDecorator(driver), this);
+		PageFactory.initElements(new CustomFieldDecorator(driver), this);
 		LOG.info(" ---- PageFactory has been initialized in AbstractPage().Constructor() ---- ");
 		
 	}
