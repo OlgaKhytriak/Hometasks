@@ -18,7 +18,7 @@ public class BasicBO {
 	
 	public boolean initBrowser(DriverType driverType) {
 		LOG.error(" ---- BasicBO.initBrowser() ---- ");
-		this.driver = DriverManagerFactory.getDriver(driverType);
+		this.driver = DriverManagerFactory.getDriver();
 		LOG.error(" ---- driver=" + driver + " ---- ");
 		return (driver != null);
 	}

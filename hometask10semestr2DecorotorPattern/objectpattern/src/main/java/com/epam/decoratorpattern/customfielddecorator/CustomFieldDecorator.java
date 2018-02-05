@@ -10,10 +10,10 @@ import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.DefaultFieldDecorator;
 
 import com.epam.decoratorpattern.elements.Element;
-import com.epam.decoratorpattern.elements.container.Container;
-import com.epam.decoratorpattern.elements.container.ContainerFactory;
-import com.epam.decoratorpattern.elements.container.DefaultContainerFactory;
-import com.epam.decoratorpattern.elements.singleelement.CustomElementFactory;
+import com.epam.decoratorpattern.elements.containerNOTFINISHED.Container;
+import com.epam.decoratorpattern.elements.containerNOTFINISHED.ContainerFactory;
+import com.epam.decoratorpattern.elements.containerNOTFINISHED.DefaultContainerFactory;
+import com.epam.decoratorpattern.elements.single.CustomElementFactory;
 
 public class CustomFieldDecorator extends DefaultFieldDecorator {
 	private static final Logger LOG = Logger.getLogger(CustomFieldDecorator.class);
@@ -28,14 +28,16 @@ public class CustomFieldDecorator extends DefaultFieldDecorator {
 	public Object decorate(ClassLoader loader, Field field) {
 		LOG.info(" ---- ExtendedFieldDecorator.decorate() ---- " + field.getName() + " ="
 				+ field.getType().getSimpleName());
-		// якщо поле є нащадком Container то працюємо з як контейнером елементів
+		// якщо поле є нащадком Container то працюємо з  контейнером елементів
+		/*
 		if (Container.class.isAssignableFrom(field.getType())) {
 			WebElement wrappedElement = proxyForLocator(loader, factory.createLocator(field));
 			Container container = containerFactory.create((Class<? extends Container>) field.getType(), wrappedElement);
 			PageFactory.initElements(new CustomFieldDecorator(wrappedElement), container);
 			return container;
 
-		} // якщо поле є нащадком Element то працюємо з як контейнером елементів
+		} // якщо поле є нащадком Element то працюємо з елементом
+		*/
 		if (Element.class.isAssignableFrom(field.getType())) {
 			WebElement wrappedElement = proxyForLocator(loader, factory.createLocator(field));
 			return elementFactory.create((Class<? extends Element>) field.getType(), wrappedElement);

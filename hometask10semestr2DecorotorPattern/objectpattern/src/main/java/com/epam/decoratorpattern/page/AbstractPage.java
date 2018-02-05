@@ -15,15 +15,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.epam.decoratorpattern.customfielddecorator.CustomFieldDecorator;
 import com.epam.decoratorpattern.driverfactory.DriverManagerFactory;
 import com.epam.decoratorpattern.driverfactory.DriverType;
+import com.epam.decoratorpattern.propmodel.GmailData;
 
 public abstract class AbstractPage {
 	private static final Logger LOG = Logger.getLogger(AbstractPage.class);
 	protected final WebDriver driver;
+	protected final GmailData gmailData;
 
 	public AbstractPage() {
-		this.driver  = DriverManagerFactory.getDriver(DriverType.CHROME);
+		this.driver  = DriverManagerFactory.getDriver();
 		//LOG.info(" ---- Driver has been initialized in AbstractPage().Constructor() ---- ");
 		PageFactory.initElements(new CustomFieldDecorator(driver), this);
+		gmailData = new GmailData();
 		LOG.info(" ---- PageFactory has been initialized in AbstractPage().Constructor() ---- ");
 		
 	}

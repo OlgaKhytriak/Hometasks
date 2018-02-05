@@ -1,14 +1,10 @@
 package com.epam.decoratorpattern.page;
 
-import static com.epam.decoratorpattern.constant.Constant.MESSAGE_TEXT;
-import static com.epam.decoratorpattern.constant.Constant.WEB_SITE_URL;
-
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SentPage extends AbstractPage {

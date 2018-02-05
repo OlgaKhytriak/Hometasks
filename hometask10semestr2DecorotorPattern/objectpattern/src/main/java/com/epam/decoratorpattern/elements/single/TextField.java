@@ -1,4 +1,4 @@
-package com.epam.decoratorpattern.elements.singleelement;
+package com.epam.decoratorpattern.elements.single;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

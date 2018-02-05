@@ -7,8 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-import com.epam.decoratorpattern.elements.singleelement.Button;
-import com.epam.decoratorpattern.elements.singleelement.TextField;
+import com.epam.decoratorpattern.elements.single.Button;
+import com.epam.decoratorpattern.elements.single.TextField;
 
 public class StartPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(StartPage.class);

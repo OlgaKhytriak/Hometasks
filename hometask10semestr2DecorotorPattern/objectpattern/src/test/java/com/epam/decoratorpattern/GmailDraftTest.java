@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.epam.decoratorpattern.driverfactory.DriverType;
+import com.epam.decoratorpattern.propmodel.GmailData;
 import com.epam.decoratorpattern.steps.GmailLogInBO;
 import com.epam.decoratorpattern.steps.SentMailBO;
 import com.epam.decoratorpattern.steps.BasicBO;
@@ -24,6 +25,7 @@ public class GmailDraftTest extends TestCase {
 	private  GmailLogInBO gmailLogInBO;
 	private  DraftsBO draftsBO;
 	private SentMailBO sentMailBO;
+	private GmailData gmailData;
 	// Business objects
 		//private final GmailLoginBO loginBO = new GmailLoginBO();
 		//private final GmailSearchBO gmailSearchBO = new GmailSearchBO();
@@ -36,16 +38,22 @@ public class GmailDraftTest extends TestCase {
 		draftsBO=new DraftsBO();
 		sentMailBO=new SentMailBO();
 		steps.initBrowser(DriverType.CHROME);
+		gmailData=new GmailData();
 	}
 
 	@Test
 	public void draftSentLetterTest() {
-		gmailLogInBO.login(USER_LOGIN, USER_PASSWORD);
+		//gmailLogInBO.login(USER_LOGIN, USER_PASSWORD);
+		gmailLogInBO.login(gmailData.getUserLogin(), gmailData.getUserPassword());
 		assertTrue(gmailLogInBO.isUserLoggedIn());
-		draftsBO.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
-		assertTrue(draftsBO.isMessageInDrafts(MESSAGE_TEXT));
-		sentMailBO.sendMessageFromDrafts(MESSAGE_TEXT); 
-		assertTrue(sentMailBO.isMessageInSent(MESSAGE_TEXT));
+		//draftsBO.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
+		draftsBO.createDraft(gmailData.getMessageSentTo(), gmailData.getMessageSubject(), gmailData.getMessageText());
+		//assertTrue(draftsBO.isMessageInDrafts(MESSAGE_TEXT));
+		assertTrue(draftsBO.isMessageInDrafts(gmailData.getMessageText()));
+		//sentMailBO.sendMessageFromDrafts(MESSAGE_TEXT); 
+		sentMailBO.sendMessageFromDrafts(gmailData.getMessageText()); 
+		//assertTrue(sentMailBO.isMessageInSent(MESSAGE_TEXT));
+		assertTrue(sentMailBO.isMessageInSent(gmailData.getMessageText()));
 	}
 
 	@AfterClass(description = "close browser")

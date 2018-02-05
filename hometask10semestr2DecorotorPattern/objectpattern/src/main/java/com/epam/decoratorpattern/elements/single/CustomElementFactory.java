@@ -1,4 +1,4 @@
-package com.epam.decoratorpattern.elements.singleelement;
+package com.epam.decoratorpattern.elements.single;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
