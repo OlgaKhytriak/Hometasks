@@ -21,8 +21,10 @@ public abstract class AbstractPage {
 	protected final WebDriver driver;
 
 	public AbstractPage() {
-		this.driver  = DriverManagerFactory.getDriver(DriverType.CHROME);	;
+		this.driver  = DriverManagerFactory.getDriver(DriverType.CHROME);
+		//LOG.info(" ---- Driver has been initialized in AbstractPage().Constructor() ---- ");
 		PageFactory.initElements(new ExtendedFieldDecorator(driver), this);
+		LOG.info(" ---- PageFactory has been initialized in AbstractPage().Constructor() ---- ");
 		
 	}
 	

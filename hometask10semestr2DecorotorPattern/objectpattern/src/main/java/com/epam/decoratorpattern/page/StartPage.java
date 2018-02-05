@@ -16,7 +16,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.epam.decoratorpattern.elements.Button;
 import com.epam.decoratorpattern.elements.TextField;
-import com.epam.decoratorpattern.steps.Steps;
+import com.epam.decoratorpattern.steps.BasicBO;
 
 public class StartPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(StartPage.class);

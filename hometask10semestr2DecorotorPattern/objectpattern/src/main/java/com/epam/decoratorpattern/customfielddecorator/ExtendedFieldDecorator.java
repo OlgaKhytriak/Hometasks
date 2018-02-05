@@ -29,7 +29,7 @@ public class ExtendedFieldDecorator extends DefaultFieldDecorator {
 
     @Override
     public Object decorate(final ClassLoader loader, final Field field) {
-    	LOG.info(" ---- ExtendedFieldDecorator.decorate() ---- "); 
+    	LOG.info(" ---- ExtendedFieldDecorator.decorate() ---- "+field.getName()+" = "+field.getType().getSimpleName()); 
         if (Container.class.isAssignableFrom(field.getType())) {
             return decorateContainer(loader, field);
         }
