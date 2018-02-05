@@ -22,10 +22,6 @@ public class PasswordPage extends AbstractPage {
 	//private WebElement passwordNextButton;
 	private Button passwordNextButton;
 
-	public PasswordPage(WebDriver driver) {
-		super(driver);
-	}
-
 	public StartPage inputPassword(String userPassword) {
 		LOG.info("START ---- PasswordPage.inputPassword() ---- ");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -34,7 +30,7 @@ public class PasswordPage extends AbstractPage {
 		//passwordField.sendKeys(userPassword);
 		passwordField.type(userPassword);
 		passwordNextButton.click();
-		return new StartPage(driver);
+		return new StartPage();
 
 	}
 

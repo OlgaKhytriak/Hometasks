@@ -24,12 +24,9 @@ public class LogInPage extends AbstractPage {
 	//private WebElement logInNextButton;
 	private Button logInNextButton;
 
-	public LogInPage(WebDriver driver) {
-		super(driver);
-	}
-
 	public void openPage() {
 		LOG.info("START ---- LogInPage.openPage() ---- ");
+		LOG.info(driver);
 		driver.get(WEB_SITE_URL);
 	}
 
@@ -37,7 +34,7 @@ public class LogInPage extends AbstractPage {
 		//logInField.sendKeys(userLogin);
 		logInField.type(userLogin);
 		logInNextButton.click();
-		return new PasswordPage(driver);
+		return new PasswordPage();
 
 	}
 

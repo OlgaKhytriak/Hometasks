@@ -29,11 +29,6 @@ public class DraftsPage extends AbstractPage {
 	//private WebElement sentFormButton;
 	private Button sentFormButton;
 	
-	
-	public DraftsPage(WebDriver driver) {
-		super(driver);
-	}
-
 	public void openPage() {
 		LOG.info("START ---- DraftsPage.openPage() ---- ");
 		driver.get("https://mail.google.com/mail/u/0/#drafts");

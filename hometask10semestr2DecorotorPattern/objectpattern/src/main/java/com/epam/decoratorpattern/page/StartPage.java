@@ -38,9 +38,6 @@ public class StartPage extends AbstractPage {
 	//private WebElement subjectBox;
 	private TextField subjectBox;
 
-	public StartPage(WebDriver driver) {
-		super(driver);
-	}
 
 	public boolean isOpened() {
 		String ss = driver.getCurrentUrl();

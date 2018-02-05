@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.epam.decoratorpattern.driverfactory.DriverType;
+import com.epam.decoratorpattern.steps.GmailLogInBO;
 import com.epam.decoratorpattern.steps.Steps;
 
 import junit.framework.TestCase;
@@ -18,6 +19,7 @@ import junit.framework.TestCase;
 
 public class GmailDraftTest extends TestCase {
 	private Steps steps;
+	private GmailLogInBO gmailLogInBO;
 	// Business objects
 		//private final GmailLoginBO loginBO = new GmailLoginBO();
 		//private final GmailSearchBO gmailSearchBO = new GmailSearchBO();
@@ -26,13 +28,14 @@ public class GmailDraftTest extends TestCase {
 	@BeforeClass(description = "init browser")
 	public void setUp() {
 		steps = new Steps();
+		gmailLogInBO = new GmailLogInBO();
 		steps.initBrowser(DriverType.CHROME);
 	}
 
 	@Test
 	public void draftSentLetterTest() {
-		steps.loginGmail(USER_LOGIN, USER_PASSWORD);
-		assertTrue(steps.isUserLoggedIn());
+		gmailLogInBO.loginGmail(USER_LOGIN, USER_PASSWORD);
+		assertTrue(gmailLogInBO.isUserLoggedIn());
 		steps.createDraft(MESSAGE_SENT_TO, MESSAGE_SUBJECT, MESSAGE_TEXT);
 		assertTrue(steps.isMessageInDrafts(MESSAGE_TEXT));
 		steps.sendMessageFromDrafts(MESSAGE_TEXT); 

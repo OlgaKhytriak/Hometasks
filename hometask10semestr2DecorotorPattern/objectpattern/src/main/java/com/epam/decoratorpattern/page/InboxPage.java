@@ -9,11 +9,6 @@ import org.openqa.selenium.WebDriver;
 public class InboxPage extends AbstractPage{
 	private static final Logger LOG = Logger.getLogger(InboxPage.class);
 	
-	public InboxPage(WebDriver driver) {
-		super(driver);
-	}
-	
-	
 	public void openPage() {//Isn't tested
 		LOG.info("START ---- InboxPage.openPage() ---- ");
 		driver.get(INBOX_URL);

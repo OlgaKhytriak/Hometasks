@@ -1,105 +1,86 @@
 package com.epam.decoratorpattern.steps;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.epam.decoratorpattern.driverfactory.DriverManager;
 import com.epam.decoratorpattern.driverfactory.DriverManagerFactory;
 import com.epam.decoratorpattern.driverfactory.DriverType;
-import com.epam.decoratorpattern.page.*;
-
-import static com.epam.decoratorpattern.constant.Constant.*;
-
-import java.util.concurrent.TimeUnit;
+import com.epam.decoratorpattern.page.DraftsPage;
+import com.epam.decoratorpattern.page.LogInPage;
+import com.epam.decoratorpattern.page.PasswordPage;
+import com.epam.decoratorpattern.page.SentPage;
+import com.epam.decoratorpattern.page.StartPage;
 
 public class Steps {
 	private static final Logger LOG = Logger.getLogger(Steps.class);
-	private WebDriver driver;
-    private DriverManager driverManager;
+	protected WebDriver driver;
 
 	public Steps() {
 	}
 
 	public void loginGmail(String userLogin, String userPassword) {
 		LOG.info("START ---- Steps.loginGmail() ---- ");
-		LogInPage logInPage = new LogInPage(driver);
-		logInPage.openPage();	
-		PasswordPage passwordPage=logInPage.inputLogIn(userLogin);
-		//PasswordPage passwordPage = new PasswordPage(driver);
+		LogInPage logInPage = new LogInPage();
+		logInPage.openPage();
+		PasswordPage passwordPage = logInPage.inputLogIn(userLogin);
+		// PasswordPage passwordPage = new PasswordPage(driver);
 		passwordPage.inputPassword(userPassword);
 	}
 
 	public void openSentMail() {
 		LOG.info("START ---- Steps.openSentMail() ---- ");
-		SentPage sentPage = new SentPage(driver);
+		SentPage sentPage = new SentPage();
 		sentPage.openPage();
 	}
 
 	public boolean isUserLoggedIn() {
 		LOG.info("START ---- Steps.isUserLoggedIn() ---- ");
-		StartPage startPage = new StartPage(driver);
+		StartPage startPage = new StartPage();
 		return startPage.isOpened();
 	}
 
 	public void openDrafts() {
 		LOG.info("START ---- Steps.openDrafts() ---- ");
-		DraftsPage draftsPage = new DraftsPage(driver);
+		DraftsPage draftsPage = new DraftsPage();
 		draftsPage.openPage();
 	}
 
 	public void createDraft(String messageSentTo, String messageSubject, String messageText) {
 		LOG.info("START ---- Steps.createDraft() ---- ");
-		StartPage startPage = new StartPage(driver);
+		StartPage startPage = new StartPage();
 		startPage.craeteMessage(messageSentTo, messageSubject, messageText);
 
 	}
-	
+
 	public boolean isMessageInDrafts(String messageText) {
 		LOG.info("START ---- Steps.isMessageInDrafts() ---- ");
-		DraftsPage draftsPage = new DraftsPage(driver);
+		DraftsPage draftsPage = new DraftsPage();
 		return draftsPage.isMasageFound(messageText);
-		
+
 	}
 
 	public void sendMessageFromDrafts(String messageText) {
 		LOG.info("START ---- Steps.sendMessageFromDrafts() ---- ");
-		DraftsPage draftsPage = new DraftsPage(driver);
+		DraftsPage draftsPage = new DraftsPage();
 		draftsPage.openPage();
 		draftsPage.sendMasageFound(messageText);
 	}
-	
+
 	public boolean isMessageInSent(String messageText) {
 		LOG.info("START ---- Steps.isMessageInSent() ---- ");
-		SentPage sentPage = new SentPage(driver);
+		SentPage sentPage = new SentPage();
 		return sentPage.isMasageFound(messageText);
-		
+
 	}
-	
+
 	public void initBrowser(DriverType driverType) {
 		LOG.info("START ---- Steps.initBrowser() ---- ");
-		//System.setProperty(DRIVER_TYPE, DRIVER_PATH);
-		//this.driver = new ChromeDriver();
-		//driver.manage().timeouts().implicitlyWait(GLOBAL_WAIT_TIME, TimeUnit.SECONDS);		
-		//this.driver = DriverManagerFactory.getManager(driverType).getDriver();	
-		this.driver = DriverManagerFactory.getDriver(driverType);	
-		
-		//WebDriver driver1=DriverManagerFactory.getDriver(driverType);	
-		//WebDriver driver2=DriverManagerFactory.getDriver(driverType);
-		//LOG.info(driver1);
-		//LOG.info(driver2);
-		
+		this.driver = DriverManagerFactory.getDriver(driverType);
 	}
 
 	public void closeBrowser() {
 		if (driver != null) {
-			driver.close();		
+			driver.close();
 		}
 
 	}
@@ -112,7 +93,5 @@ public class Steps {
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	
 
 }

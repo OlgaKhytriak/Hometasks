@@ -14,10 +14,6 @@ import org.openqa.selenium.WebElement;
 public class SentPage extends AbstractPage {
 	private static final Logger LOG = Logger.getLogger(SentPage.class);
 
-	public SentPage(WebDriver driver) {
-		super(driver);
-	}
-
 	public void openPage() {
 		LOG.info("START ---- SentPage.openPage() ---- ");
 		driver.get("https://mail.google.com/mail/u/0/#sent");
