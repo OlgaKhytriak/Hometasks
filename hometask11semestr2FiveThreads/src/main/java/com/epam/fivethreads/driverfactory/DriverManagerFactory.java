@@ -10,8 +10,7 @@ import java.util.Map;
 
 public class DriverManagerFactory {
     private static final Logger LOG = Logger.getLogger(DriverManagerFactory.class);
-    // private static DriverManagerFactory driverManagerFactory=null;
-    private static DriverManager driverManager;
+      private static DriverManager driverManager;
 
 
     private DriverManagerFactory() {

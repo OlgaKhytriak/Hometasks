@@ -1,4 +1,4 @@
-package com.epam.fivethreads.elements.containerNOTFINISHED;
+package com.epam.fivethreads.elements.container;
 
 import org.openqa.selenium.WebElement;
 
