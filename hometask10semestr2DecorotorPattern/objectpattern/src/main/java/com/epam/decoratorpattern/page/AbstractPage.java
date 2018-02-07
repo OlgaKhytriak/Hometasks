@@ -66,7 +66,7 @@ return driver.findElements(locator).size()>0;}
 			boolean foundAlert = false;
 			WebDriverWait wait = new WebDriverWait(driver, ALERT_WAIT_TIME);
 			try {
-				wait.until(ExpectedConditions.alertIsPresent());
+				//wait.until(ExpectedConditions.alertIsPresent());
 				foundAlert = true;
 			} catch (TimeoutException eTO) {
 				foundAlert = false;

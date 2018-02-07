@@ -6,12 +6,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.epam.decoratorpattern.businessobjects.BasicBO;
+import com.epam.decoratorpattern.businessobjects.DraftsBO;
+import com.epam.decoratorpattern.businessobjects.GmailLogInBO;
+import com.epam.decoratorpattern.businessobjects.SentMailBO;
 import com.epam.decoratorpattern.driverfactory.DriverType;
 import com.epam.decoratorpattern.propmodel.GmailData;
-import com.epam.decoratorpattern.steps.GmailLogInBO;
-import com.epam.decoratorpattern.steps.SentMailBO;
-import com.epam.decoratorpattern.steps.BasicBO;
-import com.epam.decoratorpattern.steps.DraftsBO;
 
 import junit.framework.TestCase;
 

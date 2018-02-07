@@ -11,7 +11,7 @@ import org.openqa.selenium.support.pagefactory.DefaultFieldDecorator;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
 import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 
-import com.epam.decoratorpattern.steps.BasicBO;
+import com.epam.decoratorpattern.businessobjects.BasicBO;
 
 public class OldCustomFieldDecorator extends DefaultFieldDecorator{
 	private static final Logger LOG = Logger.getLogger(OldCustomFieldDecorator.class);

@@ -1,4 +1,4 @@
-package com.epam.decoratorpattern.steps;
+package com.epam.decoratorpattern.businessobjects;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;

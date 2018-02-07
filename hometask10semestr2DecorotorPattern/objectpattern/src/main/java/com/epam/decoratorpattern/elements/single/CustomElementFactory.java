@@ -3,8 +3,8 @@ package com.epam.decoratorpattern.elements.single;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
+import com.epam.decoratorpattern.businessobjects.BasicBO;
 import com.epam.decoratorpattern.elements.Element;
-import com.epam.decoratorpattern.steps.BasicBO;
 
 import java.lang.reflect.InvocationTargetException;
 
