@@ -2,14 +2,14 @@ package com.epam.fivethreads.driverfactory;
 
 import org.openqa.selenium.WebDriver;
 
-public class DriverFactory {
-    private DriverFactory() {
+public class SafeThreadDriverCreator {
+    private SafeThreadDriverCreator() {
 
     }
 
-    private static DriverFactory instance = new DriverFactory();
+    private static SafeThreadDriverCreator instance = new SafeThreadDriverCreator();
 
-    public static DriverFactory getInstance() {
+    public static SafeThreadDriverCreator getInstance() {
         return instance;
     }
 

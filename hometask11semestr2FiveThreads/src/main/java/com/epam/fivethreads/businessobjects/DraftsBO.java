@@ -17,6 +17,7 @@ public class DraftsBO extends BasicBO{
 	public void createDraft(String messageSentTo, String messageSubject, String messageText) {
 		LOG.info(" ---- DraftsBO.createDraft() ---- ");
 		StartPage startPage = new StartPage();
+		//startPage.openPage();
 		startPage.craeteMessage(messageSentTo, messageSubject, messageText);
 
 	}

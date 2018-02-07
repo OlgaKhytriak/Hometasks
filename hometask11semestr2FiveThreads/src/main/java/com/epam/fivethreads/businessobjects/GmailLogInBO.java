@@ -10,13 +10,13 @@ import com.epam.fivethreads.page.StartPage;
 public class GmailLogInBO extends BasicBO{
 	private static final Logger LOG = Logger.getLogger(GmailLogInBO.class);
 	
-	public boolean login(String userLogin, String userPassword) {
+	public void login(String userLogin, String userPassword) {
 		LOG.info(" ---- GmailLogInBO.loginGmail() ---- ");
 		LogInPage logInPage = new LogInPage();
 		logInPage.openPage();	
 		PasswordPage passwordPage=logInPage.inputLogIn(userLogin);
 		passwordPage.inputPassword(userPassword);
-		return isUserLoggedIn();
+		//return isUserLoggedIn();
 	}
 	
 	public boolean isUserLoggedIn() {

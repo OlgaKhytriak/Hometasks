@@ -2,7 +2,7 @@ package com.epam.fivethreads.page;
 
 import static com.epam.fivethreads.constant.Constant.ALERT_WAIT_TIME;
 
-import com.epam.fivethreads.driverfactory.DriverFactory;
+import com.epam.fivethreads.driverfactory.SafeThreadDriverCreator;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.epam.fivethreads.customfielddecorator.CustomFieldDecorator;
-import com.epam.fivethreads.driverfactory.DriverManagerFactory;
 import com.epam.fivethreads.propmodel.GmailData;
 
 public abstract class AbstractPage {
@@ -20,7 +19,7 @@ public abstract class AbstractPage {
 
 	public AbstractPage() {
 		//this.driver  = DriverManagerFactory.getDriver();    //One Driver
-		this.driver  = DriverFactory.getInstance().getDriver();  //Multi-thread driver
+		this.driver  = SafeThreadDriverCreator.getInstance().getDriver();  //Multi-thread driver
 		//LOG.info(" ---- Driver has been initialized in AbstractPage().Constructor() ---- ");
 		PageFactory.initElements(new CustomFieldDecorator(driver), this);
 		gmailData = new GmailData();
