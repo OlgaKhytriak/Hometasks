@@ -19,30 +19,38 @@ public class DraftsPage extends AbstractPage {
 
     @FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table//div[@role='textbox']")
     @CacheLookup
-    // private WebElement sentMessageForm;
     private TextField sentMessageForm;
 
     @FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table/tbody/child::tr[2]/descendant::table//div[@role='button'][1]")
     @CacheLookup
-    // private WebElement sentFormButton;
     private Button sentFormButton;
 
     public void openPage() {
         LOG.info("START ---- DraftsPage.openPage() ---- ");
         driver.get(DRAFTS_URL);
         if (isAlertPresent()) {
-
             Alert alert = driver.switchTo().alert();
             alert.accept();
         }
     }
 
     private WebElement findMessageByText(String messageText) {
+        //openPage();
         WebElement element = driver
                 .findElement(By.xpath("//div[@role='link'][contains(.,'" + String.format("%s", messageText) + "')]"));
+//*[text()='Test']
         return element;
     }
-
+    private WebElement findMessageBySubject(String messageSubject) {
+        WebElement element = driver
+                .findElement(By.xpath("//*[text()='Test']"));
+        return element;
+    }
+    public WebElement findMessageBySubject2(String subject) {
+         subject="Test";
+        WebElement letter = driver.findElement(By.xpath("//table[@cellpadding='0']/tbody/tr/td[@class='xY a4W']/div/div/div/span[text()='" + subject + "']"));
+        return letter;
+    }
     public boolean isMasageFound(String messageText) {
         WebElement elementLinkDiv = findMessageByText(messageText);
         return elementLinkDiv.isDisplayed();
@@ -51,8 +59,14 @@ public class DraftsPage extends AbstractPage {
     public void sendMasageFound(String messageText) {
         LOG.info("START ---- DraftsPage.sendMasageFound() ---- ");
         WebElement elementLinkDiv = findMessageByText(messageText);
-        Actions builder = new Actions(driver);
-        builder.moveToElement(elementLinkDiv).click().perform();
+        if(null==elementLinkDiv){
+            elementLinkDiv=findMessageBySubject2(messageText);
+        }
+       elementLinkDiv.click();
+        LOG.info(" ---- DraftsPage.findMessageByText() ---- Mail is founded="+elementLinkDiv.toString());
+        //Actions builder = new Actions(driver);
+       // builder.moveToElement(elementLinkDiv).click().perform();
+       // waitForElementLoad(sentFormButton);
         sentFormButton.click();
     }
 

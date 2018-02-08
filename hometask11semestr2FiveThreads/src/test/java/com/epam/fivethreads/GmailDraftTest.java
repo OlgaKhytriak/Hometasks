@@ -40,6 +40,7 @@ public class GmailDraftTest {
         //assertTrue(gmailLogInBO.isUserLoggedIn());
         draftsBO.createDraft(gmailData.getMessageSentTo(), gmailData.getMessageSubject(), gmailData.getMessageText());
         assertTrue(draftsBO.isMessageInDrafts(gmailData.getMessageText()));
+
         sentMailBO.sendMessageFromDrafts(gmailData.getMessageText());
         assertTrue(sentMailBO.isMessageInSent(gmailData.getMessageText()));
     }

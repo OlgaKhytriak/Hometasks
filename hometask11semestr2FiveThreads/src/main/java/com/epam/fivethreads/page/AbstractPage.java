@@ -3,6 +3,7 @@ package com.epam.fivethreads.page;
 import static com.epam.fivethreads.constant.Constant.ALERT_WAIT_TIME;
 
 import com.epam.fivethreads.driverfactory.SafeThreadDriverCreator;
+import com.epam.fivethreads.elements.Element;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
@@ -31,7 +32,7 @@ public abstract class AbstractPage {
 	public boolean isElementPresent(By locator) {
 return driver.findElements(locator).size()>0;}
 	
-	protected boolean isSearchElementDisplayed(WebElement element) {
+	protected boolean isSearchElementDisplayed(Element element) {
 		try {
 			return element.isDisplayed();
 		} catch (NoSuchElementException e) {
@@ -39,7 +40,7 @@ return driver.findElements(locator).size()>0;}
 		}
 	}
 
-	protected void waitForElementToLoad(WebElement element) {
+	protected void waitForElementLoad(Element element) {
 		int secondsCount = 0;
 		boolean isElementShownIndicator = isSearchElementDisplayed(element);
 		while (!isElementShownIndicator && secondsCount < 10) {

@@ -27,13 +27,22 @@ public class SentPage extends AbstractPage {
 
     public boolean isMasageFound(String messageText) {
         openPage();
-        List<WebElement> elementsDrafts = driver
-                .findElements(By.xpath("//div[contains(text(),'" + String.format("%s", messageText) + "')]"));
+        //List<WebElement> elementsDrafts = driver
+          //      .findElements(By.xpath("//div[contains(text(),'" + String.format("%s", messageText) + "')]"));
+        String receiver = "ForHometaskTest4@gmail.com";
+                    Boolean checkCorrect = driver.findElements(By.xpath("//*[@email='" + String.format("%s", receiver) + "']")).size() > 0;
+            return checkCorrect;
+/*
         if (elementsDrafts.size() > 0) {
             return true;
         } else {
-            return false;
+            WebElement element = driver.findElement(By.xpath("//*[text()='Test']"));
+            if (null != element) {
+                return true;
+            }
         }
+*/
     }
-
 }
+
+

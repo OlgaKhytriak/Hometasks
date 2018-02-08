@@ -18,7 +18,7 @@ public class DraftsBO{
 		LOG.info(" ---- DraftsBO.createDraft() ---- ");
 		StartPage startPage = new StartPage();
 		//startPage.openPage();
-		startPage.craeteMessage(messageSentTo, messageSubject, messageText);
+		startPage.craeteDraftMessage(messageSentTo, messageSubject, messageText);
 
 	}
 

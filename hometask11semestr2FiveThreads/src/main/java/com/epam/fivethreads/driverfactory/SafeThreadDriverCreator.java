@@ -27,6 +27,7 @@ public class SafeThreadDriverCreator {
     }
     public void removeDriver() // Quits the driver and closes the browser
     {
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++");
         driver.get().quit();
         driver.remove();
     }

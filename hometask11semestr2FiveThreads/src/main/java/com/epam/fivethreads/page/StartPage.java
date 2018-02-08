@@ -16,22 +16,20 @@ public class StartPage extends AbstractPage {
     private static final Logger LOG = Logger.getLogger(StartPage.class);
 
     @FindBy(xpath = "//div[@role='navigation']/preceding-sibling::div//div[@role='button']")
-    // private WebElement composeButton;
     private Button composeButton;
 
     @FindBy(xpath = "//form[@enctype='multipart/form-data']//textarea[@name='to']")
-    // private WebElement sentToTextarea;
     private TextField sentToTextarea;
 
     @FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table//div[@role='textbox']")
     @CacheLookup
-    //private WebElement messageTexbox;
     private TextField messageTexbox;
 
     @FindBy(xpath = "//form[@enctype='multipart/form-data']//input[@name='subjectbox']")
-    //private WebElement subjectBox;
     private TextField subjectBox;
 
+    @FindBy(css=".Ha")
+    private Button composeWindowCloseButton;
 
     public boolean isOpened() {
         String ss = driver.getCurrentUrl();
@@ -46,23 +44,39 @@ public class StartPage extends AbstractPage {
             alert.accept();
         }
     }
+    public void craeteMessage(String messageSentTo, String messageSubject, String messageText) {
+        LOG.info(" ---- StartPage.craeteMessage() ---- ");
+        openNewMessageForm();
+        fillInMassageFields(messageSentTo, messageSubject, messageText);
+    }
+    public void craeteDraftMessage(String messageSentTo, String messageSubject, String messageText) {
+        LOG.info(" ---- StartPage.craeteMessage() ---- ");
+        craeteMessage( messageSentTo,  messageSubject,  messageText);
+        closeMessageFormWithotSend();
 
-    private void openNewMessageForm() {
+    }
+    private void openNewMessageForm(){
+        LOG.info(" ---- StartPage.openNewMessageForm() ---- ");
         composeButton.click();
     }
 
-    public void craeteMessage(String messageSentTo, String messageSubject, String messageText) {
-        LOG.info("START ---- StartPage.craeteMessage() ---- ");
-        openNewMessageForm();
+    private void fillInMassageFields(String messageSentTo, String messageSubject, String messageText) {
+        LOG.info(" ---- StartPage.fillInMassageFields() ---- ");
+        waitForElementLoad(sentToTextarea);
         sentToTextarea.type(messageSentTo);
         sentToTextarea.click();
         messageTexbox.click();
+        waitForElementLoad(subjectBox);
         subjectBox.click();
         subjectBox.type(messageSubject);
+        waitForElementLoad(messageTexbox);
         messageTexbox.click();
         messageTexbox.type(messageText);
-        messageTexbox.type(Keys.ESCAPE);
-        LOG.info("FINISH ---- StartPage.craeteMessage() ---- ");
     }
 
+    private void closeMessageFormWithotSend(){
+        LOG.info(" ---- StartPage.closeMessageFormWithotSend() ---- ");
+        waitForElementLoad(messageTexbox);
+         messageTexbox.type(Keys.ESCAPE);
+    }
 }

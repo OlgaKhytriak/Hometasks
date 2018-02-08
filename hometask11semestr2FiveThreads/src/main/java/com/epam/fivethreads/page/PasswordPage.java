@@ -27,7 +27,9 @@ public class PasswordPage extends AbstractPage {
 		WebElement passField=driver.findElement(By.xpath("//div[@id='password']//input[@name='password']"));
 		js.executeScript("elem=arguments[0]; elem.setAttribute('type','text'); ", passField);
 		//passwordField.sendKeys(userPassword);
+		waitForElementLoad(passwordField);
 		passwordField.type(userPassword);
+		waitForElementLoad(passwordNextButton);
 		passwordNextButton.click();
 		return new StartPage();
 

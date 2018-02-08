@@ -1,8 +1,8 @@
 package com.epam.fivethreads.constant;
 
 public class Constant {
-	public static final int GLOBAL_WAIT_TIME = 50;
-	public static final int ALERT_WAIT_TIME = 5;
+	public static final int GLOBAL_WAIT_TIME = 40;
+	public static final int ALERT_WAIT_TIME = 3;
 
 	public static final String CHROME_DRIVER_TYPE = "webdriver.chrome.driver";
 	public static final String CHROME_DRIVER_PATH = "src/main/resources/chromedriver.exe";

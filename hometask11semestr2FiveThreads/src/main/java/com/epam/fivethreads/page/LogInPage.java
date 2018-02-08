@@ -28,15 +28,14 @@ public class LogInPage extends AbstractPage {
 		driver.get(gmailData.getGmailLink());
 		if (isAlertPresent()) {
 			Alert alert = driver.switchTo().alert();
-			LOG.info("!!!!!!!!!!!!!!! ---- LogInPage.alert ---- "+isAlertPresent());
-			LOG.info(" Alert = "+alert);
-			//alert.accept();
 			alert.accept();
 		}
 	}
 
 	public PasswordPage inputLogIn(String userLogin) {
+		waitForElementLoad(logInField);
 		logInField.type(userLogin);
+		waitForElementLoad(logInNextButton);
 		logInNextButton.click();
 		return new PasswordPage();
 
