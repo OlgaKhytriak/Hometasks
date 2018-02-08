@@ -16,6 +16,8 @@ public class Constant {
 	public static final String DRAFTS_URL = "https://mail.google.com/mail/u/0/#drafts";
 	public static final String SENTED_URL ="https://mail.google.com/mail/u/0/#sent";
 
+	public static final String USERS_XML_FILE_PATH= "src/main/resources/users.xml";
+	public static final String LETTERS_XML_FILE_PATH= "src/main/resources/letters.xml";
 	private Constant() {
 	}
 }

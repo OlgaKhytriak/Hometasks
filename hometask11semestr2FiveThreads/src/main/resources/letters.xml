@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<letters>
+    <letter>
+        <sent-to>ForHometaskTest1@gmail.com</sent-to>
+        <message-subject>Test</message-subject>
+        <message-text>Message text. Massage text</message-text>
+    </letter>
+    <letter>
+        <sent-to>ForHometaskTest2@gmail.com</sent-to>
+        <message-subject>Test</message-subject>
+        <message-text>Message text. Massage text</message-text>
+    </letter>
+</letters>
