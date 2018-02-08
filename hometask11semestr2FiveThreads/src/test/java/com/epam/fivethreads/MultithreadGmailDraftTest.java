@@ -1,7 +1,6 @@
 package com.epam.fivethreads;
 
 
-import com.epam.fivethreads.businessobjects.BasicBO;
 import com.epam.fivethreads.businessobjects.DraftsBO;
 import com.epam.fivethreads.businessobjects.GmailLogInBO;
 import com.epam.fivethreads.businessobjects.SentMailBO;
@@ -16,8 +15,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 
 public class MultithreadGmailDraftTest {
-    private BasicBO steps;
-    private GmailLogInBO gmailLogInBO;
+        private GmailLogInBO gmailLogInBO;
     private DraftsBO draftsBO;
     private SentMailBO sentMailBO;
     private GmailData gmailData;
@@ -39,13 +37,13 @@ public class MultithreadGmailDraftTest {
 
     @Test(dataProvider = "initUsers")
     public void draftSentLetterTest(String login, String password) {
-        steps = new BasicBO();
+
         draftsBO = new DraftsBO();
         sentMailBO = new SentMailBO();
         gmailLogInBO = new GmailLogInBO();
         gmailLogInBO.login(login, password);
         gmailData = new GmailData();
-        //assertTrue(gmailLogInBO.isUserLoggedIn());
+        assertTrue(gmailLogInBO.isUserLoggedIn());
         draftsBO.createDraft(gmailData.getMessageSentTo(), gmailData.getMessageSubject(), gmailData.getMessageText());
         assertTrue(draftsBO.isMessageInDrafts(gmailData.getMessageText()));
         sentMailBO.sendMessageFromDrafts(gmailData.getMessageText());
@@ -54,7 +52,7 @@ public class MultithreadGmailDraftTest {
 
     @AfterMethod(description = "close browser")
     public void tearDownUserCanLogin() {
-        steps.closeBrowser();
+
     }
 
 

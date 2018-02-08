@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import com.epam.fivethreads.page.DraftsPage;
 import com.epam.fivethreads.page.StartPage;
 
-public class DraftsBO extends BasicBO{
+public class DraftsBO{
 	private static final Logger LOG = Logger.getLogger(DraftsBO.class);
 	
 	public void openDrafts() {
