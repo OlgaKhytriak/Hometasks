@@ -19,8 +19,9 @@ public abstract class AbstractPage {
 	protected final GmailData gmailData;
 
 	public AbstractPage() {
-		this.driver  = SafeThreadDriverCreator.getInstance().getDriver();  //Multi-thread driver
 		//this.driver  = DriverManagerFactory.getDriver();    //One Driver
+		this.driver  = SafeThreadDriverCreator.getInstance().getDriver();  //Multi-thread driver
+		//LOG.info(" ---- Driver has been initialized in AbstractPage().Constructor() ---- ");
 		PageFactory.initElements(new CustomFieldDecorator(driver), this);
 		gmailData = new GmailData();
 		LOG.info(" ---- PageFactory has been initialized in AbstractPage().Constructor() ---- ");

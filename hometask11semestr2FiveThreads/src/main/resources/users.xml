@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
     <user>
-        <user-login>ForHometaskTest@gmail.com</user-login>
-        <user-password>12345aKids</user-password>
-    </user>
-    <user>
-        <user-login>ForHometaskTest2@gmail.com</user-login>
-        <user-password>12345aKids</user-password>
-    </user>
-    <user>
-        <user-login>ForHometaskTest@gmail.com</user-login>
+        <user-login>KidsAutomation01@gmail.com</user-login>
         <user-password>12345aKids</user-password>
     </user>
     <user>
@@ -17,7 +9,15 @@
         <user-password>12345aKids</user-password>
     </user>
     <user>
-        <user-login>ForHometaskTest2@gmail.com</user-login>
+        <user-login>KidsAutomation01@gmail.com</user-login>
+        <user-password>12345aKids</user-password>
+    </user>
+    <user>
+        <user-login>ForHometaskTest1@gmail.com</user-login>
+        <user-password>12345aKids</user-password>
+    </user>
+    <user>
+        <user-login>KidsAutomation01@gmail.com</user-login>
         <user-password>12345aKids</user-password>
     </user>
 </users>

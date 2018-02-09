@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import com.epam.fivethreads.page.DraftsPage;
 import com.epam.fivethreads.page.SentPage;
 
-public class SentMailBO{
+public class SentMailBO extends BasicBO{
 	private static final Logger LOG = Logger.getLogger(SentMailBO.class);
 	
 	public void openSentMail() {

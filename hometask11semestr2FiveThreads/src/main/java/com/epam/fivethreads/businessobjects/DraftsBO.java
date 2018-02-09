@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import com.epam.fivethreads.page.DraftsPage;
 import com.epam.fivethreads.page.StartPage;
 
-public class DraftsBO{
+public class DraftsBO extends BasicBO{
 	private static final Logger LOG = Logger.getLogger(DraftsBO.class);
 	
 	public void openDrafts() {
@@ -18,7 +18,7 @@ public class DraftsBO{
 		LOG.info(" ---- DraftsBO.createDraft() ---- ");
 		StartPage startPage = new StartPage();
 		//startPage.openPage();
-		startPage.craeteDraftMessage(messageSentTo, messageSubject, messageText);
+		startPage.craeteMessage(messageSentTo, messageSubject, messageText);
 
 	}
 

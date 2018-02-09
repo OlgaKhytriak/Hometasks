@@ -2,7 +2,6 @@ package com.epam.fivethreads.page;
 
 import java.util.List;
 
-import com.epam.fivethreads.driverfactory.SafeThreadDriverCreator;
 import com.epam.fivethreads.elements.container.DivContainer;
 import com.epam.fivethreads.elements.single.Button;
 import org.apache.log4j.Logger;

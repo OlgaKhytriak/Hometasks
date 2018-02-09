@@ -13,60 +13,65 @@ import com.epam.fivethreads.elements.single.Button;
 import com.epam.fivethreads.elements.single.TextField;
 
 public class StartPage extends AbstractPage {
-    private static final Logger LOG = Logger.getLogger(StartPage.class);
-
-    @FindBy(xpath = "//div[@role='navigation']/preceding-sibling::div//div[@role='button']")
-    private Button composeButton;
-
-    @FindBy(xpath = "//form[@enctype='multipart/form-data']//textarea[@name='to']")
-    private TextField sentToTextarea;
-
-    @FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table//div[@role='textbox']")
-    @CacheLookup
-    private TextField messageTexbox;
-
-    @FindBy(xpath = "//form[@enctype='multipart/form-data']//input[@name='subjectbox']")
-    private TextField subjectBox;
-
-   // @FindBy(css=".Ha")
-   // private Button composeWindowCloseButton;
-
-    public boolean isOpened() {
-        String ss = driver.getCurrentUrl();
-        return ss.equals(IS_LOGGED_IN_URL);
-    }
-
-    public void openPage() {
-        LOG.info("START ---- StartPage.openPage() ---- ");
-        driver.get(INBOX_URL);
-        if (isAlertPresent()) {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-        }
-    }
+	private static final Logger LOG = Logger.getLogger(StartPage.class);
 
 
-    public void craeteDraftMessage(String messageSentTo, String messageSubject, String messageText) {
-        LOG.info(" ---- StartPage.craeteMessage() ---- ");
-        composeButton.click();
-        fillInMassageFields(messageSentTo, messageSubject, messageText);
-        messageTexbox.type(Keys.ESCAPE);
+	@FindBy(xpath = "//div[@role='navigation']/preceding-sibling::div//div[@role='button']")
+	// private WebElement composeButton;
+	private Button composeButton;
 
-    }
+	@FindBy(xpath = "//form[@enctype='multipart/form-data']//textarea[@name='to']")
+	// private WebElement sentToTextarea;
+	private TextField sentToTextarea;
+
+	@FindBy(xpath = "//form[@enctype='multipart/form-data']/following::table//div[@role='textbox']")
+	@CacheLookup
+	//private WebElement messageTexbox;
+	private TextField messageTexbox;
+
+	@FindBy(xpath = "//form[@enctype='multipart/form-data']//input[@name='subjectbox']")
+	//private WebElement subjectBox;
+	private TextField subjectBox;
 
 
-    private void fillInMassageFields(String messageSentTo, String messageSubject, String messageText) {
-        LOG.info(" ---- StartPage.fillInMassageFields() ---- ");
-        waitForElementLoad(sentToTextarea);
-        sentToTextarea.type(messageSentTo);
-        sentToTextarea.click();
-        messageTexbox.click();
-        waitForElementLoad(subjectBox);
-        subjectBox.click();
-        subjectBox.type(messageSubject);
-        waitForElementLoad(messageTexbox);
-        messageTexbox.click();
-        messageTexbox.type(messageText);
-    }
+	public boolean isOpened() {
+		String ss = driver.getCurrentUrl();
+		return ss.equals(IS_LOGGED_IN_URL);
+	}
+
+	public void openPage() {
+		LOG.info("START ---- StartPage.openPage() ---- ");
+		driver.get(INBOX_URL);
+		if (isAlertPresent()) {
+			Alert alert = driver.switchTo().alert();
+			//LOG.info("!!!!!!!!!!!!!!! ---- StartPage.alert ---- "+isAlertPresent());
+			//LOG.info(" Alert = "+alert);
+			alert.accept();
+		}
+	}
+	private void openNewMessageForm() {
+		composeButton.click();
+	}
+
+	public void craeteMessage(String messageSentTo, String messageSubject, String messageText) {
+		LOG.info("START ---- StartPage.craeteMessage() ---- ");
+		openNewMessageForm();
+		//sentToTextarea.sendKeys(messageSentTo);
+		sentToTextarea.type(messageSentTo);
+		sentToTextarea.click();
+		messageTexbox.click();
+		//Actions builder = new Actions(driver);
+		subjectBox.click();
+		//builder.moveToElement(subjectBox).build().perform();
+		//subjectBox.sendKeys(messageSubject);
+		subjectBox.type(messageSubject);
+		//builder.moveToElement(messageTexbox).click().sendKeys(messageText).perform();
+		messageTexbox.click();
+		messageTexbox.type(messageText);
+		//messageTexbox.sendKeys(Keys.ESCAPE);
+		messageTexbox.type(Keys.ESCAPE);
+		LOG.info("FINISH ---- StartPage.craeteMessage() ---- ");
+	}
+
 
 }

@@ -1,10 +1,12 @@
 package com.epam.fivethreads;
 
 
+import com.epam.fivethreads.businessobjects.BasicBO;
 import com.epam.fivethreads.businessobjects.DraftsBO;
 import com.epam.fivethreads.businessobjects.GmailLogInBO;
 import com.epam.fivethreads.businessobjects.SentMailBO;
 import com.epam.fivethreads.propmodel.GmailData;
+import com.epam.fivethreads.utils.jaxbadapter.CreaterXMLDataFiles;
 import com.epam.fivethreads.utils.jaxbadapter.model.LattersDataReader;
 import com.epam.fivethreads.utils.jaxbadapter.model.UsersDataReader;
 import org.testng.annotations.*;
@@ -13,7 +15,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 
 public class GmailDraftTest {
-
+    private BasicBO steps;
     private GmailLogInBO gmailLogInBO;
     private DraftsBO draftsBO;
     private SentMailBO sentMailBO;
@@ -21,6 +23,7 @@ public class GmailDraftTest {
 
   @BeforeMethod(description = "init browser")
     public void setUp() {
+       steps = new BasicBO();
         gmailLogInBO = new GmailLogInBO();
         draftsBO = new DraftsBO();
         sentMailBO = new SentMailBO();
@@ -47,6 +50,6 @@ public class GmailDraftTest {
 
     @AfterClass(description = "close browser")
     public void tearDownUserCanLogin() {
-
+        steps.closeBrowser();
     }
 }

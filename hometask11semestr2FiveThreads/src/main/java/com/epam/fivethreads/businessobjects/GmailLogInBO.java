@@ -7,7 +7,7 @@ import com.epam.fivethreads.page.LogInPage;
 import com.epam.fivethreads.page.PasswordPage;
 import com.epam.fivethreads.page.StartPage;
 
-public class GmailLogInBO {
+public class GmailLogInBO extends BasicBO{
 	private static final Logger LOG = Logger.getLogger(GmailLogInBO.class);
 	
 	public void login(String userLogin, String userPassword) {
