@@ -28,8 +28,8 @@ public class StartPage extends AbstractPage {
     @FindBy(xpath = "//form[@enctype='multipart/form-data']//input[@name='subjectbox']")
     private TextField subjectBox;
 
-    @FindBy(css=".Ha")
-    private Button composeWindowCloseButton;
+   // @FindBy(css=".Ha")
+   // private Button composeWindowCloseButton;
 
     public boolean isOpened() {
         String ss = driver.getCurrentUrl();

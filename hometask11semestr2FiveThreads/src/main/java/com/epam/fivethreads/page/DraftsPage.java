@@ -41,33 +41,44 @@ public class DraftsPage extends AbstractPage {
 //*[text()='Test']
         return element;
     }
+
     private WebElement findMessageBySubject(String messageSubject) {
         WebElement element = driver
                 .findElement(By.xpath("//*[text()='Test']"));
         return element;
     }
+
     public WebElement findMessageBySubject2(String subject) {
-         subject="Test";
+        subject = "Test";
         WebElement letter = driver.findElement(By.xpath("//table[@cellpadding='0']/tbody/tr/td[@class='xY a4W']/div/div/div/span[text()='" + subject + "']"));
         return letter;
     }
+
     public boolean isMasageFound(String messageText) {
         WebElement elementLinkDiv = findMessageByText(messageText);
         return elementLinkDiv.isDisplayed();
     }
 
-    public void sendMasageFound(String messageText) {
-        LOG.info("START ---- DraftsPage.sendMasageFound() ---- ");
-        WebElement elementLinkDiv = findMessageByText(messageText);
-        if(null==elementLinkDiv){
-            elementLinkDiv=findMessageBySubject2(messageText);
-        }
-       elementLinkDiv.click();
-        LOG.info(" ---- DraftsPage.findMessageByText() ---- Mail is founded="+elementLinkDiv.toString());
-        //Actions builder = new Actions(driver);
-       // builder.moveToElement(elementLinkDiv).click().perform();
-       // waitForElementLoad(sentFormButton);
-        sentFormButton.click();
+    public WebElement findMessageFirst() {
+        WebElement letter = driver.findElement(By.xpath("//div[@gh='mtb']//div[@act='10']"));
+        return letter;
     }
+        public void sendMasageFound (String messageText){
+            LOG.info("START ---- DraftsPage.sendMasageFound() ---- ");
+            WebElement elementLinkDiv = findMessageByText(messageText);
+            if (null == elementLinkDiv) {
+                elementLinkDiv = findMessageBySubject2(messageText);
+            } else if (null == elementLinkDiv) {
+                elementLinkDiv = findMessageBySubject(messageText);
+            }else if (null == elementLinkDiv){
+                elementLinkDiv=findMessageFirst();
+        }
+            //elementLinkDiv.click();
+            LOG.info(" ---- DraftsPage.findMessageByText() ---- Mail is founded=" + elementLinkDiv.toString());
+            Actions builder = new Actions(driver);
+            builder.moveToElement(elementLinkDiv).click().perform();
+            //waitForElementLoad(sentFormButton);
+            sentFormButton.click();
+        }
 
-}
+    }

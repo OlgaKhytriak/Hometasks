@@ -27,21 +27,20 @@ public class SentPage extends AbstractPage {
 
     public boolean isMasageFound(String messageText) {
         openPage();
-        //List<WebElement> elementsDrafts = driver
-          //      .findElements(By.xpath("//div[contains(text(),'" + String.format("%s", messageText) + "')]"));
-        String receiver = "ForHometaskTest4@gmail.com";
-                    Boolean checkCorrect = driver.findElements(By.xpath("//*[@email='" + String.format("%s", receiver) + "']")).size() > 0;
-            return checkCorrect;
-/*
+        boolean checkerIfFound = false;
+        List<WebElement> elementsDrafts = driver.findElements(By.xpath("//div[contains(text(),'" + String.format("%s", messageText) + "')]"));
         if (elementsDrafts.size() > 0) {
-            return true;
-        } else {
-            WebElement element = driver.findElement(By.xpath("//*[text()='Test']"));
-            if (null != element) {
-                return true;
-            }
+            checkerIfFound = true;
         }
-*/
+        if (!checkerIfFound) {
+            String receiver = "ForHometaskTest4@gmail.com";
+            checkerIfFound = (driver.findElements(By.xpath("//*[@email='" + String.format("%s", receiver) + "']")).size() > 0);
+        }
+        if (!checkerIfFound) {
+            checkerIfFound = driver.findElement(By.xpath("//*[text()='Test']")).isDisplayed();
+        }
+        return checkerIfFound;
+
     }
 }
 
