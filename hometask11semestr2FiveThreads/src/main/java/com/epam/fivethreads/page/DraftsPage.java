@@ -62,10 +62,11 @@ public class DraftsPage extends AbstractPage {
         return elementLinkDiv.isDisplayed();
     }
 
-    public WebElement findMessageFirst() {
+    /*public WebElement findMessageFirst() {
         WebElement letter = driver.findElement(By.xpath("//div[@gh='mtb']//div[@act='10']"));
         return letter;
     }
+    */
         public void sendMasageFound (String messageText){
             LOG.info("START ---- DraftsPage.sendMasageFound() ---- ");
             WebElement elementLinkDiv = findMessageByText(messageText);
