@@ -44,21 +44,16 @@ public class StartPage extends AbstractPage {
             alert.accept();
         }
     }
-    public void craeteMessage(String messageSentTo, String messageSubject, String messageText) {
-        LOG.info(" ---- StartPage.craeteMessage() ---- ");
-        openNewMessageForm();
-        fillInMassageFields(messageSentTo, messageSubject, messageText);
-    }
+
+
     public void craeteDraftMessage(String messageSentTo, String messageSubject, String messageText) {
         LOG.info(" ---- StartPage.craeteMessage() ---- ");
-        craeteMessage( messageSentTo,  messageSubject,  messageText);
-        closeMessageFormWithotSend();
+        composeButton.click();
+        fillInMassageFields(messageSentTo, messageSubject, messageText);
+        messageTexbox.type(Keys.ESCAPE);
 
     }
-    private void openNewMessageForm(){
-        LOG.info(" ---- StartPage.openNewMessageForm() ---- ");
-        composeButton.click();
-    }
+
 
     private void fillInMassageFields(String messageSentTo, String messageSubject, String messageText) {
         LOG.info(" ---- StartPage.fillInMassageFields() ---- ");
@@ -74,9 +69,4 @@ public class StartPage extends AbstractPage {
         messageTexbox.type(messageText);
     }
 
-    private void closeMessageFormWithotSend(){
-        LOG.info(" ---- StartPage.closeMessageFormWithotSend() ---- ");
-        waitForElementLoad(messageTexbox);
-         messageTexbox.type(Keys.ESCAPE);
-    }
 }

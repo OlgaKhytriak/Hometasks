@@ -23,6 +23,7 @@ public class SentMailBO{
 		LOG.info(" ---- SentMailBO.sendMessageFromDrafts() ---- ");
 		DraftsPage draftsPage = new DraftsPage();
 		draftsPage.openPage();
+		LOG.info(" ---- SentMailBO.sendMessageFromDrafts() +++++++++++++++++++++++++++ ");
 		draftsPage.sendMasageFound(messageText);
 	}
 

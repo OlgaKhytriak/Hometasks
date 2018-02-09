@@ -28,17 +28,18 @@ public class DraftsPage extends AbstractPage {
     public void openPage() {
         LOG.info("START ---- DraftsPage.openPage() ---- ");
         driver.get(DRAFTS_URL);
+
         if (isAlertPresent()) {
             Alert alert = driver.switchTo().alert();
             alert.accept();
         }
+
     }
 
     private WebElement findMessageByText(String messageText) {
         //openPage();
         WebElement element = driver
                 .findElement(By.xpath("//div[@role='link'][contains(.,'" + String.format("%s", messageText) + "')]"));
-//*[text()='Test']
         return element;
     }
 
@@ -50,7 +51,9 @@ public class DraftsPage extends AbstractPage {
 
     public WebElement findMessageBySubject2(String subject) {
         subject = "Test";
-        WebElement letter = driver.findElement(By.xpath("//table[@cellpadding='0']/tbody/tr/td[@class='xY a4W']/div/div/div/span[text()='" + subject + "']"));
+        //WebElement letter = driver.findElement(By.xpath("//table[@cellpadding='0']/tbody/tr/td[@class='xY a4W']/div/div/div/span[text()='" + subject + "']"));
+        WebElement letter = driver.findElement(By.xpath("//table[@cellpadding='0']/tbody/tr/td[@class='xY a4W']/div/div/div/span"));
+
         return letter;
     }
 
@@ -66,6 +69,7 @@ public class DraftsPage extends AbstractPage {
         public void sendMasageFound (String messageText){
             LOG.info("START ---- DraftsPage.sendMasageFound() ---- ");
             WebElement elementLinkDiv = findMessageByText(messageText);
+            /*
             if (null == elementLinkDiv) {
                 elementLinkDiv = findMessageBySubject2(messageText);
             } else if (null == elementLinkDiv) {
@@ -73,6 +77,7 @@ public class DraftsPage extends AbstractPage {
             }else if (null == elementLinkDiv){
                 elementLinkDiv=findMessageFirst();
         }
+        */
             //elementLinkDiv.click();
             LOG.info(" ---- DraftsPage.findMessageByText() ---- Mail is founded=" + elementLinkDiv.toString());
             Actions builder = new Actions(driver);

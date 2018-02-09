@@ -43,7 +43,7 @@ return driver.findElements(locator).size()>0;}
 	protected void waitForElementLoad(Element element) {
 		int secondsCount = 0;
 		boolean isElementShownIndicator = isSearchElementDisplayed(element);
-		while (!isElementShownIndicator && secondsCount < 10) {
+		while (!isElementShownIndicator && secondsCount < 20) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
